@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMLHttpRequest</title>
+    <style>
+        table {
+            width: 240px;
+            margin-bottom: 5px;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid #000000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+        </tr>
+        <tr>
+            <td id="name">张小飞</td>
+            <td id="age">23</td>
+        </tr>
+        <tr>
+            <td>王小五</td>
+            <td>22</td>
+        </tr>
+    </table>
+    <button type="button" id="button">页面局部更新</button>
+    <script>
+        document.getElementById("button").addEventListener('click', function () {
+            let XHR;
+            if (window.XMLHttpRequest) {
+                XHR = new XMLHttpRequest();
+            }
+            else {
+                XHR = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            XHR.addEventListener('readystatechange', function () {
+                if (XHR.readyState == 4 && XHR.status == 200) {
+                    document.getElementById("name").innerText = XHR.response.querySelectorAll('span')[0].textContent;
+                    document.getElementById("age").innerText = XHR.response.querySelectorAll('span')[1].textContent;
+                }
+            }, false);
+            XHR.open("GET", "response.html", true);
+            XHR.responseType = 'document';
+            XHR.send();
+        }, false);
+    </script>
+</body>
+
+</html>

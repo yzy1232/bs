@@ -1,0 +1,33 @@
+{
+	"Vue Base": {
+		"prefix": "vbase",
+		"body": [
+			"<template>",
+			"\t<${1:div}>",
+			"",
+			"\t</${1:div}>",
+			"</template>",
+			"",
+			"<script>",
+			"\texport default {",
+			"\t\t${0}",
+			"\t}",
+			"</script>",
+			"",
+			"<style scoped>",
+			"",
+			"</style>"
+		],
+		"description": "Base for Vue File"
+	},
+    "view_class":{
+    	"prefix":"viewclass",
+    	"triggerAssist": true,
+    	"body":[
+    		"<view class=\"$1\">",
+    		"\t$0",
+    		"</view>"
+    	]
+    }
+}
+

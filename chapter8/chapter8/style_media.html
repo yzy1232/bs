@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>style媒介类型</title>
+    <!--为屏幕声明样式。-->
+    <style>
+        h3 {color: hsl(0, 100%, 50%);}
+        p {color: hsl(240, 100%, 50%);}
+    </style>
+    <!--为打印机声明样式。-->
+    <style media="print">
+        h3 {color: hsl(120, 100%, 50%);}
+        p {color: hsl(0, 100%, 0%);}
+    </style>
+</head>
+
+<body>
+    <h3>标题</h3>
+    <p>一个段落</p>
+</body>
+
+</html>

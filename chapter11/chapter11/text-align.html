@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text-align和text-align-last属性</title>
+    <style>
+        body{display: flex;flex-flow: row wrap;}
+        p {
+            width: 200px;
+            border: solid 1px hsl(0, 100%, 0%);
+            margin: 5px;
+        }
+
+        .p1 {
+            text-align: justify;
+        }
+
+        .p2 {
+            text-align: left;
+        }
+
+        .p3 {
+            text-align: center;
+        }
+
+        .p4 {
+            text-align: right;
+        }
+
+        .p5 {
+            text-align-last: justify;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="p1">内容两端对齐，最后一行不做处理。</p>
+    <p class="p2">内容左对齐。内容左对齐。内容左对齐。</p>
+    <p class="p3">内容居中对齐。内容居中对齐。内容居中对齐</p>
+    <p class="p4">内容右对齐。内容右对齐。内容右对齐。</p>
+    <p class="p5">这行换行。<br>最后一行或者被强制打断换行两端对齐。</p>
+</body>
+
+</html>

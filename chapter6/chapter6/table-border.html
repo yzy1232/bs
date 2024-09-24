@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格边框</title>
+    <style>
+        table{border: 3px solid hsl(0,100%,0%);}
+        th,td{border: 1px solid hsl(0,100%,0%);}
+        .col1{background-color:hsl(240,50%,90%);}
+        .col2-3{background-color:hsl(30,100%,90%);}
+        .col4{background-color:hsl(50,50%,80%);}
+    </style>
+</head>
+
+<body>
+    <table>
+        <colgroup>
+            <col class="col1">
+            <col class="col2-3" span="2">
+            <col class="col4">
+        </colgroup>
+        <tr>
+            <th></th>
+            <th scope="col">专业</th>
+            <th scope="col">课程</th>
+            <th scope="col">学分</th>
+        </tr>
+        <tr>
+            <th scope="row">课程信息</th>
+            <td>软件工程</td>
+            <td>Web前端技术基础</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <th scope="row">课程信息</th>
+            <td>软件工程</td>
+            <td>数据结构</td>
+            <td>3</td>
+        </tr>
+    </table>
+</body>
+
+</html>

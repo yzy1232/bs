@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>createTextNode()方法</title>
+</head>
+
+<body>
+    <button value="你好！">你好！</button>
+    <button value="谢谢！">谢谢！</button>
+    <button value="再见！">再见！</button>
+    <hr>
+    <script>
+        var p = document.createElement('p');
+        document.body.appendChild(p);
+        var buttons = document.querySelectorAll('button');
+        buttons.forEach(function (button) {
+            button.addEventListener('click', () => p.appendChild(document.createTextNode(button.value)), false)
+        })
+    </script>
+</body>
+
+</html>

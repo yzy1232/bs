@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS数据类型color</title>
+    <style>
+        #d1,
+        #d2,
+        #d3 {
+            width: 145px;
+            border: 1px solid;
+            margin: 5px;
+        }
+
+        div div {
+            height: 20px;
+        }
+
+        #d11 {
+            background-color: rgba(255, 0, 0, 0.1);
+        }
+
+        #d12 {
+            background-color: rgba(255, 0, 0, 0.4);
+        }
+
+        #d13 {
+            background-color: rgba(255, 0, 0, 0.7);
+        }
+
+        #d14 {
+            background-color: rgba(255, 0, 0, 1);
+        }
+
+        #d21 {
+            background-color: hsl(0, 100%, 50%);
+        }
+
+        #d22 {
+            background-color: hsl(60, 100%, 50%);
+        }
+
+        #d23 {
+            background-color: hsl(120, 100%, 50%);
+        }
+
+        #d24 {
+            background-color: hsl(180, 100%, 50%);
+        }
+
+        #d25 {
+            background-color: hsl(240, 100%, 50%);
+        }
+
+        #d26 {
+            background-color: hsl(300, 100%, 50%);
+        }
+
+        #d27 {
+            background-color: hsl(360, 100%, 50%);
+        }
+
+        #d31 {
+            background-color: hsl(120, 100%, 25%);
+        }
+
+        #d32 {
+            background-color: hsl(120, 100%, 75%);
+        }
+
+        #d33 {
+            background-color: hsl(120, 67%, 50%);
+        }
+
+        #d34 {
+            background-color: hsl(120, 33%, 50%);
+        }
+
+        #d35 {
+            background-color: hsl(120, 60%, 70%);
+        }
+
+        body {
+            display: flex;
+            flex-flow: row wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d1">
+        <div id="d11">rgba(255,0,0,0.1)</div>
+        <div id="d12">rgba(255,0,0,0.4)</div>
+        <div id="d13">rgba(255,0,0,0.7)</div>
+        <div id="d14">rgba(255,0,0,1)</div>
+    </div>
+    <div id="d2">
+        <div id="d21">hsl(0,100%,50%)</div>
+        <div id="d22">hsl(60,100%,50%)</div>
+        <div id="d23">hsl(120,100%,50%)</div>
+        <div id="d24">hsl(180,100%,50%)</div>
+        <div id="d25">hsl(240,100%,50%)</div>
+        <div id="d26">hsl(300,100%,50%)</div>
+        <div id="d27">hsl(360,100%,50%)</div>
+    </div>
+    <div id="d3">
+        <div id="d31">hsl(120,100%,25%)</div>
+        <div id="d32">hsl(120,100%,75%)</div>
+        <div id="d33">hsl(120, 67%,50%)</div>
+        <div id="d34">hsl(120, 33%,50%)</div>
+        <div id="d35">hsl(120, 60%,70%)</div>
+    </div>
+</body>
+
+</html>

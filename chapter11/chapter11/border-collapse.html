@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>border-collapse属性</title>
+    <style>
+        body{display: flex;flex-flow: row wrap;}
+        /*边框合并*/
+        table {
+            border-collapse: collapse;
+            width: 150px; margin: 5px;
+        }
+
+        .table2 {
+            border: hsl(0, 100%, 0%) 3px solid;
+        }
+
+        .table1 td,
+        .table2 td,
+        .table4 td,
+        .table5 td {
+            border: hsl(0, 100%, 0%) 1px solid;
+        }
+
+        .table3 td {
+            border: hsl(0, 100%, 0%) 1px dashed;
+        }
+
+        .table4 {
+            border: hsl(0, 100%, 0%) 3px double;
+        }
+
+        .table6 {
+            border-top: hsl(0, 100%, 0%) 1px solid;
+        }
+
+        /*定义表格内单元格之间的间距*/
+        .table5 {
+            border-collapse: separate;
+            border-spacing: 10px;
+        }
+
+        .table6 td {
+            border-bottom: hsl(0, 100%, 0%) 1px solid;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="table1">
+        <caption>细边框细线表格</caption>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <table class="table2">
+        <caption>粗边框细线表格</caption>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <table class="table3">
+        <caption>虚线表格</caption>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <table class="table4">
+        <caption>双线表格</caption>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <table class="table5">
+        <caption>宫字表格</caption>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+    <table class="table6">
+        <caption>单线表格</caption>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+</body>
+
+</html>

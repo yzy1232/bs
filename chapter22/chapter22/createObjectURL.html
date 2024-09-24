@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>createObjectURL</title>
+</head>
+
+<body>
+    <div id="display"></div>
+    <input type="file" id="fileElem" multiple accept="image/*">
+    <script>
+        var div = document.getElementById('display');
+        function handleFiles(files) {
+            let file = [...files];
+            file.forEach(item => {
+                var img = document.createElement('img');
+                img.src = window.URL.createObjectURL(item);
+                div.appendChild(img);
+                div.innerHTML += `<br>${window.URL.createObjectURL(item)}<br>`;
+                img.addEventListener('load',function(){
+                    window.URL.revokeObjectURL(event.target.src);
+                },false);
+            });
+        }
+        document.getElementById('fileElem').addEventListener('change', function (event) {
+            handleFiles(event.target.files);
+        }, false);
+    </script>
+</body>
+
+</html>

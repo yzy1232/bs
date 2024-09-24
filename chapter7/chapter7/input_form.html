@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单重写属性</title>
+</head>
+
+<body>
+    <form action="form_action.html" method="get" id="form1">
+        <label>姓名：<input type="text" name="name" id="name"></label><br>
+        <label>单位：<input type="text" name="unit" id="unit" autocomplete="off"></label><br>
+        <label>Email：<input type="email" name="email" id="email"></label><br>
+        <input type="submit" value="提交">
+        <input type="submit" formaction="form_action-admin.html" formmethod="get" value="向管理员提交">
+    </form>
+    <form action="form_action.html" method="get" id="form2">
+        <label>呢称：<input type="text" name="name1" id="name1"></label><br>
+        <input type="submit" value="提交">
+    </form>
+    <label>年龄： <input type="number" name="age" form="form2" min="10" max="99"></label>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网格线示意图</title>
+    <style>
+        [id^="item"]{
+            background-color: hsl(120, 60%, 70%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px dashed hsl(0,50%,0%);
+        }
+        #container{
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows:repeat(3, 100px);
+            margin: 40px 0 0 90px;
+            position: relative;
+        }
+        div span{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: hsl(0,50%,0%);
+            color: hsl(0,50%,100%);
+            border-radius: 10px;
+            text-align: center;
+        }
+        #row1{left: -10px;top: 135px;}
+        #row2{left: 90px;top: 135px;}
+        #row3{left: 190px;top: 135px;}
+        #row4{left: 290px;top: 135px;}
+        #col1{left: 135px;top: -10px;}
+        #col2{left: 135px;top: 90px;}
+        #col3{left: 135px;top: 190px;}
+        #col4{left: 135px;top: 290px;}
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="item1"></div>
+    <div id="item2"></div>
+    <div id="item3"></div>
+    <div id="item4"></div>
+    <div id="item5"></div>
+    <div id="item6"></div>
+    <div id="item7"></div>
+    <div id="item8"></div>
+    <div id="item9"></div>
+    <span id="row1">1</span>
+    <span id="row2">2</span>
+    <span id="row3">3</span>
+    <span id="row4">4</span>
+    <span id="col1">1</span>
+    <span id="col2">2</span>
+    <span id="col3">3</span>
+    <span id="col4">4</span>
+</div>
+</body>
+</html>

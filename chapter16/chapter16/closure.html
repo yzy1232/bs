@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>closure闭包</title>
+</head>
+
+<body>
+    <div>根据浏览器默认标准字号（16px）调整字号大小。</div>
+    <button id="size+1">+1</button>
+    <button id="size-1">-1</button>
+    <script>
+        var basesize=16;
+        function makeSizer(basesize) {
+            return function (addsize) {
+                return document.body.style.fontSize = basesize + addsize + 'px';
+            };
+        }
+        var size1 = makeSizer(basesize);//闭包
+        document.getElementById('size+1').addEventListener('click', function () {
+            size1(1);
+            basesize++;
+            size1 = makeSizer(basesize);
+        }, false);
+        document.getElementById('size-1').addEventListener('click', function () {
+            size1(-1);
+            basesize--;
+            size1 = makeSizer(basesize);
+        }, false);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DragEvent</title>
+    <style>
+        div {
+            margin: 0.5rem 0;
+            padding: 1rem;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>DragEvent事件</h3>
+    <ul>
+        <li id="i1" draggable="true">将列表项1拖到目标区域</li>
+        <li id="i2" draggable="true">将列表项2拖到目标区域</li>
+    </ul>
+    <img id="img" src="images/about-bookstore.jpg" alt="">
+    <a id="a" href="#">超链接</a>
+    <div id="target">目标区域</div>
+    <div id="dragfile">拖动文件到这里</div>
+    <span></span>
+    <script>
+        var li = [...document.getElementsByTagName('li')];
+        var span = document.querySelector('span')
+        var target = document.getElementById('target');
+        li.forEach(item => {
+            item.addEventListener('dragstart', dragstart, false);
+            item.addEventListener('dragend', function () {
+                event.target.style.opacity = 1;
+            }, false);
+        });
+        document.getElementById('img').addEventListener('dragstart', dragstart, false);
+        document.getElementById('a').addEventListener('dragstart', dragstart, false);
+        document.getElementById("img").addEventListener('dragend', function () {
+            event.target.style.opacity = 1;
+        }, false);
+        document.getElementById("a").addEventListener('dragend', function () {
+            event.target.style.opacity = 1;
+        }, false);
+        target.addEventListener('drop', drop, false);
+        target.addEventListener("dragenter", function (event) {
+            target.innerText = '';
+        }, false);
+        target.addEventListener('dragover', dragover, false);
+        function dragstart(event) {
+            span.innerText += `拖放元素id = ${event.target.id}\n`;
+            /*使用setData方法将要拖放的数据存入dataTransfer对象*/
+            event.dataTransfer.setData("text/plain", event.target.id);
+            event.dataTransfer.effectAllowed = "all";
+            event.target.style.opacity = 0.5;
+        }
+        function drop(event) {
+            span.innerText += `目标元素id = ${event.target.id}\n`;
+            /*阻止事件的默认行为，放下拖放的数据*/
+            event.preventDefault();
+            /*使用getData方法获取到数据，然后赋值给data*/
+            var data = event.dataTransfer.getData("text");
+            /*使用appendChild方法把拖动的节点放到元素节点中成为其子节点*/
+            event.target.appendChild(document.getElementById(data));
+            if (event.dataTransfer.types != null) {
+                for (var i = 0; i < event.dataTransfer.types.length; i++) {
+                    span.innerText += `types[${i}] = ${event.dataTransfer.types[i]}\n`;
+                }
+            }
+            if (event.dataTransfer.items != null) {
+                for (var i = 0; i < event.dataTransfer.items.length; i++) {
+                    span.innerText += `items[${i}].kind = ${event.dataTransfer.items[i].kind}; type = ${event.dataTransfer.items[i].type}\n`;
+                }
+            }
+        }
+
+        function dragover(event) {
+            event.preventDefault();
+            event.dataTransfer.dropEffect = "move"
+        }
+
+        //通过dataTransfer.files属性读取被拖放的文件信息。
+        var dragfile = document.getElementById('dragfile');
+        dragfile.addEventListener("dragenter", function (event) {
+            dragfile.innerText = '';
+            event.preventDefault();
+        }, false);
+        dragfile.addEventListener("dragover", function (event) {
+            event.preventDefault();
+        }, false);
+        dragfile.addEventListener("drop", function (event) {
+            event.preventDefault();
+            var files = event.dataTransfer.files;
+            for (var i = 0; i < files.length; i++) {
+                dragfile.innerText += `${files[i].name} ${files[i].size}字节\n`;
+            }
+            //使用FileReader对象读取文件内容。
+            if (files.length > 0) {
+                var file = files[0];
+                var reader = new FileReader();
+                reader.onloadend = function (e) {
+                    if (e.target.readyState === FileReader.DONE) {
+                        var content = reader.result;
+                        dragfile.innerText += `File: ${file.name}\n\n${content}`;
+                    }
+                }
+                reader.readAsBinaryString(file);
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>include block</title>
+    <style>
+        body{display: flex;flex-flow: row wrap; margin: 0px;}
+        #a,#b {width: 100px;height: 50px;margin: 1px;border: solid 1px hsl(0, 100%, 50%);}
+        /* 定义包含元素b为相对定位，确定它为包含块 */
+        #a,#b {position: relative;}
+        /* 定义被包含元素绝对定位，并进行偏移 */
+        #c,#d {
+            width: 50%;height: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+        #c {background-color: hsl(120, 100%, 50%);}
+        #d {background-color: hsl(240, 100%, 50%);}
+    </style>
+</head>
+
+<body>
+    <div id="a">a
+        <div id="c">c</div>
+    </div>
+    <div id="b">b
+        <div id="d">d</div>
+    </div>
+</body>
+
+</html>

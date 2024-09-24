@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOMContentLoaded和readystatechange</title>
+</head>
+
+<body>
+    <button id="reload" type="button">重新加载</button>
+    <div class="event-log"></div>
+    <script>
+        const log = document.querySelector('.event-log');
+        const reload = document.querySelector('#reload');
+        reload.addEventListener('click', () => {
+            log.innerText = '';
+            window.setTimeout(() => { window.location.reload(true); }, 1000);
+        }, false);
+        window.addEventListener('load', (event) => {
+            log.innerText += 'load触发\n';
+        }, false);
+
+        document.addEventListener('readystatechange', (event) => {
+            log.innerText += `readystate：${document.readyState}\n`;
+        }, false);
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            log.innerText += 'DOMContentLoaded触发\n';
+        }, false);
+
+        // ['fullscreenchange', 'webkitfullscreenchange', 'mozfullscreenchange'].forEach((item, index) => {
+        //     window.addEventListener(item, () => fullscreenchange());
+        // }, false);
+        // function fullscreenchange() {
+        //     // let isFullScreen = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+        //     // if (isFullScreen) {
+        //     //     log.innerText += 'DOMContentLoaded触发\n';
+        //     // } else {
+        //         log.innerText += 'DOMContentLoaded触发\n';
+        //     // };
+        // }
+
+    </script>
+</body>
+
+</html>

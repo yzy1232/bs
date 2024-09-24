@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CanvasRenderingContext2D对象</title>
+    <style>
+        #myCanvas {
+            border: solid 1px #bbbbbb;
+        }
+    </style>
+</head>
+
+<body>
+    <video controls="controls" autoplay="autoplay" id="video">
+        <source src="video/move.mp4" type="video/mp4">
+    </video>
+    <br>
+    <input type="button" id="cut" value="截图"><br>
+    <canvas id="myCanvas" width="320px" height="176px"></canvas>
+    <script>
+        document.getElementById("cut").addEventListener('click',function(){
+            let video = document.getElementById("video");
+            let canvas = document.getElementById("myCanvas");
+            ctx = canvas.getContext('2d');
+            ctx.drawImage(video, 0, 0, 320, 176)
+        },false);
+    </script>
+</body>
+
+</html>

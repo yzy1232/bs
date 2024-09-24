@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>requestAnimationFrame</title>
+</head>
+
+<body>
+    <div id="animate">requestAnimationFrame</div>
+    <script>
+        const element = document.getElementById('animate');
+        element.style.position = 'absolute';
+        //performance.now()方法返回当前精确到毫秒的时间。
+        let start = performance.now();
+        let requestID;
+        function step(timestamp) {
+            const elapsed = timestamp - start;
+            element.style.left = `${Math.min(elapsed / 10, 500)}px`;
+            //如果距离第一次执行不超过3000毫秒，继续执行动画。3秒后停止。
+            if (elapsed < 3000) {
+                requestId = window.requestAnimationFrame(step);
+            }else{
+                window.cancelAnimationFrame(requestID);
+            }
+        }
+        requestId = window.requestAnimationFrame(step);
+    </script>
+</body>
+
+</html>

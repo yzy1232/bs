@@ -1,0 +1,9 @@
+hr {
+	border: solid 1px hsl(0,100%,50%);
+}
+p {
+	margin-left:20px;
+}
+body {
+	background-image:url(../images/bg.gif);
+}

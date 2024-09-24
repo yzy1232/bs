@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>clientWidth和clientHeight</title>
+    <style>
+        /* body{margin: 0px;} */
+        #block{width: 300px;height: 50px;}
+        #block,#inline{border: blue 1px solid;}
+    </style>
+</head>
+
+<body>
+    <div id="block">块级元素</div>
+    <span id="inline">内联元素</span>
+    <div id="display"></div>
+    <script>
+        document.getElementById('display').innerHTML =
+            `块级元素宽高：${document.getElementById('block').clientWidth.toString()}px X ${document.getElementById('block').clientHeight.toString()}px，
+            块级元素左和上边框宽度：${document.getElementById('block').clientLeft.toString()}px，${document.getElementById('block').clientTop.toString()}px<br> 
+            内联元素宽高：${document.getElementById('inline').clientWidth.toString()}px X ${document.getElementById('inline').clientHeight.toString()}px<br> 
+            屏幕分辨率宽高：${screen.width.toString()}px X ${screen.height.toString()}px， 
+            屏幕可用区宽高：${screen.availWidth.toString()}px X ${screen.availHeight.toString()}px<br> 
+            视口宽高：${document.documentElement.clientWidth.toString()}px X ${document.documentElement.clientHeight.toString()}px，
+            网页内容宽高：${document.body.clientWidth.toString()}px X ${document.body.clientHeight.toString()}px<br> 
+            谷歌浏览器默认body外边距为8px，网页内容宽=视口宽-16px。`;
+    </script>
+</body>
+
+</html>

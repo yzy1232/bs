@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CanvasRenderingContext2D对象</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="700px" height="200px"></canvas>
+    <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#0000FF";
+        ctx.fillRect(0, 0, 800, 230);
+        ctx.fillStyle = "#FFF";
+        ctx.strokeStyle = "#FFF";
+        ctx.font = "bold 60px '微软雅黑'";
+        ctx.textBaseline = "top";
+        ctx.textAlign = "start";
+        ctx.strokeText("叮叮书店", 10, 10);
+        ctx.font = "bold 40px '微软雅黑'";
+        ctx.fillText("叮叮书店是一个销售IT书籍的网上书店", 10, 80);
+        ctx.fillText("叮叮书店是一个销售IT书籍的网上书店", 330, 150, 360);
+        // window.location = canvas.toDataURL("image/jpeg");
+    </script>
+</body>
+
+</html>

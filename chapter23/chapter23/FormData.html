@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FormData</title>
+</head>
+
+<body>
+    <form id="myForm" name="myForm">
+        <div>
+            <label for="username">用户名：</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div>
+            <label for="useracc">账号：</label>
+            <input type="text" id="useracc" name="useracc">
+        </div>
+        <div>
+            <label for="userfile">上传文件：</label>
+            <input type="file" id="userfile" name="userfile" multiple>
+        </div>
+        <input type="button" value="FormData实例方法的使用" id="btn">
+    </form>
+    <div id="info"></div>
+    <script>
+        var myForm = document.getElementById('myForm');
+        var formData = new FormData(myForm);
+        var div = document.getElementById('info');
+        document.getElementById('btn').addEventListener('click', function () {
+            formData.set('username', '张三');
+            formData.append('username', '李四');
+            formData.delete('useracc');
+            div.innerText += `${formData.get('username')}。${formData.getAll('username')}\n`;
+            for (var key of formData) {
+                if (typeof key[1] === 'object') {
+                    let fs = document.getElementById(key[0]).files
+                    if (fs) {
+                        for (const file of fs) {
+                            div.innerText += `${file.name}，`;
+                        }
+                    }
+                } else {
+                    div.innerText += `${key[0]}: ${key[1]}，`;
+                }
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

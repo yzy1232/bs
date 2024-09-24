@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background-image属性</title>
+    <style>
+        body {display: flex;flex-flow: row wrap;}
+        div {
+            width: 240px;height: 140px;padding: 20px;margin: 5px;
+            display: flex;justify-content: center;align-items: center;
+            font-size: 1.5rem;
+        }
+        #div1,#div2{border: 10px dotted hsl(0, 0%, 60%);}
+        #div3,#div4{border: 10px solid hsl(0, 0%, 60%);}
+        /*设置两个背景图像，从内容区域开始显示背景图像。*/
+        #div1 {
+            background: url("images/about-bookstore.jpg") bottom 10px right 10px no-repeat content-box,
+                        url("images/w3c_home_nb.png") top 0px left 0px no-repeat content-box hsl(0, 0%, 70%);
+        }
+        /*设置背景图像等比缩放到整个区域。*/
+        #div2 {
+            background: url("images/about-bookstore.jpg") border-box no-repeat hsl(0, 0%, 80%);
+            background-size: cover;
+        }
+        #div3 {background: url("images/b-ad1.jpg") no-repeat;}
+        /*设置背景图像从内容区域开始向外裁剪。*/
+        #div4 {background: url("images/b-ad1.jpg") no-repeat content-box;}
+    </style>
+</head>
+
+<body>
+    <div id="div1">设置多个背景图像</div>
+    <div id="div2">背景图像等比缩放</div>
+    <div id="div3">背景图像没有裁剪</div>
+    <div id="div4">背景图像向外裁剪</div>
+</body>
+
+</html>

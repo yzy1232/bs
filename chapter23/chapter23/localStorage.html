@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>localStorage</title>
+</head>
+
+<body>
+    <form id="frmLogin" action="">
+        <fieldset>
+            <legend>登录</legend>
+            <label>名称：<input id="txtName" type="text"></label><br>
+            <label>密码：<input id="txtPass" type="password"></label><br>
+            <input id="chkSave" type="checkbox">是否保存密码<br>
+            <input id="btnLogin" value="登录" type="button">
+            <input id="rstLogin" type="reset" value="取消">
+        </fieldset>
+    </form>
+    <script>
+        var sName = localStorage.getItem('keyName');
+        var sPass = localStorage.getItem('keyPass');
+        if (sName) {
+            document.getElementById('txtName').value = sName;
+        }
+        if (sPass) {
+            document.getElementById('txtPass').value = sPass;
+        }
+        var btnLogin = document.getElementById('btnLogin')
+        btnLogin.addEventListener('click', function () {
+            let sName = document.getElementById('txtName').value;
+            let sPass = document.getElementById('txtPass').value;
+            localStorage.setItem('keyName', sName);
+            if (document.getElementById('chkSave').checked) {
+                localStorage.setItem('keyPass', sPass);
+            } else {
+                localStorage.removeItem('keyPass');
+            }
+            btnLogin.value = '登录成功!';
+        }, false);
+    </script>
+</body>
+
+</html>

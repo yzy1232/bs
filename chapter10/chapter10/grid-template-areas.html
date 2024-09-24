@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-template-areas属性</title>
+    <style>
+        .header,.footer,.content,.sidebar {
+            background-color: hsl(120, 60%, 70%);border: 1px solid hsl(0, 50%, 0%);
+            display: flex;justify-content: center;align-items: center;
+        }
+        .header {grid-area: hd;}
+        .footer {grid-area: ft;}
+        .content {grid-area: main;}
+        .sidebar {grid-area: sd;}
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(9, 1fr);
+            grid-auto-rows: minmax(50px, auto);
+            grid-gap: 2px 2px;
+            /* grid-template-areas:
+                "hd hd hd hd   hd   hd   hd   hd   hd"
+                "sd sd sd main main main main main main"
+                "ft ft ft ft   ft   ft   ft   ft   ft"; */
+            /* grid-template-areas:
+                "hd hd hd hd   hd   hd   hd   hd   hd"
+                "sd sd sd main main main main main main"
+                ".  .  .  ft   ft   ft   ft   ft   ft"; */
+            grid-template-areas:
+                "hd hd hd hd   hd   hd   hd   hd   hd"
+                "sd sd sd main main main main main main"
+                "sd sd sd ft   ft   ft   ft   ft   ft";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="header">Header</div>
+        <div class="sidebar">Sidebar</div>
+        <div class="content">Content</div>
+        <div class="footer">Footer</div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伸缩盒align-items属性</title>
+    <style>
+        .container {display: flex;flex-flow: row wrap;}
+        .box {
+            flex: 1;display: flex;
+            width: 100%;max-width: 960px;min-width: 240px;
+            height: 80px;margin: 10px;border-radius: 5px;background-color: hsl(0, 1%, 80%);
+        }
+        .box div {margin: 5px;border-radius: 5px;
+            background: hsl(0, 1%, 40%);color: hsl(0, 100%, 100%);
+        }
+        .box .d1 {height: 30%;}
+        .box .d2 {height: 40%;}
+        .box .d3 {height: 50%;}
+        #box1 {align-items: flex-start;}
+        #box2 {align-items: flex-end;}
+        #box3 {align-items: center;justify-content: center;}
+        #box4 {align-items: baseline;}
+        #box5 {align-items: stretch;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="box1" class="box">
+            <div class="d1">flex-start</div>
+            <div class="d2">flex-start</div>
+            <div class="d3">flex-start</div>
+        </div>
+        <div id="box2" class="box">
+            <div class="d1">flex-end</div>
+            <div class="d2">flex-end</div>
+            <div class="d3">flex-end</div>
+        </div>
+        <div id="box3" class="box">
+            <div class="d1">center</div>
+            <div class="d2">center</div>
+            <div class="d3">center</div>
+        </div>
+        <div id="box4" class="box">
+            <div class="d1">baseline</div>
+            <div class="d2">baseline</div>
+            <div class="d3">baseline</div>
+        </div>
+        <div id="box5" class="box">
+            <div>stretch</div>
+            <div>stretch</div>
+            <div>stretch</div>
+        </div>
+    </div>
+</body>
+
+</html>

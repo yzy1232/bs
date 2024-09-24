@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>align-content属性</title>
+    <style>
+        .container {
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .box {
+            flex: 1;
+            display: flex;
+            flex-flow: wrap;
+            margin: 10px;
+            max-width: 460px;
+            min-width: 280px;
+            height: 160px;
+            border-radius: 5px;
+            background-color: hsl(0, 1%, 80%);
+        }
+
+        .box div {
+            margin: 5px;
+            border-radius: 5px;
+            padding: 5px 10px;
+            background: hsl(0, 1%, 40%);
+            color: hsl(0, 100%, 100%);
+        }
+
+        #box1 {
+            align-content: flex-start;
+        }
+
+        #box2 {
+            align-content: flex-end;
+        }
+
+        #box3 {
+            align-content: center;
+        }
+
+        #box4 {
+            align-content: space-between;
+        }
+
+        #box5 {
+            align-content: space-around;
+        }
+
+        #box6 {
+            align-content: stretch;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="box1" class="box">
+            <div>flex-start</div>
+            <div>flex-start</div>
+            <div>flex-start</div>
+            <div>flex-start</div>
+        </div>
+        <div id="box2" class="box">
+            <div>flex-end</div>
+            <div>flex-end</div>
+            <div>flex-end</div>
+            <div>flex-end</div>
+        </div>
+        <div id="box3" class="box">
+            <div>center</div>
+            <div>center</div>
+            <div>center</div>
+            <div>center</div>
+        </div>
+        <div id="box4" class="box">
+            <div>space-between</div>
+            <div>space-between</div>
+            <div>space-between</div>
+            <div>space-between</div>
+        </div>
+        <div id="box5" class="box">
+            <div>space-around</div>
+            <div>space-around</div>
+            <div>space-around</div>
+            <div>space-around</div>
+        </div>
+        <div id="box6" class="box">
+            <div>stretch</div>
+            <div>stretch</div>
+            <div>stretch</div>
+            <div>stretch</div>
+        </div>
+    </div>
+</body>
+
+</html>

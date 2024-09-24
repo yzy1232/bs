@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTMLMediaElement</title>
+    <style>
+        .vidbox {
+            position: relative;width: 480px;height: 270px;
+        }
+        #video {
+            border: 2px solid black;position: absolute;
+            top: 0;left: 0;
+        }
+        #playbutton {
+            position: absolute;left: 10px;top: 10px;padding:5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="vidbox">
+        <video id="video" height="270" width="480" src="video/chrome.mp4"> </video>
+        <button id="playbutton">play</button>
+    </div>
+    <div id="message"></div>
+    <script>
+        let videoElem = document.getElementById("video");
+        let playButton = document.getElementById("playbutton");
+        let message = document.getElementById("message");
+        playButton.addEventListener("click", play, false);
+        function play() {
+            if (videoElem.paused) {
+                videoElem.play();
+                playButton.innerText = "paused";
+            } else {
+                videoElem.pause();
+                playButton.innerText = "play";
+                message.innerText = `src：${videoElem.src}
+                currentTime：${videoElem.currentTime}，defaultMuted：${videoElem.defaultMuted}
+                defaultPlaybackRate：${videoElem.defaultPlaybackRate}，duration：${videoElem.duration}
+                ended：${videoElem.ended}，networkState：${videoElem.networkState}
+                paused：${videoElem.paused}，readyState：${videoElem.readyState}
+                volume：${videoElem.volume}，videoWidth：${videoElem.videoWidth}
+                videoHeight：${videoElem.videoHeight}，canPlayType()：${videoElem.canPlayType('video/mp4')}`; 
+            }
+        }
+    </script>
+</body>
+
+</html>

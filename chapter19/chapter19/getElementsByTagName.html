@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>getElementsByTagName()方法</title>
+    <style>
+        #div1{border: solid blue 3px;padding: 5px;}
+        #div2{border: solid red 3px;}
+        p{margin: 0px;}
+    </style>
+</head>
+
+<body>
+    <p class="test">外面段落文本</p>
+    <div id="div1" class="test">
+        <p>div1段落文本</p>
+        <p>div1段落文本</p>
+        <div id="div2" class="test">
+            <p>div2段落文本</p>
+        </div>
+    </div>
+    <p class="test">外面段落文本</p>
+    <button name="btn">文档里p元素有</button><span></span><br>
+    <button name="btn">div1里p元素有</button><span></span><br>
+    <button name="btn">div2里p元素有</button><span></span>
+    <script>
+        var spans = document.getElementsByTagName('span');
+        var buttons = document.getElementsByTagName('button')
+        buttons[0].addEventListener('click',function(){
+            let num = document.getElementsByTagName('p').length;
+            spans[0].innerHTML = ` ${num}个`;
+        },false);
+        buttons[1].addEventListener('click',function(){
+            let num = document.getElementById('div1').getElementsByTagName('p').length;
+            spans[1].innerHTML = ` ${num}个`;
+        },false);
+        buttons[2].addEventListener('click',function(){
+            let num = document.getElementById('div2').getElementsByTagName('p').length;
+            spans[2].innerHTML = ` ${num}个`;
+        },false);
+    </script>
+</body>
+
+</html>

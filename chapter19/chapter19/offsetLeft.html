@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>offsetLeft</title>
+    <style>
+        /* body{margin: 0px;} */
+        #element{width: 300px;height: 100px;position: relative;}
+        [id$='element']{border: blue 1px solid;}
+        #offset-element{position: absolute;left: 100px;top:50px;}
+    </style>
+</head>
+
+<body>
+    <div id="element">
+        <div id="offset-element">offset-element</div>
+    </div>
+    <div id="display"></div>
+    <script>
+        var offset = document.getElementById('offset-element');
+        function getElementPosition(e) {
+            let x = 0;
+            let y = 0;
+            while (e !== null) {
+                x += e.offsetLeft;
+                y += e.offsetTop;
+                e = e.offsetParent;
+            }
+            return { x: x, y: y };
+        }
+        var offset = document.getElementById('offset-element');
+        document.getElementById('display').innerHTML = `元素相对于网页左上角的位置：${getElementPosition(offset).x}，${getElementPosition(offset).y}`;
+        // var rect = document.getElementById('offset-element').getBoundingClientRect();
+        // document.getElementById('display').innerHTML +=  
+        //     `<br>元素左上角相对于视口的坐标：${rect.x}，${rect.y}<br>
+        //     元素宽高：${rect.width}，${rect.height}<br>
+        //     元素left，top：${rect.left}，${rect.top}<br>
+        //     元素right，bottom：${rect.right}，${rect.bottom}`;
+    </script>
+</body>
+
+</html>

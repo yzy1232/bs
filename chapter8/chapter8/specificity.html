@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS特异性</title>
+    <style>
+        /* specificity = 0 , 0 , 0 , 0 */
+        * {font-size: 1rem;}
+        /* specificity = 0 , 0 , 0 , 1 */
+        div {font-size: 1.1rem;}
+        /* specificity = 0 , 0 , 0 , 2 */
+        body div {font-size: 1.2rem;}
+        /* specificity = 0 , 1 , 0 , 0 */
+        #div-id {font-size: 1.3rem;}
+        /* specificity = 0 , 0 , 1 , 0 */
+        .div-class {
+            /* font-size: 1.4rem; */
+            font-size: 1.4rem!important;
+        }
+        /* specificity = 0 , 1 , 0 , 1 */
+        div#div-id {font-size: 1.5rem;}
+        /* specificity = 0 , 0 , 1 , 1 */
+        div.div-class {font-size: 1.6rem;}
+    </style>
+</head>
+
+<body>
+    <div id="div-id" class="div-class">CSS specificity示例</div>
+    <!--/* specificity = 1 , 0 , 0 , 0 */-->
+    <div id="div-id" class="div-class" style="font-size: 1.8rem;">CSS specificity示例</div>
+</body>
+
+</html>

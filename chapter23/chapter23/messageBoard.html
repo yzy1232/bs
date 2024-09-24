@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单留言板</title>
+</head>
+
+<body>
+    <h3>简单留言板</h3>
+    <textarea id="message" cols="60" rows="1"></textarea><br>
+    <input type="button" value="保存" id="save">
+    <input type="button" value="清空" id="clear">
+    <div id="msg"></div>
+    <script>
+        var msg = document.getElementById('msg');
+        document.getElementById("save").addEventListener('click', function () {
+            var data = document.getElementById("message").value;
+            if (data !== '') {
+                let time = Date.now();
+                localStorage.setItem(time, data);
+                msg.innerHTML = loadStorage();
+            }
+        }, false);
+        document.getElementById("clear").addEventListener('click', function () {
+            localStorage.clear();
+            msg.innerHTML = loadStorage();
+        }, false);
+        function loadStorage() {
+            let result = "";
+            for (var i = 0; i < localStorage.length; i++) {
+                let name = localStorage.key(i);
+                let date = new Date();
+                date.setTime(name);
+                let time = date.toLocaleString();
+                let data = localStorage.getItem(name);
+                result += `<div>第${i}条留言：<b>${data}</b> ${time}</div>`;
+            }
+            return result;
+        }
+    </script>
+</body>
+
+</html>

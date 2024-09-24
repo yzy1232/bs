@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event</title>
+</head>
+
+<body>
+    <div>
+        <p>Hello</p>
+    </div>
+    <script>
+        var div = document.querySelector('div');
+        var p = document.querySelector('p');
+        function callback(event) {
+            var tag = event.currentTarget.tagName;
+            console.log('Tag: ' + tag); // 没有任何输出
+        }
+        div.addEventListener('click', callback, true);
+        var click = new Event('click');
+        p.dispatchEvent(click);
+    </script>
+</body>
+
+</html>

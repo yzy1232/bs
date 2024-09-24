@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@font-face服务器端字体</title>
+    <style>
+        @font-face {font-family: "jpzk";src: url("fonts/jpzk.otf");}
+        @font-face {font-family: "qtgg";src: url("fonts/qtgg.otf");}
+        /*引用多种字体格式，满足不同浏览器需要*/
+        @font-face {
+            font-family: 'FontAwesome';src: url('fonts/fontawesome-webfont.woff');
+            src: url('fonts/fontawesome-webfont.eot'),
+            url('fonts/fontawesome-webfont.woff2'),
+            url('fonts/fontawesome-webfont.woff'),
+            url('fonts/fontawesome-webfont.ttf'),
+            url('fonts/fontawesome-webfont.svg');
+        }
+        div{font-size: 2rem;}
+        #div1 {font-family: jpzk;}
+        #div2 {font-family: qtgg;}
+        #div3 {font-family: FontAwesome;}
+    </style>
+</head>
+
+<body>
+    <div id="div1">12345</div>
+    <div id="div2">1234567890</div>
+    <!--用字符实体引用 -->
+    <div id="div3">&#xF000; &#xF001; &#xF002; &#xF003; &#xF004;</div>
+</body>
+
+</html>

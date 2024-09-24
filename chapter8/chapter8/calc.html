@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc()</title>
+    <style>
+        .box {
+            position: absolute;
+            /*如果浏览器不支持calc()*/
+            left: 5%;
+            width: 90%;
+            /*如果浏览器支持calc()，覆盖left和width*/
+            box-sizing: border-box;
+            left: calc(50px);
+            width: calc(100% - 100px);
+            border: 1px solid hsl(0, 100%, 0%);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" title="calc()">元素外边距左右两边相等</div>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FileReader对象</title>
+    <style>
+        pre {
+            width: 420px;
+            border: 1px solid black;
+            overflow: auto;
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>读取文本文件</legend>
+        <label for="txt">请选择文本文件</label>
+        <input type="file" id="txt" accept=".txt,.bat"></input>
+        <pre id='output'></pre>
+    </fieldset>
+    <fieldset>
+        <legend>读取图像文件</legend>
+        <label for="browse">请选择图像文件</label>
+        <input id="browse" type="file" multiple>
+        <div id="preview">
+            <div id="buffer"></div>
+        </div>
+    </fieldset>
+    <script>
+        var input = document.querySelectorAll('input');
+        for (const item of input) {
+            item.style.opacity = 0;
+        }
+        //读取文本文件
+        var txt = document.getElementById('txt');
+        var out = document.getElementById('output');
+        txt.addEventListener('change', function () {
+            file = txt.files[0];
+            if (/\.(txt|bat)$/i.test(file.name)) {
+                let reader = new FileReader();
+                reader.readAsText(file);
+                reader.addEventListener('load', function () {
+                    let text = reader.result;
+                    out.innerHTML = '';
+                    out.appendChild(document.createTextNode(text));
+                }, false);
+            } else {
+                out.innerHTML = `${file.name}不是一个文本文件！`;
+            }
+        }, false);
+        //读取图像文件
+        var preview = document.querySelector('#preview');
+        var buf = document.getElementById('buffer');
+        var browse = document.getElementById('browse');
+        browse.addEventListener('change', function () {
+            let files = browse.files;
+            if (files) {
+                //[].forEach.call()可以快速访问forEach ，并且将空数组this换成需要遍历的list。
+                [].forEach.call(files, readAndPreview);
+            }
+            function readAndPreview(file) {
+                if (/\.(jpe?g|png|gif)$/i.test(file.name)) {
+                    let reader = new FileReader();
+                    reader.readAsDataURL(file);
+                    reader.addEventListener("load", function () {
+                        let image = new Image();
+                        image.height = 100;
+                        image.title = file.name;
+                        image.src = this.result;
+                        preview.appendChild(image);
+                    }, false);
+                    //读取文件开头的四个字节
+                    let slice = file.slice(0, 4);
+                    let reader1 = new FileReader();
+                    reader1.readAsArrayBuffer(slice);
+                    reader1.addEventListener("load", function () {
+                        let buffer = reader1.result;
+                        let view = new DataView(buffer);
+                        //无符号长整型32位数，再转为16进制显示。
+                        let magic = view.getUint32(0);
+                        buf.innerText += `${magic.toString(16).toUpperCase()}　`;
+                    }, false);
+                }
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

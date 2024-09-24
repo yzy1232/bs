@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem和em</title>
+    <style>
+        /*设根元素字体大小为10px。*/
+        html {
+            font-size: 10px;
+        }
+
+        .rem-outside {
+            font-size: 2rem;
+        }
+
+        .rem-middle {
+            font-size: 1.5rem;
+        }
+
+        .rem-inside {
+            font-size: 1rem;
+        }
+
+        /*最外层元素字体大小为10px，因为其父元素即根元素字体大小为10px。*/
+        .em-outside {
+            font-size: 1em;
+        }
+
+        /*中间层元素字体大小为15px，因为其父元素.em-outside字体大小为10px。*/
+        .em-middle {
+            font-size: 1.5em;
+        }
+
+        /*最里层元素字体大小为30px，因为其父元素.em-middle字体大小为15px。*/
+        .em-inside {
+            font-size: 2em;
+        }
+
+        div {
+            border: 1px solid hsl(100, 0%, 0%);
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="rem-outside">
+        <p>rem相对于根元素字体大小的倍数（20px）</p>
+        <div class="rem-middle">
+            <p>rem相对于根元素字体大小的倍数（15px）</p>
+            <div class="rem-inside">
+                <p>rem相对于根元素字体大小的倍数（10px）</p>
+            </div>
+        </div>
+    </div>
+    <div class="em-outside">
+        <p>em相对于父元素字体大小的倍数（10px）</p>
+        <div class="em-middle">
+            <p>em相对于父元素字体大小的倍数（15px）</p>
+            <div class="em-inside">
+                <p>em相对于父元素字体大小的倍数（30px）</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

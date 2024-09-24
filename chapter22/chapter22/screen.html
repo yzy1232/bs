@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>screen</title>
+</head>
+
+<body>
+    <div></div>
+    <button>根据屏幕大小切换网页</button>
+    <script>
+        var divinfo = document.querySelector('div');
+        divinfo.innerText = `width：${screen.width}，height：${screen.height}
+        availWidth：${screen.availWidth}，availHeight：${screen.availHeight}
+        pixelDepth：${screen.pixelDepth}，colorDepth：${screen.colorDepth}
+        屏幕方向：${window.screen.orientation.type}`;
+        document.querySelector('button').addEventListener('click', function () {
+            if ((screen.width <= 1024) && (screen.height <= 768)) {
+                window.location.replace('screen.html');
+            } else {
+                window.location.replace('navigator.html');
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

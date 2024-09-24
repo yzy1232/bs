@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mouseenter和mouseover及mouseout和mouseleave</title>
+    <style>
+        ul{border: 1px solid black;list-style-type: none;}
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>mouseenter事件</li>
+        <li>进入节点，mouseenter事件只会触发一次</li>
+     </ul>
+    <ul>
+        <li>mouseover事件</li>
+        <li>进入节点，只要在子节点上移动，mouseover事件会触发多次</li>
+    </ul>
+    <ul>
+        <li>mouseleave事件</li>
+        <li>在父节点内部离开子节点，不会触发mouseleave事件</li>
+    </ul>
+    <ul>
+        <li>mouseout事件</li>
+        <li>在父节点内部离开子节点，会触发mouseout事件</li>
+    </ul>
+    <script>
+        var ul0 = document.getElementsByTagName('ul')[0];
+        //进入ul节点以后，mouseenter事件只会触发一次，以后只要鼠标在节点内移动，都不会再触发这个事件。
+        ul0.addEventListener('mouseenter', function (event) {
+            event.target.style.color = 'red';
+            setTimeout(function () {event.target.style.color = '';}, 500);
+        }, false);
+        var ul1 = document.getElementsByTagName('ul')[1];
+        //进入ul节点以后，只要在子节点上移动，mouseover事件会触发多次。
+        ul1.addEventListener('mouseover', function (event) {
+            event.target.style.color = 'red';
+            setTimeout(function () {event.target.style.color = '';}, 500);
+        }, false);
+        //在父节点内部进入子节点，不会触发mouseenter事件，但是会触发mouseover事件。
+        var ul2 = document.getElementsByTagName('ul')[2];
+        //进入ul节点，在节点内部移动，不会触发mouseleave事件，只有离开ul节点时，触发一次mouseleave。
+        ul2.addEventListener('mouseleave', function (event) {
+            event.target.style.color = 'red';
+            setTimeout(function () {event.target.style.color = '';}, 500);
+        }, false);
+        var ul3 = document.getElementsByTagName('ul')[3];
+        //进入ul节点，在节点内部移动，mouseout事件会触发多次。
+        ul3.addEventListener('mouseout', function (event) {
+            event.target.style.color = 'red';
+            setTimeout(function () {event.target.style.color = '';}, 500);
+        }, false);
+        //在父节点内部离开子节点，不会触发mouseleave事件，但是会触发mouseout事件。
+    </script>
+</body>
+
+</html>

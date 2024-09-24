@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>pageshow和pagehide</title>
+</head>
+
+<body>
+    <a href="InputEvent.html">InputEvent.html</a>
+    <div></div>
+    <script>
+        var div = document.querySelector('div');
+        window.addEventListener('pageshow', function (event) {
+            div.innerText += `后${event.type}事件。\npersisted：${event.persisted}\n`;
+        });
+        window.addEventListener('load', function () {
+            div.innerText += `先${event.type}事件。\n`;
+        });
+        window.addEventListener('pagehide', function (event) {
+            console.log(`先${event.type}事件。persisted：${event.persisted}`);
+        });
+        window.addEventListener('unload', function () {
+            console.log(`后${event.type}事件。`);
+        });
+    </script>
+</body>
+
+</html>

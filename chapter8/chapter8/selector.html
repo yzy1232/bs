@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS属性选择器</title>
+    <style>
+        /*选择具有title属性的元素，字体为红色。*/
+        [title] {
+            color: #FF0000;
+        }
+
+        /*选择具有title属性且属性值等于"attrselector"的元素，字体为蓝色。*/
+        [title="attrselector"] {
+            color: #0000FF;
+        }
+
+        /*选择具有title属性且属性值为用空格分隔的字词列表，其中一个等于"selector"的元素，字体为绿色。*/
+        [title~="selector"] {
+            color: #00FF00;
+        }
+
+        /*选择具有title属性且属性值为用连字符分隔的字词列表，由"attr"值开始的元素*/
+        [title|="attr"] {
+            color: #00FFFF;
+        }
+
+        /*选择具有title属性且属性值以"attr"开头的元素，添加黑色实线边框。*/
+        [title^="attr"] {
+            border: solid 1px #000000;
+        }
+
+        /*选择具有title属性且属性值以"d"结尾的元素，字体加粗。*/
+        [title$="d"] {
+            font-weight: 900;
+        }
+
+        /*选择具有title属性且属性值包含"sub"子串的元素，字体倾斜。*/
+        [title*="sub"] {
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <p title="attrselector">属性值等于"attrselector"</p>
+    <p title="attr selector">用空格分隔的字词列表</p>
+    <p title="attr-selector selector">用连字符分隔的字词列表</p>
+    <p title="attribute">以"attr"开头</p>
+    <p title="end">以"d"结尾</p>
+    <p title="subp1">包含"sub"子串</p>
+    <p title="subp2">包含"sub"子串</p>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>preventDefault()方法</title>
+</head>
+
+<body>
+    <form>
+        <label for="id-checkbox">单击复选框按钮</label>
+        <input type="checkbox" id="id-checkbox">
+    </form>
+    <div id="output-box"></div>
+    <div>禁止超链接跳转</div>
+    <a href="http://www.tup.com.cn/index.html">清华大学出版社</a>
+    <script>
+        document.querySelector("#id-checkbox").addEventListener("click", function (event) {
+            document.getElementById("output-box").innerHTML += "<code>preventDefault()</code>不让选择！<br>";
+            event.preventDefault();
+        }, false);
+        document.getElementsByTagName('a')[0].addEventListener('click', (event) => (event.preventDefault()), false);
+    </script>
+</body>
+
+</html>

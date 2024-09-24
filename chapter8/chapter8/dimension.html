@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS数据类型dimension</title>
+    <style>
+        div {
+            width: 130px;
+            height: 40px;
+            border: 1px solid;
+            margin-top: 10px;
+        }
+
+        /*设置#div1元素宽度为10ch，相当于10个“0”的宽度。*/
+        #div1 {
+            width: 10ch;
+            overflow: hidden;
+        }
+
+        /*设置#div2元素旋转15度。*/
+        #div2 {
+            transform: rotate(15deg);
+            background-color: hsl(0,0%,90%);
+            margin: 20px 0px 0px 0px;
+        }
+
+        /*当鼠标悬停在#p1上时，在1秒内宽度由100px逐渐变小为10px。*/
+        #p1 {
+            position: absolute;
+            overflow: hidden;
+            width: 100px;
+            border: 1px solid;
+            transition-property: width;
+            transition-duration: 1s;
+            transition-timing-function: ease-in;
+        }
+
+        #p1:hover {
+            width: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">0000000000AA</div>
+    <div id="div2">CSS角度单位</div>
+    <p id="p1">CSS时间单位，1s内宽度变小</p>
+</body>
+
+</html>

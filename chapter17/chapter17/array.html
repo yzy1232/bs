@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array对象</title>
+    <style>
+        #display {display: flex;flex-flow: row wrap;}
+        #display div {border: 1px solid hsl(0, 0%, 0%);margin: 5px;padding: 5px;width: 150px;}
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>列表项1</li>
+        <li>列表项2</li>
+        <li>列表项3</li>
+    </ul>
+    <div id="display"></div>
+    <script>
+        var display = document.getElementById('display')
+        var str = `<div><span>数组遍历</span><ul>`;
+        //将类数组对象document.querySelectorAll('li')转换为数组。
+        var lis = Array.from(document.querySelectorAll('li'));
+        // var lis = [...document.querySelectorAll('li')];
+        output(lis)
+        str += `</ul></div><div><span>访问数组元素</span><ul>${lis[0].outerHTML}${lis[lis.length - 1].outerHTML}`;
+        str += `</ul></div><div><span>添加数组头和尾元素</span><ul>`;
+        //建立一个列表项元素li。    
+        var li = document.createElement('li');
+        li.innerText = '新列表'
+        lis.push(li);
+        lis.unshift(li);
+        output(lis)
+        str += `</ul></div><div><span>删除数组头和尾元素</span><ul>`;
+        lis.pop();
+        lis.shift();
+        output(lis)
+        str += `</ul></div><div><span>删除第二个元素</span><ul>`;
+        lis.splice(1, 1);
+        output(lis)
+        str += `</ul></div><div><span>复制新数组</span><ul>`;
+        var lisCopy = lis.slice();
+        output(lisCopy)
+        str += `</ul></div>`;
+        display.innerHTML = str;
+        function output(arr) {
+            for (let element of arr) {
+                str += element.outerHTML;
+            }
+        }
+    </script>
+</body>
+
+</html>

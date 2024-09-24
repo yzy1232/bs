@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ClipboardEvent</title>
+</head>
+
+<body>
+    <div class="source" contenteditable="true">复制这些文本</div>
+    <div class="target" contenteditable="true">粘贴此处：</div>
+    <script>
+        var source =  document.querySelector('div.source');
+        source.addEventListener('copy', (event) => {
+            //document.getSelection()方法返回一个Selection对象，表示文档中当前被选择的文本。
+            const selection = document.getSelection().toString();
+            event.clipboardData.setData('text/html', '<b>' + selection + '</b>');
+            event.preventDefault();
+        });
+        source.addEventListener('cut', (event) => {
+            const selection = document.getSelection().toString();
+            event.clipboardData.setData('text/html', '<b>' + selection + '</b>');
+            event.preventDefault();
+        });
+        document.body.addEventListener('paste', (event) => {
+            let paste = (event.clipboardData || window.clipboardData).getData('text/html');
+            let div = document.createElement('div');
+            div.innerText = paste;
+            event.target.appendChild(div);
+        });
+    </script>
+</body>
+
+</html>

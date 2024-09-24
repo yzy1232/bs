@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window</title>
+    <style>
+        body{height: 1000px;}
+    </style>
+</head>
+
+<body>
+    <div id="text">文字变换颜色</div>
+    <button>停止</button><br>
+    <button>打开新窗口定制外观</button><br>
+    <button>选择文本</button><br>
+    <div id="seltext"></div>
+    <button>向下滚动一屏</button>
+    <script>
+        var nIntervId;
+        function changeColor() {
+            nIntervId = setInterval(flashText, 1000);
+        }
+        function flashText() {
+            var oElem = document.getElementById('text');
+            oElem.style.color = oElem.style.color == 'red' ? 'blue' : 'red';
+        }
+        function stopTextColor() {
+            clearInterval(nIntervId);
+        }
+        window.addEventListener('load', changeColor, false);
+        document.getElementsByTagName('button')[0].addEventListener('click', stopTextColor, false);
+        document.getElementsByTagName('button')[1].addEventListener('click', function () {
+            window.open("http://www.tsinghua.edu.cn/", "_blank", "toolbar=yes, location=yes, menubar=yes, scrollbars=yes, width=400, height=400");
+        }, false);
+        document.getElementsByTagName('button')[2].addEventListener('click', function () {
+            if (window.getSelection().toString() != '') {
+                document.getElementById('seltext').innerText = window.getSelection().toString();
+            } else {
+                document.getElementById('seltext').innerText = '什么都没选！';
+            }
+        }, false);
+        document.getElementsByTagName('button')[3].addEventListener('click', function () {
+            window.scrollBy({ top: window.innerHeight, behavior: 'smooth' })
+        }, false);
+    </script>
+</body>
+
+</html>

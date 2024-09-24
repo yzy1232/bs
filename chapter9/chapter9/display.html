@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>display属性</title>
+    <style>
+        div {border: 1px solid hsl(0, 100%, 50%);width: 200px;height: 50px;margin: 5px;}
+        #div2 {display: none;}
+        #a1 {display: block;}
+        span {display: list-item;margin-left: 20px;list-style-type: circle;}
+        li {display: inline-block;}
+    </style>
+</head>
+
+<body>
+    <div id="div1">id="div1"块级元素</div>
+    <div id="div2">id="div2"块级元素</div>
+    <a href="#" id="a1">a默认是内联元素</a><span>span默认是内联元素</span><span>span默认是内联元素</span>
+    <ul>
+        <li><a href="#">导航按钮</a></li>
+        <li><a href="#">导航按钮</a></li>
+        <li><a href="#">导航按钮</a></li>
+    </ul>
+</body>
+
+</html>

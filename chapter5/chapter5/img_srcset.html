@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img标签的srcset属性</title>
+    <style>
+        *{padding: 0;margin: 0;}/* 去除页边距 */
+        img {width: 320px;}
+    </style>
+</head>
+
+<body>
+    <div>
+        <img srcset="images/320.jpg 1x,images/640.jpg 2x,images/800.jpg 3x" alt="新措">
+        <img srcset="images/320.jpg 1x,images/640.jpg 1.5x,images/800.jpg 2x" alt="新措">
+    </div>
+</body>
+
+</html>

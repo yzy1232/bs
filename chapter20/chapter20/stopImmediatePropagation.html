@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>stopImmediatePropagation()方法</title>
+</head>
+
+<body>
+    <div>
+        <span>定义多个监听器</span>
+    </div>
+    <p></p>
+    <script>
+        const span = document.querySelector('span')
+        const p = document.querySelector('p')
+        span.addEventListener("click", (event) => {
+            p.innerHTML += "第一个监听器<br>";
+        }, false);
+        span.addEventListener("click", (event) => {
+            p.innerHTML += "第二个监听器<br>";
+            //阻止click事件冒泡，并且阻止元素其他click事件的监听器。
+            event.stopImmediatePropagation();
+        }, false);
+        span.addEventListener("click", (event) => {
+            p.innerHTML += "第三个监听器<br>";
+            //回调函数不会被执行。
+        }, false);
+        document.querySelector("div").addEventListener("click", (event) => {
+            p.innerHTML += "上层元素监听器<br>";
+            //没有向上冒泡，回调函数不会被执行。
+        }, false);
+    </script>
+</body>
+
+</html>

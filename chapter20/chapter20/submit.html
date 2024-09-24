@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>submit</title>
+    <style>
+        span{color: red;}
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById("name").focus();
+            document.getElementById("form").addEventListener('submit', validate, false);
+            var span = document.querySelector('span');
+            function validate(e) {
+                let iEamil = e.target[2].value.indexOf("@");
+                let sAge = e.target[1].value;
+                if (isNaN(sAge) || sAge < 1 || sAge > 100) {
+                    span.innerText = "年龄必须是1~100之间的数字。";
+                    e.target[1].value='';
+                    e.target[1].focus();
+                    e.preventDefault();
+                    return;
+                }
+                if (iEamil == -1) {
+                    span.innerText = "不是有效的电子邮件地址。";
+                    e.target[2].value='';
+                    e.target[2].focus();
+                    e.preventDefault();
+                    return;
+                }
+            }
+        }, false)
+    </script>
+</head>
+
+<body>
+    <form action="action.html" id="form">
+        <label>姓名（1~10个字符）：</label>
+        <input type="text" id="name" required maxlength="10"><br>
+        <label>年龄（1~100）：</label>
+        <input type="text" id="age" required maxlength="3"><br>
+        <label>电子邮件：</label>
+        <input type="text" id="email" required><br>
+        <input type="submit" value="提交">
+    </form>
+    <span></span>
+</body>
+
+</html>

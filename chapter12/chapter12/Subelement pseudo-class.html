@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>子元素伪类</title>
+    <style>
+        body{display: flex;flex-flow: row wrap;}
+        *{margin: 0;}
+        div{border: 1px solid hsl(0, 0%, 0%);margin: 2px;padding: 2px;}
+        div li:first-child {color: hsl(120, 85%, 40%);}
+        div li:last-child {color: hsl(0, 100%, 50%);}
+        div li:nth-child(2n) {color: hsl(240, 100%, 50%);}
+        div li:nth-last-child(1) {color: hsl(0, 5%, 40%);}
+        h4:first-of-type {background-color: hsl(60, 100%, 50%);}
+        h4:nth-of-type(2n) {background-color: hsl(190, 50%, 50%);}
+        p:only-of-type {background-color: hsl(0, 5%, 60%);}
+        span {height: 2rem;width: 2rem;background-color: hsl(0, 100%, 50%);display: inline-block;}
+        /*从第三个span元素开始，每隔2个设定样式*/
+        span:nth-child(2n+3) {background-color: hsl(60, 100%, 50%);border-radius: 50%;}
+    </style>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>子元素伪类选择符 E:first-child</li>
+            <li>子元素伪类选择符 E:nth-child(2n)</li>
+            <li>子元素伪类选择符 E:nth-last-child(3)</li>
+            <li>子元素伪类选择符 E:nth-child(2n)</li>
+            <li>子元素伪类选择符 E:last-child</li>
+        </ul>
+    </div>
+    <div>
+        <h4>标题 E:first-of-type</h4>
+        <p>内容</p>
+        <h4>标题 E:nth-of-type(2n)</h4>
+        <p>内容</p>
+        <h4>标题</h4>
+        <p>内容</p>
+        <h4>标题 E:nth-of-type(2n)</h4>
+        <p>内容</p>
+    </div>
+    <div>
+        <h4>标题 E:first-of-type</h4>
+        <p>内容 E:only-of-type</p>
+    </div>
+    <div>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+
+</html>

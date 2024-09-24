@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleSheet</title>
+</head>
+
+<body>
+    <div id="href"></div>
+    <div id="media"></div>
+    <div id="cssRules"></div>
+    <span class="tsinghua">清华大学：</span>
+    <a href="http://www.tsinghua.edu.cn/">www.tsinghua.edu.cn</a>
+    <input type="button" id="small" value="小字体" />
+    <input type="button" id="big" value="大字体" />
+    <script>
+        //添加内部样式表
+        var style = document.createElement('style');
+        style.setAttribute('media', 'screen');
+        style.setAttribute('title', 'style');
+        style.setAttribute('id', 'myStyle');
+        style.innerHTML = '.tsinghua {font-weight: 900;}';
+        document.head.appendChild(style);
+        //添加外部样式表
+        var link = document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('href', 'css/stylesheet.css');
+        document.head.appendChild(link);
+        document.getElementById("small").addEventListener('click', function () {
+            document.styleSheets[1].deleteRule(0);
+            document.styleSheets[1].insertRule('body{font-size:14px;}', 0)
+        },false)
+        document.getElementById("big").addEventListener('click', function () {
+            document.styleSheets[1].deleteRule(0);
+            document.styleSheets[1].insertRule('body{font-size:16px;}', 0)
+        },false)
+        window.addEventListener('load',function () {
+            styleSheets = document.styleSheets;
+            document.getElementById("href").innerText = `外部样式表文件URI地址：${document.styleSheets[1].href}`;
+            document.getElementById("media").innerText = `当前样式表适用媒介：${document.styleSheets[0].media.mediaText}`;
+            let csstext = '';
+            for (let index = 0; index < styleSheets.length; index++) {
+                cssRules = styleSheets[index].cssRules;
+                csstext += `${styleSheets[index].ownerNode}样式规则：`;
+                for (let i = 0; i < cssRules.length; i++) {
+                    csstext += cssRules[i].cssText;
+                }
+                csstext += `\n`;
+            }
+            document.getElementById("cssRules").innerText = csstext;
+            styleSheets[0].cssRules[0].style.color = 'red';
+        },false)
+    </script>
+</body>
+
+</html>

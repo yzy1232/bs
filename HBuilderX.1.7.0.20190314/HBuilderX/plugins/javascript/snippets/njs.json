@@ -1,0 +1,781 @@
+{
+  "u_info": {
+    "body": [
+      "uni.app.getInfo();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_info"
+  },
+  "u_push": {
+    "body": [
+      "uni.router.push({",
+      "uri:$1",
+      "});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_push"
+  },
+  "u_replace": {
+    "body": [
+      "uni.router.replace({",
+      "uri:$1",
+      "});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_replace"
+  },
+  "u_back": {
+    "body": [
+      "uni.router.back();"
+    ],
+    "triggerAssist": false,
+    "prefix": "uback"
+  },
+  "u_clear": {
+    "body": [
+      "uni.router.clear();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_clear"
+  },
+  "u_toast": {
+    "body": [
+      "uni.prompt.showToast({",
+      "message:$1",
+      "});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_toast"
+  },
+  "u_dialog": {
+    "body": [
+      "uni.prompt.showDialog({",
+      "message:$1",
+      "success:function(data){",
+      "console.log(data.index);}",
+      "});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_dialog"
+  },
+  "u_menu": {
+    "body": [
+      "uni.prompt.showContextMenu({",
+      "itemList:[$1]",
+      "success:function(data){",
+      "console.log(data.index);}",
+      "});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_menu"
+  },
+  "u_loadurl": {
+    "body": [
+      "uni.webview.loadUrl({",
+      "url: $1",
+      "});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_loadurl"
+  },
+  "u_go": {
+    "body": [
+      "uni.system.go($1);"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_go"
+  },
+  "u_notification_show": {
+    "body": [
+      "uni.notification.show({",
+      "contentTitle:$1,",
+      "contentText:$2",
+      "});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_notification_show"
+  },
+  "u_vibrate": {
+    "body": [
+      "uni.vibrator.vibrate();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_vibrate"
+  },
+  "u_channel_subscribe": {
+    "body": [
+      "uni.channel.subscribe({",
+      "name:$1,",
+      "callback:function(data){console.log(data.message)}",
+      "});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_channel_subscribe"
+  },
+  "u_channel_unsubscribe": {
+    "body": [
+      "uni.channel.unsubscribe();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_channel_unsubscribe"
+  },
+  "u_channel_postmessage": {
+    "body": [
+      "uni.channel.postMessage({",
+      "name:$1,",
+      "message:$2",
+      "});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_channel_postmessage"
+  },
+  "u_fetch": {
+    "body": [
+      "uni.fetch.fetch({",
+      "url:\"$1\",",
+      "success:function(data){",
+      "console.log(data);",
+      "}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_fetch"
+  },
+  "u_upload": {
+    "body": [
+      "uni.request.upload({",
+      "url: \"$1\",",
+      "files: [{",
+      "uri: \"$2\",",
+      "name: \"$3\",",
+      "filename: \"$4\"",
+      "}],",
+      "success: function (data) {console.log(\"handling success\");},",
+      "fail: function (data, code) {console.log(\"handling fail, code = \" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_upload"
+  },
+  "u_download": {
+    "body": [
+      "uni.request.download({",
+      "url: \"$1\",",
+      "success: function (data) {console.log(\"handling success\" + data.token);},",
+      "fail: function (data, code) {console.log(\"handling fail, code = \" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_download"
+  },
+  "u_download_complete": {
+    "body": [
+      "uni.request.onDownloadComplete({",
+      "token: \"$1\",",
+      "success: function (data) {console.log(\"handling success\" + data.uri);},",
+      "fail: function (data, code) {console.log(\"handling fail, code = \" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_download_complete"
+  },
+  "u_storage_get": {
+    "body": [
+      "uni.storage.get({",
+      "key: \"$1\",",
+      "success: function (data) {console.log(\"handling success\");},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_storage_get"
+  },
+  "u_storage_set": {
+    "body": [
+      "uni.storage.set({",
+      "key: \"$1\",",
+      "value: \"$2\"",
+      "success: function (data) {console.log(\"handling success\");},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_storage_set"
+  },
+  "u_storage_clear": {
+    "body": [
+      "uni.storage.clear({",
+      "success: function (data) {console.log(\"handling success\");},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_storage_clear"
+  },
+  "u_storage_delete": {
+    "body": [
+      "uni.storage.delete({",
+      "key: \"$1\"",
+      "success: function (data) {console.log(\"handling success\");},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_storage_delete"
+  },
+  "u_file_move": {
+    "body": [
+      "uni.file.move({",
+      "srcUri: \"$1\",",
+      "dstUri: \"$2\",",
+      "success: function (uri) {console.log(\"move success: \" + uri);},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_file_move"
+  },
+  "u_file_copy": {
+    "body": [
+      "uni.file.copy({",
+      "srcUri: \"$1\",",
+      "dstUri: \"$2\",",
+      "success: function (uri) {console.log(\"copy success: \" + uri);},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_file_copy"
+  },
+  "u_file_list": {
+    "body": [
+      "uni.file.list({",
+      "uri: \"$1\",",
+      "success: function (uri) {console.log(data.fileList);},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_file_list"
+  },
+  "u_file_get": {
+    "body": [
+      "uni.file.get({",
+      "uri: \"$1\",",
+      "success: function (uri) {console.log(data.uri);},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_file_get"
+  },
+  "u_file_delete": {
+    "body": [
+      "uni.file.delete({",
+      "uri: \"$1\",",
+      "success: function (uri) {console.log(\"handling success\");},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_file_delete"
+  },
+  "u_barcode": {
+    "body": [
+      "uni.barcode.scan({",
+      "success: function (data) {console.log(\"handling success: \" + data.result);},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_barcode"
+  },
+  "u_sub_accelerometer": {
+    "body": [
+      "uni.sensor.subscribeAccelerometer({",
+      "callback: function (ret) {console.log(\"handling callback\");}"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_sub_accelerometer"
+  },
+  "u_unsub_accelerometer": {
+    "body": [
+      "uni.sensor.unsubscribeAccelerometer();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_unsub_accelerometer"
+  },
+  "u_sub_compass": {
+    "body": [
+      "uni.sensor.subscribeCompass({",
+      "callback: function (ret) {console.log(\"handling callback\");}"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_sub_compass"
+  },
+  "u_unsub_compass": {
+    "body": [
+      "uni.sensor.unsubscribeCompass();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_unsub_compass"
+  },
+  "u_sub_proximity": {
+    "body": [
+      "uni.sensor.subscribeProximity({",
+      "callback: function (ret) {console.log(\"handling callback \");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_sub_proximity"
+  },
+  "u_unsub_proximity": {
+    "body": [
+      "uni.sensor.unsubscribeProximity();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_unsub_proximity"
+  },
+  "u_sub_light": {
+    "body": [
+      "uni.sensor.subscribeLight({",
+      "callback: function (ret) {console.log(\"handling callback\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_sub_light"
+  },
+  "u_unsub_light": {
+    "body": [
+      "uni.sensor.unsubscribeLight();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_unsub_light"
+  },
+  "u_clipboard_set": {
+    "body": [
+      "uni.clipboard.set({text: \"$1\"});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_clipboard_set"
+  },
+  "u_clipboard_get": {
+    "body": [
+      "uni.clipboard.get({",
+      "success: function (data) {console.log(\"handling success: \" + data.text);},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_clipboard_get"
+  },
+  "u_getlocation": {
+    "body": [
+      "uni.geolocation.getLocation({",
+      "success: function (data) {",
+      "console.log(\"handling success: longitude=\" + data.longitude + \",latitude = \" + data.latitude);},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_getlocation"
+  },
+  "u_sub_location": {
+    "body": [
+      "uni.geolocation.subscribe({",
+      "callback: function (data) {",
+      "console.log(\"handling success: longitude=\" + data.longitude + \", latitude = \" + data.latitude);},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_getlocation"
+  },
+  "u_unsub_location": {
+    "body": [
+      "uni.geolocation.unsubscribe();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_unsub_location"
+  },
+  "u_calendar": {
+    "body": [
+      "uni.calendar.insert({",
+      "title: \"$1\",",
+      "startDate: \"$1\",",
+      "endDate: \"$2\",",
+      "remindMinutes: [$3],",
+      "rrule: \"$4\",",
+      "success: function (data) {console.log(\"handling success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_calendar"
+  },
+  "u_shortcut_hasinstalled": {
+    "body": [
+      "uni.shortcut.hasInstalled({",
+      "success: function(){console.log(\"handling success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_shortcut_hasinstalled"
+  },
+  "u_shortcut_install": {
+    "body": [
+      "uni.shortcut.install({",
+      "success: function(){console.log(\"handling success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_shortcut_install"
+  },
+  "u_network_get": {
+    "body": [
+      "uni.network.getType({",
+      "success: function (data) {console.log(\"handling success: \" + data.type);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_network_gettype"
+  },
+  "u_network_sub": {
+    "body": [
+      "uni.network.subscribe({",
+      "callback: function (data) {console.log(\"handling callback\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_network_sub"
+  },
+  "u_network_unsub": {
+    "body": [
+      "uni.network.unsubscribe();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_network_unsub"
+  },
+  "u_device_info": {
+    "body": [
+      "uni.device.getInfo({",
+      "success: function (ret) {console.log(\"handling success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_device_info"
+  },
+  "u_device_id": {
+    "body": [
+      "uni.device.getId({",
+      "type: [$1],",
+      "success: function (data) {console.log(\"handling success: \" + data.device);},",
+      "fail: function (data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_device_id"
+  },
+  "u_brightness_getvalue": {
+    "body": [
+      "uni.brightness.getValue({",
+      "success: function (ret) {console.log(\"handling success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_brightness_getvalue"
+  },
+  "u_brightness_setvalue": {
+    "body": [
+      "uni.brightness.setValue({",
+      "value: $1,",
+      "success: function (ret) {console.log(\"handling success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_brightness_setvalue"
+  },
+  "u_brightness_getmode": {
+    "body": [
+      "uni.brightness.getMode({",
+      "success: function (ret) {console.log(\"handling success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_brightness_getmode"
+  },
+  "u_brightness_setmode": {
+    "body": [
+      "uni.brightness.setMode({",
+      "mode: $1,",
+      "success: function (data) {console.log(\"handling success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_brightness_setmode"
+  },
+  "u_battery_info": {
+    "body": [
+      "uni.battery.getInfo({",
+      "success: function (ret) {console.log(\"handling success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_battery_info"
+  },
+  "u_record_start": {
+    "body": [
+      "uni.record.startRecord({",
+      "success: function (data) {console.log(\"handling success: \" + data.uri);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_record_start"
+  },
+  "u_record_stop": {
+    "body": [
+      "uni.record.stopRecord();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_record_stop"
+  },
+  "u_volume_max": {
+    "body": [
+      "uni.volume.getMediaMaxVolume({",
+      "success: function(data) {console.log(data.maxVolume);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_volume_max"
+  },
+  "u_volume_min": {
+    "body": [
+      "uni.volume.getMediaMinVolume({",
+      "success: function(data) {console.log(data.maxVolume);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_volume_min"
+  },
+  "u_volume_get": {
+    "body": [
+      "uni.volume.getMediaVolume({",
+      "success: function(data) {console.log(data.currentVolume);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_volume_get"
+  },
+  "u_volume_set": {
+    "body": [
+      "uni.volume.setMediaVolume({",
+      "value: $1,",
+      "success: function(data) {console.log(\"handle success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_volume_set"
+  },
+  "u_take_photo": {
+    "body": [
+      "uni.media.takePhoto({",
+      "success: function(data) {console.log(\"handling success: \" + data.uri);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_take_photo"
+  },
+  "u_take_video": {
+    "body": [
+      "uni.media.takeVideo({",
+      "success: function(data) {console.log(\"handling success: \" + data.uri);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_take_video"
+  },
+  "u_pick_image": {
+    "body": [
+      "uni.media.pickImage({",
+      "success: function(data) {console.log(\"handling success: \" + data.uri);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_pick_image"
+  },
+  "u_pick_video": {
+    "body": [
+      "uni.media.pickVideo({",
+      "success: function(data) {console.log(\"handling success: \" + data.uri);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_pick_video"
+  },
+  "u_compress_image": {
+    "body": [
+      "uni.media.compressImage({",
+      "srcUri: \"$1\",",
+      "quality: $2,",
+      "radio: $3,",
+      "format: \"$4\",",
+      "success: function(data) {console.log(data.dstUri);},",
+      "fail: function(data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_compress_image"
+  },
+  "u_get_image_info": {
+    "body": [
+      "uni.media.getImageInfo({",
+      "uri: \"$1\",",
+      "success: function(data) {console.log(data.uri + data.width + data.height + data.size);},",
+      "fail: function(data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_get_image_info"
+  },
+  "u_edit_image": {
+    "body": [
+      "uni.media.editImage({",
+      "uri: \"$1\",",
+      "success: function(data) {console.log(data.dstUri);},",
+      "fail: function(data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_edit_image"
+  },
+  "u_crop_image": {
+    "body": [
+      "uni.media.cropImage({",
+      "uri: \"$1\",",
+      "success: function(data) {console.log(data.dstUri);},",
+      "cropData:{x: 0,y: 0, scale: {}}"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_edit_image"
+  },
+  "u_push_provider": {
+    "body": [
+      "uni.push.getProvider();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_push_provider"
+  },
+  "u_push_sub": {
+    "body": [
+      "uni.push.subscribe({",
+      "success: function(data) {console.log(\"push.subscribe succeeded, result data=\" + JSON.stringify(data));},",
+      "fail: function(data, code) {console.log(\"push.subscribe failed, result data=\" + JSON.stringify(data) + \", code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_push_sub"
+  },
+  "u_push_unsub": {
+    "body": [
+      "uni.push.unsubscribe({",
+      "success: function(data) {console.log(\"push.unsubscribe succeeded, result data=\" + JSON.stringify(data));},",
+      "fail: function(data, code) {console.log(\"push.unsubscribe failed, result data=\" + JSON.stringify(data) + \", code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_push_unsub"
+  },
+  "u_push_on": {
+    "body": [
+      "uni.push.on({",
+      "callback: function(ret) {console.log(\"received pass through message, ret=\" + JSON.stringify(ret));}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_push_on"
+  },
+  "u_push_off": {
+    "body": [
+      "uni.push.off();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_push_off"
+  },
+  "u_account_provider": {
+    "body": [
+      "uni.account.getProvider();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_account_provider"
+  },
+  "u_account_auth": {
+    "body": [
+      "uni.account.authorize({",
+      "type: \"$1\",",
+      "redirectUri: \"$2\",",
+      "success: function(data) {console.log(\"handling success: \" + data.code);},",
+      "fail: function(data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_account_auth"
+  },
+  "u_account_profile": {
+    "body": [
+      "uni.account.getProfile({",
+      "token: \"$1\",",
+      "success: function(data) {console.log(\"handling success: \" + data.nickname);},",
+      "fail: function(data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_account_profile"
+  },
+  "u_pay_provider": {
+    "body": [
+      "uni.pay.getProvider();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_pay_provider"
+  },
+  "u_pay": {
+    "body": [
+      "uni.pay.pay({",
+      "orderInfo: \"$1\",",
+      "success: function(data) {console.log(\"handling success: \" + data.code);},",
+      "fail: function(data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_pay"
+  },
+  "u_stat_provider": {
+    "body": [
+      "uni.stat.getProvider();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_stat_provider"
+  },
+  "u_stat_count": {
+    "body": [
+      "uni.stat.recordCountEvent({",
+      "category: \"$1\",",
+      "key: \"$2\"});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_stat_count"
+  },
+  "u_stat_calculate": {
+    "body": [
+      "uni.stat.recordCalculateEvent({",
+      "category: \"$1\",",
+      "key: \"$2\",",
+      "value: $3});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_stat_calculate"
+  },
+  "u_wxpay_type": {
+    "body": [
+      "uni.wxpay.getType();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_wxpay_type"
+  },
+  "u_wxpay": {
+    "body": [
+      "uni.wxpay.pay({",
+      "prepayid: \"$1\",",
+      "extra: {",
+      "app_id: \"$2\",",
+      "partner_id: \"$3\",",
+      "package_value: \"$4\",",
+      "nonce_str: \"$5\",",
+      "time_stamp: \"$6\",",
+      "order_sign: \"$7\"},",
+      "success: function(data) {console.log(\"WX PAY success\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_wxpay"
+  },
+  "u_alipay": {
+    "body": [
+      "uni.alipay.pay({",
+      "orderInfo: \"$1\",",
+      "callback: function(ret) {console.log(\"handling callback\");}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_alipay"
+  },
+  "u_share_provider": {
+    "body": [
+      "uni.share.getProvider();"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_share_provider"
+  },
+  "u_share": {
+    "body": [
+      "uni.share.share({",
+      "shareType: 0$1,",
+      "title: \"$2\",",
+      "summary: \"$3\",",
+      "imagePath: \"$4\",",
+      "targetUrl: \"$5\",",
+      "success: function(data) {console.log(\"handling success\");},",
+      "fail: function(data, code) {console.log(\"handling fail, code=\" + code);}});"
+    ],
+    "triggerAssist": false,
+    "prefix": "u_share"
+  }
+}

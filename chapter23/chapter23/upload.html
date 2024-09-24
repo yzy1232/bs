@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>upload</title>
+</head>
+
+<body>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            <label for="file">选择一个文件</label>
+            <input type="file" id="file" name="myFile" multiple>
+        </div>
+        <div>
+            <input type="submit" id="submit" value="上传">
+        </div>
+    </form>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function (event) {
+            var files = document.getElementById('file').files;
+            var formData = new FormData();
+            for (var i = 0; i < files.length; i++) {
+                var file = files[i];
+                //只上传图片文件
+                if (!file.type.match('image.*')) {
+                    continue;
+                }
+                formData.append('photos[]', file, file.name);
+            }
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/upload', true);
+            xhr.addEventListener('load', function () {
+                if (xhr.status !== 200) {
+                    console.log('发生错误！');
+                }
+            }, false);
+            xhr.send(formData);
+            event.preventDefault();
+        }, false);
+    </script>
+</body>
+
+</html>

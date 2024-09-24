@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box-sizing属性</title>
+    <style>
+        body{display: flex;flex-flow: row wrap;}
+        div {width: 200px;height: 100px;
+            padding: 10px;border: 10px solid hsl(0, 2%, 60%);margin: 5px;}
+        #box1 {
+            box-sizing: content-box;
+        }
+        #box2 {
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">这个盒子大小为240X140px，内容区为200X100px。</div>
+    <div id="box2">这个盒子大小为200X100px，内容区为160X60px。</div>
+</body>
+
+</html>

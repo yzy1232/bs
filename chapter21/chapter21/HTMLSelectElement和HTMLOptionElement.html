@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTMLSelectElement和HTMLOptionElement</title>
+    <style>
+        form{display: flex;flex-flow: row wrap;}
+    </style>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>选择常用的浏览器</legend>
+            <select id="list" multiple>
+                <option value="Internet Explorer">Internet Explorer</option>
+                <option value="Chrome">Chrome</option>
+                <option value="Firefox">Firefox</option>
+                <option value="Opera">Opera</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <legend>常用浏览器</legend>
+            <select id="myList"></select>
+        </fieldset>
+    </form>
+    <script>
+        var list = document.getElementById('list');
+        var myList = document.getElementById('myList');
+        list.addEventListener('change', function () {
+            let option = [...list.options];
+            option.forEach(item => {
+                if (item.selected) {
+                    let opt = document.createElement("option");
+                    opt.value = item.value;
+                    opt.text = item.value;
+                    //已选中的不再增加。
+                    let arr = [...myList.options];
+                    if (!arr.some(element => opt.value === element.value)) {
+                        myList.add(opt, null);
+                    }
+                }
+            });
+            myList.size = myList.options.length;
+        }, false);
+    </script>
+</body>
+
+</html>

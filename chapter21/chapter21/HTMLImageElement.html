@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTMLImageElement</title>
+</head>
+
+<body>
+    <img src="images/recommend1.jpg" alt="封面">
+    <div id="message"></div>
+    <script>
+        let img = document.querySelector('img');
+        let message = document.getElementById("message");
+        img.addEventListener("load", function(){
+            message.innerText += `currentSrc：${img.currentSrc}
+            complete：${img.complete}
+            naturalWidth：${img.naturalWidth}，naturalHeight：${img.naturalHeight}
+            x：${img.x}，y：${img.y}`
+        }, false);
+        img.addEventListener('mouseover',function(){
+            event.target.src = 'images/about-bookstore.jpg'
+        },false);
+    </script>
+</body>
+
+</html>

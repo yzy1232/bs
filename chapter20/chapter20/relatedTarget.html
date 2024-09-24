@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>relatedTarget</title>
+    <style>
+        #outer {width: 200px;height: 100px;display: flex;}
+        #red {flex-grow: 1;background: red;}
+        #blue {flex-grow: 1;background: blue;}
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        <div id="red"></div>
+        <div id="blue"></div>
+    </div>
+    <span id="log"></span>
+    <script>
+        const log = document.getElementById('log');
+        red = document.getElementById('red');
+        blue = document.getElementById('blue');
+        red.addEventListener('mouseover', overListener,false);
+        red.addEventListener('mouseout', outListener,false);
+        blue.addEventListener('mouseover', overListener,false);
+        blue.addEventListener('mouseout', outListener,false);
+        function outListener(event) {
+            if(event.relatedTarget.id){
+                log.innerText = `从${event.target.id}进入到${event.relatedTarget.id}\n`;
+            }else{
+                log.innerText = `从${event.target.id}进入到${event.relatedTarget.tagName}\n`;
+            }
+        }
+        function overListener(event) {
+            if(event.relatedTarget.id){
+                log.innerText = `从${event.relatedTarget.id}进入到${event.target.id}\n`;
+            }else{
+                log.innerText = `从${event.relatedTarget.tagName}进入到${event.target.id}\n`;
+            }
+        }
+    </script>
+</body>
+
+</html>

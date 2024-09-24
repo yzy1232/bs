@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>attributes</title>
+    <script type="text/javascript">
+        function listAttributes() {
+            let div = document.getElementById("div");
+            let result = document.getElementById("result");
+            if (div.hasAttributes()) {
+                let attrs = div.attributes;
+                let output = "";
+                for (let i = 0; i < attrs.length; i++) {
+                    output += `${attrs[i].name} = "${attrs[i].value}"<br>`;
+                }
+                result.innerHTML = output;
+            } else {
+                result.innerHTML = "元素没有属性"
+            }
+        }
+        window.addEventListener('load',function () {
+            document.getElementById("btn").addEventListener('click', function () {
+                listAttributes();
+            },false)
+        },false);
+    </script>
+</head>
+
+<body>
+    <div id="div" style="color: green;">属性示例</div>
+    <form action="">
+        <input id="btn" type="button" value="显示属性和值">
+        <div id="result"></div>
+    </form>
+</body>
+
+</html>

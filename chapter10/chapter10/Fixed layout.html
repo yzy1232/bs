@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>固定布局</title>
+    <style>
+        .container {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        header {
+            background: hsl(0, 0%, 80%);
+            height: 30px;
+        }
+
+        article {
+            width: 390px;
+            height: 90px;
+            background-color: hsl(0, 0%, 70%);
+            margin: 0px 5px;
+            display: inline-block;
+        }
+
+        .sidebar1,
+        .sidebar2 {
+            width: 200px;
+            height: 80px;
+            background: hsl(0, 0%, 90%);
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        footer {
+            background: hsl(0, 0%, 80%);
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>标题</header>
+        <aside class="sidebar1">边栏</aside><article>
+            <h2>内容</h2>
+        </article><aside class="sidebar2">边栏</aside>
+        <footer>脚注</footer>
+    </div>
+</body>
+
+</html>

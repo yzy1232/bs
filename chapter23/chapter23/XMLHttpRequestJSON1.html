@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX请求JSON数据</title>
+    <style>
+        table {
+            width: 240px;
+            margin-bottom: 5px;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid #000000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>成绩</th>
+        </tr>
+        <tr>
+            <td>19010001</td>
+            <td>张小飞</td>
+            <td>90</td>
+        </tr>
+        <tr>
+            <td id="id">19010002</td>
+            <td id="name">王小五</td>
+            <td id="score">0</td>
+        </tr>
+    </table>
+    <button type="button" id="button">页面局部更新</button>
+    <script>
+        document.getElementById("button").addEventListener('click', function () {
+            var XHR;
+            if (window.XMLHttpRequest) {
+                XHR = new XMLHttpRequest();
+            }
+            else {
+                XHR = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            XHR.addEventListener('readystatechange', function () {
+                if (XHR.readyState == 4 && XHR.status == 200) {
+                    //responseType属性设为json，自动对返回数据调用JSON.parse()方法。
+                    var dataObj = XHR.response;
+                    dataObj.forEach(element => {
+                        if(element.id == document.getElementById("id").innerText){
+                            document.getElementById("score").innerText = element.score;
+                            document.getElementById("score").style.color = 'red';
+                        }
+                    });
+                }
+            }, false);
+            XHR.open("GET", "responseJSON1.json", true);
+            // XHR.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+            XHR.responseType = 'json';
+            XHR.send();
+        }, false);
+    </script>
+</body>
+
+</html>

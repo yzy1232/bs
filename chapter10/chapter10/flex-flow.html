@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex-flow属性</title>
+    <style>
+        .article {display: flex;width: 100%;max-width: 960px;min-width: 260px;margin: 10px auto;height: 40px;}
+        .nav {background: hsl(0, 1%, 90%);}
+        .section {background: hsl(0, 1%, 70%);}
+        .aside {background: hsl(0, 1%, 50%);}
+        /*设置#article1里的子元素伸缩项目在主轴上为水平方向，起点在右端。*/
+        #article1 {flex-flow: row-reverse;}
+        /*设置#article2里的子元素伸缩项目在主轴上为水平方向，起点在左端。#article2宽度不够时换行，第一项在上方。*/
+        #article2 {flex-flow: row wrap;}
+        #nav2 {flex: 1 1 260px;}
+        #section2 {flex: 1 1 260px;}
+        #aside2 {flex: 1 1 260px;}
+    </style>
+</head>
+
+<body>
+    <article class="article" id="article1">
+        <nav class="nav" id="nav1">导航</nav>
+        <section class="section" id="section1">内容</section>
+        <aside class="aside" id="aside1">边栏</aside>
+    </article>
+    <article class="article" id="article2">
+        <nav class="nav" id="nav2">导航</nav>
+        <section class="section" id="section2">内容</section>
+        <aside class="aside" id="aside2">边栏</aside>
+    </article>
+</body>
+
+</html>

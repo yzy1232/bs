@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTMLInputElement</title>
+    <style>
+        fieldset {margin-bottom: 5px;}
+        form{display: flex; flex-flow: row wrap;}
+    </style>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>到文本框最大长度时自动跳到下一个文本框</legend>
+            <input size="3" tabindex="1" maxlength="3" class="jumpto">
+            <input size="2" tabindex="2" maxlength="2" class="jumpto">
+            <input size="3" tabindex="3" maxlength="3" class="jumpto">
+        </fieldset>
+        <fieldset>
+            <legend>选择指定文本</legend>
+            <input size="25" type="text" id="myText" value="选择指定文本">
+            <input type="button" value="选择指定文本" id="btn">
+            <div id="seclectMess"></div>
+        </fieldset>
+        <fieldset>
+            <legend>选择文件</legend>
+            <input type="file" id="file">
+            <div id="fileMess"></div>
+        </fieldset>
+        <fieldset>
+            <legend>选择喜欢的浏览器</legend>
+            <label><input type="radio" name="browser" value="Internet Explorer">Internet Explorer</label>
+            <label><input type="radio" name="browser" value="Firefox">Firefox</label>
+            <label><input type="radio" name="browser" value="Chrome">Chrome</label>
+            <label><input type="radio" name="browser" value="Opera">Opera</label><br>
+            <label>喜欢的浏览器是：</label>
+            <input type="text" id="answer" size="16">
+        </fieldset>
+        <fieldset>
+            <legend>选择爱好</legend>
+            <label>网络<input type="checkbox" name="interest" value="网络"></label>
+            <label>数据库<input type="checkbox" name="interest" value="数据库"></label>
+            <label>编程<input type="checkbox" name="interest" value="编程"></label><br>
+            <input type="text" id="interest" size="28">
+        </fieldset>
+    </form>
+
+    <script>
+        var jumpto = [...document.getElementsByClassName('jumpto')];
+        function checkLen(text, str) {
+            if (str.length == text.maxLength) {
+                let i = text.tabIndex;
+                if (i < jumpto.length) {
+                    jumpto[i].focus();
+                } else {
+                    jumpto[0].focus();
+                }
+            }
+        };
+        jumpto.forEach(item => {
+            item.addEventListener('keyup', function () {
+                checkLen(this, this.value);
+            }, false);
+        });
+
+        var myText = document.getElementById('myText');
+        var seclectMess = document.getElementById('seclectMess');
+        function selectText() {
+            myText.focus();
+            myText.setSelectionRange(2, 4);
+            seclectMess.innerText = `selectionStart：${myText.selectionStart}，selectionEnd：${myText.selectionEnd}
+            selectionDirection：${myText.selectionDirection}`
+        };
+        document.getElementById("btn").addEventListener('click', selectText, false);
+
+        var file = document.getElementById('file');
+        var filetMess = document.getElementById('fileMess');
+        function checkfiletype() {
+            let filestr = new String(file.value);
+            let extension = filestr.substring(filestr.lastIndexOf(".") + 1);
+            if (extension != "jpg" && extension != "JPG" && extension != "jpeg" && extension != "JPEG") {
+                fileMess.innerText = '只能上传jpg格式图像文件！';
+            }
+            else {
+                file.accept = 'image/jpeg';
+                fileMess.innerText = '文件上传中...';
+            }
+        }
+        file.addEventListener('change', checkfiletype, false);
+
+        var browser = [...document.getElementsByName('browser')];
+        function check(browser) {
+            document.getElementById("answer").value = browser;
+        }
+        browser.forEach(item => {
+            item.addEventListener('click', function () {
+                check(this.value);
+            }, false);
+        });
+
+        var interest = [...document.getElementsByName('interest')];
+        // interest[0].indeterminate = true;
+        function createOrder() {
+            checkMess = '';
+            interest.forEach(item => {
+                if (item.checked) {
+                    checkMess += `${item.value}，`;
+                }
+            });
+            document.getElementById("interest").value = `爱好有：${checkMess}`
+        }
+        interest.forEach(item => {
+            item.addEventListener('change', createOrder, false);
+        });
+    </script>
+</body>
+
+</html>

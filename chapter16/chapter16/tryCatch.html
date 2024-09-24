@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>try-catch异常处理</title>
+    <script>
+        try {
+            addlert("Welcome");
+        }
+        catch (e) {
+            if (!confirm("语句错误：" + e.name + "，错误信息：" + e.message + "\n单击确定继续浏览，单击取消返回首页。")) {
+                document.location.href = "http://www.tsinghua.edu.cn/";
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>脚本代码有错误！</p>
+</body>
+</html>

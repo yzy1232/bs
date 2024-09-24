@@ -1,0 +1,516 @@
+{
+    "clogvar":{
+		"prefix": "clogvar",
+		"body": [
+			"console.log(\"$1: \" + $1);"
+		],
+		"description": "打印变量"
+	},
+	"console.log();": {
+	    "body": [
+	      "console.log($1);"
+	    ],
+	    "triggerAssist": false,
+	    "prefix": "clog"
+  },
+  "var s\u003d\"\";": {
+    "body": [
+      "var ${1:s}\u003d\"$2\";"
+    ],
+    "triggerAssist": false,
+    "prefix": "vars"
+  },
+  "@extends": {
+    "body": [
+      "@extends {${1:parent_type}}"
+    ],
+    "triggerAssist": false,
+    "scope": "JS_DOC",
+    "prefix": "@extends"
+  },
+  "function": {
+    "body": [
+      "function ${1:function_name} ($2) {",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "funn"
+  },
+  "Prototype": {
+    "body": [
+      "${1:class_name}.prototype.${2:method_name} \u003d function(${3:first_argument}) {",
+      "\t${0:// body...}",
+      "};"
+    ],
+    "triggerAssist": false,
+    "prefix": "proto"
+  },
+  "Object Method": {
+    "body": [
+      "${1:method_name}: function(${2:attribute}){",
+      "\t$0",
+      "}${3:,}"
+    ],
+    "triggerAssist": false,
+    "prefix": ":f"
+  },
+  "Export Class": {
+    "body": [
+      "export class ${1:name} {",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "exportclass"
+  },
+  "for let": {
+    "body": [
+      "for (let i \u003d 0; i \u003c ${1:Things}.length; i++) {",
+      "\t${1:Things}[i]",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "forl"
+  },
+  "@return": {
+    "body": [
+      "@return {${1:type}}"
+    ],
+    "triggerAssist": false,
+    "scope": "JS_DOC",
+    "prefix": "@return"
+  },
+  "@param": {
+    "body": [
+      "@param {${1:type}} ${2:param_name}"
+    ],
+    "triggerAssist": false,
+    "scope": "JS_DOC",
+    "prefix": "@param"
+  },
+  "document.getElementById": {
+    "body": [
+      "document.getElementById(\"$1\")"
+    ],
+    "triggerAssist": true,
+    "prefix": "dg"
+  },
+  "return false;": {
+    "body": [
+      "return false;"
+    ],
+    "triggerAssist": false,
+    "prefix": "returnfalse"
+  },
+  "document.write": {
+    "body": [
+      "document.write(\"$1\")"
+    ],
+    "triggerAssist": false,
+    "prefix": "dw"
+  },
+  "fori": {
+    "body": [
+      "for (var i \u003d 0; i \u003c ${1:Things}.length; i++) {",
+      "\t${1:Things}[i]",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "fori"
+  },
+  "Getter": {
+    "body": [
+      "get ${1:name}() {",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "scope": "JS_INCLASSBODY",
+    "prefix": "getter"
+  },
+  "typeof": {
+    "body": [
+      "typeof($1)\u003d\u003d\"${2:undefined}\""
+    ],
+    "triggerAssist": false,
+    "prefix": "typeoff"
+  },
+  "$(\".\")": {
+    "body": [
+      "$(\".$1\")"
+    ],
+    "triggerAssist": true,
+    "prefix": "dlclass"
+  },
+  "function*": {
+    "body": [
+      "function* ${1:name}($2) {",
+      "\tyield $0;",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "fung"
+  },
+  "Arrow function": {
+    "body": [
+      "($1) \u003d\u003e {",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "arrow"
+  },
+  "Class Extends": {
+    "body": [
+      "class ${1:name} extends ${2:AnotherClass} {",
+      "\tconstructor(${3:arg}) {",
+      "\t\t$0",
+      "\t}",
+      "\t",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "classextends"
+  },
+  "for...of": {
+    "body": [
+      "for (let ${1:s} of ${2:sequence}) {",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "forof"
+  },
+  "switch_case": {
+    "body": [
+      "switch (${1}){",
+      "\tcase ${2:value}:",
+      "\t\tbreak;",
+      "\tdefault:",
+      "\t\tbreak;",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "switchcase"
+  },
+  "Export": {
+    "body": [
+      "export ${1:default} ${2:bar}"
+    ],
+    "triggerAssist": false,
+    "prefix": "export"
+  },
+  "function_closures": {
+    "body": [
+      "(function ($1) {",
+      "\t$0",
+      "})($2)"
+    ],
+    "triggerAssist": false,
+    "prefix": "funcl"
+  },
+  "for let in": {
+    "body": [
+      "for (let ${1:var1} in ${2:var2}) {",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "forli"
+  },
+  "Class": {
+    "body": [
+      "class ${1:name} {",
+      "\tconstructor(${2:arg}) {",
+      "\t\t$0",
+      "\t}",
+      "\t",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "class"
+  },
+  "console.dir": {
+    "body": [
+      "console.dir($1)"
+    ],
+    "triggerAssist": true,
+    "prefix": "cdir"
+  },
+  "if ... else": {
+    "body": [
+      "if ($1) {",
+      "\t$0",
+      "} else{",
+      "\t",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "ife"
+  },
+  "if_compare": {
+    "body": [
+      "if ($1 \u003d\u003d ${2:true}) {",
+      "\t$0",
+      "} else{",
+      "\t",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "ifc"
+  },
+  "$(\"#\")": {
+    "body": [
+      "$(\"#$1\")"
+    ],
+    "triggerAssist": true,
+    "prefix": "dlid"
+  },
+  "use strict": {
+    "body": [
+      "\"use strict\""
+    ],
+    "triggerAssist": false,
+    "prefix": "use"
+  },
+  "setTimeout function": {
+    "body": [
+      "setTimeout(function() {$0}, ${1:10});"
+    ],
+    "triggerAssist": false,
+    "prefix": "timeout"
+  },
+  "plus.nativeUI.alert": {
+    "body": [
+      "plus.nativeUI.alert($1)"
+    ],
+    "triggerAssist": false,
+    "prefix": "pnalert"
+  },
+  "Import": {
+    "body": [
+      "import ${1:foo} from \"${2:bar}\""
+    ],
+    "triggerAssist": false,
+    "prefix": "imfrom"
+  },
+  "var xhr": {
+    "body": [
+      "var ${1:xhr} \u003d new XMLHttpRequest();",
+      "xhr.open(\"${2:POST}\",\"$3\",${4:true});"
+    ],
+    "triggerAssist": false,
+    "prefix": "varxhr"
+  },
+  "Object Value JS": {
+    "body": [
+      "${1:value_name}:${0:value},"
+    ],
+    "triggerAssist": false,
+    "prefix": ":,"
+  },
+  "typeof!": {
+    "body": [
+      "typeof($1)!\u003d\"${2:undefined}\""
+    ],
+    "triggerAssist": false,
+    "prefix": "typeof!"
+  },
+  "try{}catch(e)": {
+    "body": [
+      "try{",
+      "\t$0",
+      "}catch(e){",
+      "\t//TODO handle the exception",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "trycatch"
+  },
+  "var i\u003d0;": {
+    "body": [
+      "var ${1:i}\u003d${2:0};"
+    ],
+    "triggerAssist": false,
+    "prefix": "vari"
+  },
+  "Key:Value": {
+    "body": [
+      "${1:key} : ${2:value},"
+    ],
+    "triggerAssist": false,
+    "scope":"object.property.js",
+    "prefix": "kv"
+  },
+  "while": {
+    "body": [
+      "while (${1:condition}){",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "whilee"
+  },
+  "Object Method String": {
+    "body": [
+      "\u0027${1:${2:#thing}:${3:click}}\u0027: function(element){",
+      "\t$0",
+      "}${4:,}"
+    ],
+    "triggerAssist": false,
+    "prefix": ":f"
+  },
+  "for (...) {...}": {
+    "body": [
+      "for ($1) {",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "forr"
+  },
+  "if": {
+    "body": [
+      "if ($1) {",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "iff"
+  },
+  "navigator.userAgent;": {
+    "body": [
+      "navigator.userAgent"
+    ],
+    "triggerAssist": false,
+    "prefix": "nuser"
+  },
+  "constructor": {
+    "body": [
+      "constructor(${1:arg}) {",
+      "    $0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "scope": "class.body.js",
+    "prefix": "cons"
+  },
+  "with": {
+    "body": [
+      "with ($1){",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "withh"
+  },
+  "var c \u003d canvas": {
+    "body": [
+      "var ${2:c} \u003d document.getElementById(\"$1\").getContext(\"2d\");"
+    ],
+    "triggerAssist": true,
+    "prefix": "varc"
+  },
+  "@type": {
+    "body": [
+      "@type {${1:type}}"
+    ],
+    "triggerAssist": false,
+    "scope": "comment.doc.js",
+    "prefix": "@type"
+  },
+  "plus.webview": {
+    "body": [
+      "plus.webview."
+    ],
+    "triggerAssist": true,
+    "prefix": "pweb"
+  },
+  "$(\"\")": {
+    "body": [
+      "$(\"$1\")"
+    ],
+    "triggerAssist": true,
+    "prefix": "dl"
+  },
+  "Setter": {
+    "body": [
+      "set ${1:property}(${2:value}) {",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "scope": "class.body.js",
+    "prefix": "setter"
+  },
+  "Object key - key: \"value\"": {
+    "body": [
+      "${1:key}: ${2:\"${3:value}\"}${4:, }"
+    ],
+    "triggerAssist": false,
+    "prefix": ":"
+  },
+  "document.querySelectorAll": {
+    "body": [
+      "document.querySelectorAll(\"$1\")"
+    ],
+    "triggerAssist": true,
+    "prefix": "dqs"
+  },
+  "return true;": {
+    "body": [
+      "return true;"
+    ],
+    "triggerAssist": false,
+    "prefix": "rtrue"
+  },
+  "var a\u003d[];": {
+    "body": [
+      "var ${1:a}\u003d[$2];"
+    ],
+    "triggerAssist": false,
+    "prefix": "vara"
+  },
+  "$ (document.getElementById)": {
+    "body": [
+      "document.getElementById(\"$1\")"
+    ],
+    "triggerAssist": true,
+    "prefix": "$$$"
+  },
+  "var l\u003da.length;": {
+    "body": [
+      "var ${1:l}\u003d${2:a}.length;"
+    ],
+    "triggerAssist": false,
+    "prefix": "varl"
+  },
+  "function_anonymous": {
+    "body": [
+      "function ($1) {",
+      "\t$0",
+      "}"
+    ],
+    "triggerAssist": false,
+    "prefix": "funan"
+  },
+  "export default": {
+  	"body": [
+  		"export default {",
+  		"\t$0",
+  		"}"
+  	],
+  	"triggerAssist": false,
+  	"prefix": "edefault"
+  },
+  "module.exports": {
+  	"body": [
+  		"module.exports \u003d {",
+  		"\t$0",
+  		"}"
+  	],
+  	"triggerAssist": false,
+  	"prefix": "mexports"
+  }
+}

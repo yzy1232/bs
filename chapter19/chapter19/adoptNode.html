@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>adoptNode()方法</title>
+    <style>
+        a{text-decoration: none;color: blueviolet;}
+        section {display: flex;flex-flow: row wrap;width: 300px;}
+        div{width: 280px; display: flex;justify-content: center; align-items: center;}
+        button{margin: 0 5px;}
+        aside {border: 1px solid blue;margin: 5px;width: 130px;}
+        li {list-style-type: none;}
+    </style>
+</head>
+
+<body>
+    <section>
+        <aside>
+            <ul id="left">
+                <li><a href="">标题1</a></li>
+                <li><a href="">标题2</a></li>
+                <li><a href="">标题3</a></li>
+            </ul>
+        </aside>
+        <aside>
+            <ul id="right"></ul>
+        </aside>
+    </section>
+    <div>
+        <button id="leftmove">&lt;=</button>
+        <button id="rightmove">=&gt;</button>
+    </div>
+    <script>
+        function getAsideElementd(leftid,rightid) {
+            let element = document.getElementById(leftid).firstElementChild;
+            if (element) {
+                document.getElementById(rightid).appendChild(document.adoptNode(element));
+            }
+        }
+        document.getElementById("rightmove").addEventListener('click', function () {
+            getAsideElementd('left','right');
+        },false);
+        document.getElementById("leftmove").addEventListener('click', function () {
+            getAsideElementd('right','left');
+        },false);
+    </script>
+    <!-- <iframe src="iframe.html"></iframe> -->
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>InputEvent</title>
+</head>
+
+<body>
+    <p contenteditable="true">尝试粘贴一些内容到这个可编辑的段落，看看会发生什么！</p>
+    <p class="result"></p>
+    <script>
+        var editable = document.querySelector('p[contenteditable]');
+        var result = document.querySelector('.result')
+        editable.addEventListener('input', (e) => {
+            result.innerText = `变更类型：${e.inputType}\ndataTransfer：${e.dataTransfer.getData('text/html')}`;
+        });
+    </script>
+</body>
+
+</html>

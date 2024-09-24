@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>justify-content属性</title>
+    <style>
+        .box {
+            display: flex;width: 100%;max-width: 460px;min-width: 260px;
+            margin: 10px;height: 30px;border-radius: 5px;background-color: hsl(0, 1%, 70%);
+        }
+        .box div {margin: 5px;border-radius: 5px;background: hsl(0, 1%, 30%);color: hsl(0, 100%, 100%);}
+        #box1 {justify-content: flex-start;}
+        #box2 {justify-content: flex-end;}
+        #box3 {justify-content: center;}
+        #box4 {justify-content: space-between;}
+        #box5 {justify-content: space-around;}
+    </style>
+</head>
+
+<body>
+    <div id="box1" class="box">
+        <div>flex-start</div>
+        <div>flex-start</div>
+        <div>flex-start</div>
+    </div>
+    <div id="box2" class="box">
+        <div>flex-end</div>
+        <div>flex-end</div>
+        <div>flex-end</div>
+    </div>
+    <div id="box3" class="box">
+        <div>center</div>
+        <div>center</div>
+        <div>center</div>
+    </div>
+    <div id="box4" class="box">
+        <div>space-between</div>
+        <div>space-between</div>
+        <div>space-between</div>
+    </div>
+    <div id="box5" class="box">
+        <div>space-around</div>
+        <div>space-around</div>
+        <div>space-around</div>
+    </div>
+</body>
+
+</html>

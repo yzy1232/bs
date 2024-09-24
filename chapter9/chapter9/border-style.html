@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>border-style属性</title>
+    <style>
+        body{display: flex;flex-flow: row wrap;}
+        div{width: 230px;margin: 5px;}
+        p {
+            border-color: hsl(0, 100%, 50%);
+        }
+
+        p.dotted {
+            border-style: dotted;
+        }
+
+        p.dashed {
+            border-style: dashed;
+            background-color: hsl(80, 100%, 60%);
+        }
+
+        p.solid {
+            border-style: solid;
+        }
+
+        p.double {
+            border-style: double;
+        }
+
+        p.groove {
+            border: groove 10px;
+        }
+
+        p.ridge {
+            border: ridge 10px;
+        }
+
+        p.inset {
+            border: inset 10px;
+        }
+
+        p.outset {
+            border: outset 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p class="dotted">dotted：点状</p>
+        <p class="dashed">dashed：虚线</p>
+        <p class="solid">solid：实线</p>
+        <p class="double">double：双线</p>
+    </div>
+    <div>
+        <p class="groove">groove：3D凹槽</p>
+        <p class="ridge">ridge：3D垄状</p>
+        <p class="inset">inset：3D嵌入</p>
+        <p class="outset">outset：3D凸起</p>
+    </div>
+</body>
+
+</html>

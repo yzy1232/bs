@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fullscreenchange和fullscreenerror</title>
+</head>
+
+<body>
+    <h1>正常模式</h1>
+    <script>
+        document.addEventListener('click', function (event) {
+            if (document.fullscreenElement) {
+                document.exitFullscreen()
+            } else {
+                document.documentElement.requestFullscreen()
+            }
+        }, false)
+        document.addEventListener("fullscreenchange", function () {
+            let h1 = document.querySelector('h1');
+            if (document.fullscreenElement) {
+                h1.innerHTML = "全屏模式";
+            } else {
+                h1.innerHTML = "正常模式";
+            }
+        }); 
+    </script>
+</body>
+
+</html>

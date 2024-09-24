@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KeyboardEvent</title>
+    <style>
+        #output {
+            border: 1px solid black;
+            width: 300px;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            window.addEventListener("keydown", function () {
+                let str = `key：${event.key}，code：${event.code}<br>`;
+                if (event.getModifierState('Control') + event.getModifierState('Alt') > 1) {
+                    str += 'Control和Alt同时按下<br>';
+                }
+                let el = document.createElement("span");
+                el.innerHTML = str ;
+                document.getElementById("output").appendChild(el);
+            }, true);
+        }, false);
+    </script>
+</head>
+
+<body>
+    <div>按任意字符键，也可以和SHIFT键一起。</div>
+    <div id="output"></div>
+</body>
+
+</html>

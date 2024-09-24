@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin属性</title>
+    <style>
+        body{display: flex;flex-flow: row wrap;}
+        div {
+            border: 1px solid hsl(0, 100%, 50%);
+            width: 150px;
+            height: 50px;
+        }
+
+        div.margin {
+            margin: 10px 20px 0px 20px;
+        }
+        /* #d1{margin-bottom: 20px;}
+        #d2{margin-top: 10px;} */
+    </style>
+</head>
+
+<body>
+    <div>没有外边距。</div>
+    <div class="margin">外边距为10px 20px 0px 20px。</div>
+    <div>没有外边距。</div>
+    <!-- <div id="d1">下外边距20px。</div>
+    <div id="d2">上外边距10px。</div> -->
+</body>
+
+</html>

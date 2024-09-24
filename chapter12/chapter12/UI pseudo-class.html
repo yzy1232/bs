@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI伪类</title>
+    <style>
+        #t1:hover {background-color: hsl(120, 100%, 50%);}
+        /*不使用:focus时，可以看到效果。*/
+        #t1:active {background-color: hsl(240, 100%, 50%);}
+        /* #t1:focus {background-color: hsl(0, 100%, 50%);} */
+        #t2:enabled {background-color: hsl(120, 100%, 50%);}
+        #t3:disabled {background-color: hsl(0, 5%, 60%);}
+        input[id^="c"] {width: 15px;height: 15px;}
+        #c1:checked {outline: solid 2px hsl(0, 100%, 50%);}
+        input[type="checkbox"]:default {outline: 2px solid hsl(0, 100%, 50%);}
+        input[type="radio"]:indeterminate {outline: solid 2px hsl(240, 100%, 50%);}
+        #t4:read-write {background-color: hsl(300, 100%, 30%);}
+        #t5:read-only {background-color: hsl(180, 100%, 50%);}
+        p::selection {background-color: hsl(0, 100%, 50%);}
+        input[type="email"]:valid {background-color: hsl(0, 100%, 50%);}
+        input[type="email"]:invalid {background-color: hsl(0, 5%, 60%);}
+        input[type="text"]:required {border-color: hsl(0, 100%, 50%);}
+        input[type="text"]:optional {border-color: hsl(120, 100%, 50%);}
+        input[type="number"]:in-range {background-color: hsl(0, 100%, 100%);}
+        input[type="number"]:out-of-range {background-color: hsl(0, 100%, 50%);}
+    </style>
+</head>
+
+<body>
+    <form action="" method="get">
+        <div><label>鼠标移动上去文本框背景色变成绿色，获得焦点背景色变成红色。<input type="text" id="t1" name="t1"></label>
+        </div>
+        <div><label>文本框可用时背景颜色变成绿色。<input type="text" id="t2" name="t2"></label></div>
+        <div><label>文本框不可用时背景颜色变成灰色。<input type="text" id="t3" name="t3" disabled></label></div>
+        <div><label>选中<input type="checkbox" id="c1" name="c1"></label></div>
+        <div><label>默认选中<input type="checkbox" id="c2" name="c2" checked></label></div>
+        <div><label>都没选中</label><label><input type="radio" name="radio" value="male" />男</label><label><input
+                    type="radio" name="radio" value="female" />女</label></div>
+        <div><label>文本框可读写。<input type="text" id="t4" name="t4"></label></div>
+        <div><label>文本框只读。<input type="text" id="t5" name="t5" readonly></label></div>
+        <p>选择的文字背景会变成红色。</p>
+        <div><label>输入符合email格式的字符<input type="email" required></label></div>
+        <div><label>输入任意字符<input type="text" required></label></div>
+        <div><label>输入1到100之内的数值<input type=number min=0 max=100></label></div>
+    </form>
+</body>
+
+</html>

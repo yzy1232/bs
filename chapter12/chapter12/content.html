@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>content属性值</title>
+    <style>
+        ul{display: flex;flex-flow: row wrap;}
+        * {padding: 0px;margin: 0px 1px;}
+        li {list-style-type: none;margin: 0px 5px;}
+        .string p::after {background: hsl(0, 5%, 40%);content: "插入文本内容";color: hsl(0, 100%, 100%);}
+        .attr p::after {content: attr(title);color: hsl(0, 100%, 50%);}
+        .url p::before {content: url(images/w3c_home.png);}
+        .l1 li {counter-increment: ci1 2;}
+        .l1 li::before {content: "第"counter(ci1)".";color: hsl(0, 100%, 50%);padding-right: 3px;}
+        .l2 li {counter-increment: ci2;}
+        .l2 li {quotes: "（""）";}
+        .l2 li::before {
+            content: open-quote counter(ci2, lower-roman) close-quote;
+            color: hsl(0, 100%, 50%);padding-right: 3px;
+        }
+        .l3 li {counter-increment: ci3;}
+        .l3 li::before {content: counter(ci3, decimal)".";color: hsl(0, 100%, 50%);padding-right: 3px;}
+        .l3 li li {counter-increment: ci4;}
+        .l3 li li::before {content: counter(ci3, decimal)"."counter(ci4, decimal)".";}
+        .l3 li li li {counter-increment: ci5;}
+        .l3 li li li::before {content: counter(ci3, decimal)"."counter(ci4, decimal)"."counter(ci5, decimal)".";}
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li class="string">
+            <h3>string</h3>
+            <p>content属性与::before及::after伪元素一起使用。</p>
+        </li>
+        <li class="attr">
+            <h3>attr</h3>
+            <p title="这是个测试">获取段落的提示信息。</p>
+        </li>
+        <li class="url">
+            <h3>url()</h3>
+            <p>插入外部资源。</p>
+        </li>
+        <li class="l1">
+            <h3>counter(name)</h3>
+            <ol>
+                <li>列表项</li>
+                <li>列表项</li>
+                <li>列表项</li>
+            </ol>
+        </li>
+        <li class="l2">
+            <h3>counter(name,list-style-type)</h3>
+            <ol>
+                <li>列表项</li>
+                <li>列表项</li>
+                <li>列表项</li>
+            </ol>
+        </li>
+        <li class="l3">
+            <h3>综合应用</h3>
+            <ol>
+                <li>列表项
+                    <ol>
+                        <li>列表项
+                            <ol>
+                                <li>列表项</li>
+                                <li>列表项</li>
+                            </ol>
+                        </li>
+                        <li>列表项</li>
+                    </ol>
+                </li>
+                <li>列表项
+                    <ol>
+                        <li>列表项</li>
+                        <li>列表项</li>
+                    </ol>
+                </li>
+                <li>列表项
+                    <ol>
+                        <li>列表项</li>
+                        <li>列表项</li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+    </ul>
+</body>
+
+</html>

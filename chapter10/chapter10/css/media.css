@@ -1,0 +1,26 @@
+/*视口宽度小于320px，背景颜色为灰色。*/
+body {background-color: grey;}
+/*视口宽度大于320px，背景颜色为绿色。*/
+@media screen and (min-width: 320px) {
+  body {
+    background-color: green;
+  }
+}
+/*视口宽度大于550px，背景颜色为黄色。*/
+@media screen and (min-width: 550px) {
+  body {
+    background-color: yellow;
+  }
+}
+/*视口宽度大于768px，背景颜色为橙色。*/
+@media screen and (min-width: 768px) {
+  body {
+    background-color: orange;
+  }
+}
+/*视口宽度大于960px，背景颜色为红色。*/
+@media screen and (min-width: 960px) {
+  body {
+    background-color: red;
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MouseEventAttribute</title>
+    <style>
+        body{height: 1000px;}
+    </style>
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementsByTagName('div')[0].addEventListener('click', function(){
+                event.stopPropagation();
+                document.querySelector('span').innerText = `按下ALT键：${event.altKey}
+                按下CTRL键：${event.ctrlKey}
+                按下META键：${event.metaKe}
+                按下SHIFT键：${event.shiftKey}`;
+                }, false);
+
+            function logMouseButton(e) {
+                var bfc = document.querySelector('#button').firstChild;
+                bfc.textContent = '单击鼠标按钮会输出按了哪个键？';
+                switch (e.button) {
+                    case 0:
+                        bfc.textContent += '左键单击';
+                        break;
+                    case 1:
+                        bfc.textContent += '中键单击';
+                        break;
+                    case 2:
+                        bfc.textContent += '右键单击';
+                        break;
+                    default:
+                        bfc.textContent += `未知按钮代码： ${e.button}`;
+                }
+            }
+            document.querySelector('#button').addEventListener('mousedown', logMouseButton, false);
+
+            document.body.addEventListener('click', function(){
+                document.querySelector('span').innerText = `clientX：${event.clientX}，clientY：${event.clientY}
+                screenX：${event.screenX}，screenY：${event.screenY}
+                offsetX：${event.offsetX}，offsetY：${event.offsetY}
+                pageX：${event.pageX}，pageY：${event.pageY}`;
+            }, false);
+        }, false)
+    </script>
+</head>
+
+<body>
+    <div>在此行单击鼠标左键会显示是否同时按下ALT、CTRL、SHIFT或META</div>
+    <button id="button">单击鼠标按钮会输出按了哪个键？</button>
+    <br><span></span>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module</title>
+</head>
+
+<body>
+    <div></div>
+    <script type="module">
+        var div = document.querySelector('div');
+        //导入命名导出
+        import { cube, foo, graph } from './js/module.js';
+        //导入默认导出
+        import area from './js/module.js';
+        graph.options = {
+            color: 'blue',
+            thickness: '3px'
+        };
+        div.innerHTML = `${graph.draw()}color=${graph.options.color},thickness=${graph.options.thickness}<br>
+        3<sup>3</sup> = ${cube(3)}<br>
+        Math.PI + Math.SQRT2 = ${foo}<br>
+        圆面积 = ${area(2)}<br>`;
+    </script>
+</body>
+
+</html>

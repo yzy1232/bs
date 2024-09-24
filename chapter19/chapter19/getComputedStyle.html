@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>getComputedStyle()方法</title>
+    <style>
+        h3::after {content: "伪元素";color: red;}
+    </style>
+</head>
+
+<body>
+    <h3>::after内容：</h3>
+    <div id="result"></div>
+    <script>
+        var h3 = document.querySelector('h3');
+        var content = getComputedStyle(h3, '::after').content;
+        var color = getComputedStyle(h3, '::after').color;
+        // var content = window.getComputedStyle(h3, '::after').getPropertyValue('content');
+        // var color = window.getComputedStyle(h3, '::after').getPropertyValue('color');
+        document.querySelector('#result').innerHTML = `content：${content}, color：${color}`;
+    </script>
+</body>
+
+</html>

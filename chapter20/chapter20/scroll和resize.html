@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>scroll和resize</title>
+</head>
+
+<body>
+    <div></div>
+    <p>文档滚动或窗口调整</p>
+    <p>文档滚动或窗口调整</p>
+    <p>文档滚动或窗口调整</p>
+    <p>文档滚动或窗口调整</p>
+    <p>文档滚动或窗口调整</p>
+    <script>
+        //每次scroll和resize事件都会执行throttler函数。
+        window.addEventListener("resize", throttler, false);
+        window.addEventListener("scroll", throttler, false);
+        var timeout;
+        function throttler(e) {
+            //只要有actualResizeHandler执行，就忽略事件。
+            if (!timeout) {
+                //定时器setTimeout，每66毫秒触发一次（每秒15次）真正执行的任务actualScrollHandler。
+                timeout = setTimeout(function () {
+                    timeout = null;
+                    actualResizeHandler(e);
+                }, 1000);
+            }
+        }
+        function actualResizeHandler(e) {
+            document.querySelector('div').innerText += `正在${e.type}，`;
+        }
+    </script>
+</body>
+
+</html>

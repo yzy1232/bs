@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>getClientRects()方法</title>
+    <style>
+        div {display: inline-block; width: 150px;}
+        p,span {border: 1px solid blue;}
+    </style>
+</head>
+
+<body>
+    <div>
+        <p class="clientRectsOverlay">对于块状元素，总是返回一个边界矩形。</p>
+    </div>
+    <div>
+        <span class="clientRectsOverlay">对于行内元素，每占据一行就返回一个边界矩形。</span>
+    </div>
+    <script>
+        function addClientRectsOverlay(elt) {
+            //给每个边界矩形上方绝对定位一个div，边框宽度与边界矩形宽度一致。
+            let rects = elt.getClientRects();
+            for (let i = 0; i != rects.length; i++) {
+                let rect = rects[i];
+                let rectDiv = document.createElement('div');
+                rectDiv.style.position = 'absolute';
+                rectDiv.style.border = '1px solid red';
+                let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                let scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft;
+                rectDiv.style.margin = '0';
+                rectDiv.style.padding = '0';
+                rectDiv.style.top = `${rect.top + scrollTop}px`;
+                rectDiv.style.left = `${rect.left + scrollLeft}px`;
+                //内容宽度减少2px，用作边框宽度
+                rectDiv.style.width = `${rect.width - 2}px`;
+                rectDiv.style.height = `${rect.height - 2}px`;
+                document.body.appendChild(rectDiv);
+            }
+        }
+        (function () {
+            let elt = document.getElementsByClassName('clientRectsOverlay');
+            for (let i = 0; i < elt.length; i++) {
+                addClientRectsOverlay(elt[i]);
+            }
+        })();
+    </script>
+</body>
+
+</html>

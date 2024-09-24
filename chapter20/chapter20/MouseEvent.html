@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MouseEvent</title>
+</head>
+
+<body>
+    <label><input type="checkbox" id="checkbox">checkbox</label>
+    <button id="button">单击按钮在复选框上模拟一个click事件</button>
+    <script>
+        function simulateClick() {
+            let evt = new MouseEvent("click", {
+                bubbles: true,
+                cancelable: true,
+            });
+            document.getElementById("checkbox").dispatchEvent(evt);
+        }
+        document.getElementById("button").addEventListener('click', simulateClick, false);
+    </script>
+
+</body>
+
+</html>

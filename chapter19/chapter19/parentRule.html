@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>parentRule</title>
+    <style id="myStyle">
+        @media screen and (min-width: 400px){
+            main{display: flex;}
+        }
+        aside,article{margin: 0 5px;}
+    </style>
+</head>
+<body>
+    <main>
+        <aside>aside</aside>
+        <article>article</article>
+        <aside>aside</aside>
+    </main>
+    <div></div>
+    <script>
+        var myStyleSheet = document.getElementById('myStyle').sheet;
+        var ruleList = myStyleSheet.cssRules;
+        var rule0 = ruleList[0];
+        var str= `父样式规则：${rule0.cssText}\n`;
+        //子样式规则也是CSSRuleList实例，所以使用cssRules属性获得。
+        var ruleList1 = rule0.cssRules;
+        var rule1 = ruleList1[0];
+        str += `子样式规则：${rule1.cssText}
+        父规则：${rule0}
+        子规则的父规则：${rule1.parentRule}
+        父规则类型：${rule0.type}
+        子规则类型：${rule1.type}`;
+        document.getElementsByTagName('div')[0].innerText = str;
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网格align-items和justify-items属性</title>
+    <style>
+        [class^="item"]{
+            background-color: hsl(120, 60%, 40%);color: hsl(0, 100%, 100%);
+            display: flex;justify-content: center;align-items: center;
+            border: 1px solid hsl(0, 50%, 0%);
+        }
+        .container {
+            border: 1px solid hsl(0, 50%, 0%);padding: 5px;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-gap: 5px;
+            grid-auto-rows: 40px;
+            grid-template-areas:
+                "a a a a a a"
+                "a a a a a a"
+                "b b c c d d"
+                "b b c c d d";
+            /* align-items:start; */
+            align-items:stretch;
+            justify-items: stretch;
+        }
+        .item1 {grid-area: a;}
+        .item2 {
+            grid-area: b;
+            align-self: start;
+            justify-self: start;
+        }
+        .item3 {
+            grid-area: c;
+            align-self: center;
+            justify-self: center;
+        }
+        .item4 {
+            grid-area: d;
+            align-self: end;
+            justify-self: end;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item1"><p>网格项目1</p></div>
+        <div class="item2"><p>网格项目2</p></div>
+        <div class="item3"><p>网格项目3</p></div>
+        <div class="item4"><p>网格项目4</p></div>
+    </div>
+</body>
+
+</html>

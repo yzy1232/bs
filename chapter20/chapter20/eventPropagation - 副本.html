@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>eventPropagation</title>
+</head>
+
+<body>
+    <div>
+        <span>单击（click）</span>
+    </div>
+    <p></p>
+    <script>
+        var phases = {
+            1: '捕获阶段',
+            2: '目标阶段',
+            3: '冒泡阶段'
+        };
+        var div = document.querySelector('div');
+        var span = document.querySelector('span');
+        window.addEventListener('click', callback, true);
+        document.addEventListener('click', callback, true);
+        document.documentElement.addEventListener('click', callback, true);
+        document.body.addEventListener('click', callback, true);
+        div.addEventListener('click', callback, true);
+        span.addEventListener('click', callback, true);
+        window.addEventListener('click', callback, false);
+        document.addEventListener('click', callback, false);
+        document.documentElement.addEventListener('click', callback, false);
+        document.body.addEventListener('click', callback, false);
+        div.addEventListener('click', callback, false);
+        span.addEventListener('click', callback, false);
+
+        function callback(event) {
+            var tag = event.currentTarget.nodeName;
+            if (tag === undefined) { tag = 'window'};
+            var phase = phases[event.eventPhase];
+            var p = document.querySelector('p');
+            p.innerText += "事件对象：" + tag + "，事件阶段：" + phase + "\n";
+        }
+    </script>
+</body>
+
+</html>

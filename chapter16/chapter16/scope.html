@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>变量作用域</title>
+  <script>
+    var name = '华为';
+    function f() {
+      var name = '大疆';
+      if (true) {
+        let name = 'WPS';
+        document.write('变量name在块级作用域值：' + name + '<br>');
+      }
+      document.write('变量name在函数作用域值：' + name + '<br>');
+    }
+    f();
+    document.write('变量name在全局作用域值：' + name);
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>

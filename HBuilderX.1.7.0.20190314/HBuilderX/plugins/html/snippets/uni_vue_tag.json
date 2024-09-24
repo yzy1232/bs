@@ -1,0 +1,497 @@
+{
+    "uSwiper": {
+        "body": [
+            "<swiper :indicator-dots=\"true\" :autoplay=\"true\" :interval=\"3000\" :duration=\"1000\">",
+            "\t<swiper-item>",
+            "\t\t<view class=\"swiper-item\">$1</view>",
+            "\t</swiper-item>",
+            "\t<swiper-item>",
+            "\t\t<view class=\"swiper-item\">$2</view>",
+            "\t</swiper-item>",
+            "\t<swiper-item>",
+            "\t\t<view class=\"swiper-item\">$0</view>",
+            "\t</swiper-item>",
+            "</swiper>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uswiper"
+    },
+    "uGrid": {
+        "body": [
+            "<view class=\"uni-grid-9\">",
+            "\t<view class=\"uni-grid-9-item\" hover-class=\"uni-grid-9-item-hover\">",
+            "\t\t<text class=\"uni-grid-9-text\">grid1$1</text>",
+            "\t</view>",
+            "\t<view class=\"uni-grid-9-item\" hover-class=\"uni-grid-9-item-hover no-border-right\">",
+            "\t\t<text class=\"uni-grid-9-text\">grid2$2</text>",
+            "\t</view>",
+            "\t<view class=\"uni-grid-9-item\" hover-class=\"uni-grid-9-item-hover\">",
+            "\t\t<text class=\"uni-grid-9-text\">grid3$3</text>",
+            "\t</view>",
+            "\t<view class=\"uni-grid-9-item\" hover-class=\"uni-grid-9-item-hover\">",
+            "\t\t<text class=\"uni-grid-9-text\">grid4$4</text>",
+            "\t</view>",
+            "\t<view class=\"uni-grid-9-item\" hover-class=\"uni-grid-9-item-hover no-border-right\">",
+            "\t\t<text class=\"uni-grid-9-text\">grid5$5</text>",
+            "\t</view>",
+            "\t<view class=\"uni-grid-9-item\" hover-class=\"uni-grid-9-item-hover\">",
+            "\t\t<text class=\"uni-grid-9-text\">grid6$0</text>",
+            "\t</view>",
+            "</view>"
+        ],
+        "triggerAssist": false,
+        "prefix": "ugrid"
+    },
+    "uList": {
+        "body": [
+            "<view class=\"uni-list\">",
+            "\t<view class=\"uni-list-cell\" v-for=\"(item,index) in list\" :key=\"index\">",
+            "\t\t<view class=\"uni-list-cell-navigate uni-navigate-right\">",
+            "\t\t\t{{item.value}}",
+            "\t\t</view>",
+            "\t</view>",
+            "</view>"
+        ],
+        "triggerAssist": false,
+        "prefix": "ulist"
+    },
+    "uListMedia": {
+        "body": [
+            "<view class=\"uni-list\">",
+            "\t<view class=\"uni-list-cell\" hover-class=\"uni-list-cell-hover\" v-for=\"(item,index) in list$1\" :key=\"index\">",
+            "\t\t<view class=\"uni-media-list\">",
+            "\t\t\t<image class=\"uni-media-list-logo\" :src=\"item.img$2\"></image>",
+            "\t\t\t<view class=\"uni-media-list-body\">",
+            "\t\t\t\t<view class=\"uni-media-list-text-top\">{{item.title$3}}</view>",
+            "\t\t\t\t<view class=\"uni-media-list-text-bottom uni-ellipsis\">{{item.content$4}}</view>",
+            "\t\t\t</view>",
+            "\t\t</view>",
+            "\t</view>",
+            "</view>"
+        ],
+        "triggerAssist": false,
+        "prefix": "ulistmedia"
+    },
+    "uCheckbox": {
+        "body": [
+            "<label class=\"checkbox\">",
+            "\t<checkbox value=\"$1\" checked= />$0",
+            "</label>"
+        ],
+        "triggerAssist": false,
+        "prefix": "ucheckbox"
+    },
+    "uRadio": {
+        "body": [
+            "<label class=\"radio\">",
+            "\t<radio value=\"$1\" checked= />$0",
+            "</label>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uradio"
+    },
+    "uSwitch": {
+    	"body": [
+    		"<switch checked @change=\"$1\" />"
+    	],
+    	"triggerAssist": false,
+    	"prefix": "uswitch"
+    },
+    "uButton": {
+    	"body": [
+    		"<button type=\"primary\">$1</button>"
+    	],
+    	"triggerAssist": false,
+    	"prefix": "ubutton"
+    },
+    "uSlider": {
+    	"body": [
+    		"<slider @change=\"$1\" show-value$0/>"
+    	],
+    	"triggerAssist": false,
+    	"prefix": "uslider"
+    },
+    "uTemplate": {
+        "body": [
+            "<template>",
+            "\t<view>$0</view>",
+            "</template>"
+        ],
+        "triggerAssist": false,
+        "prefix": "utemplate"
+    },
+    "uView": {
+        "body": [
+            "<view class=\"$1\">$0</view>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uview"
+    },
+    "uScrollView": {
+        "body": [
+            "<scroll-view scroll-y$1>",
+            "\t<view>$0</view>",
+            "\t<view></view>",
+            "\t<view></view>",
+            "\t<view></view>",
+            "</scroll-view>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uscrollview"
+    },
+    "uImage": {
+        "body": [
+            "<image src=\"$1\" mode=\"$2\">$0</image>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uimage"
+    },
+    "uInput": {
+        "body": [
+            "<input type=\"text$1\" value=\"$0\" />"
+        ],
+        "triggerAssist": false,
+        "prefix": "uinput"
+    },
+    "uTextarea": {
+        "body": [
+            "<textarea value=\"$1\" placeholder=\"$0\" />"
+        ],
+        "triggerAssist": false,
+        "prefix": "utextarea"
+    },
+    "uPicker": {
+        "body": [
+            "<picker mode=\"$1\" :range=\"$2\" @change=\"$3\">",
+            "\t<view>picker组件</view>",
+            "</picker>"
+        ],
+        "triggerAssist": false,
+        "prefix": "upicker"
+    },
+    "uForm": {
+        "body": [
+            "<form @submit=\"formSubmit\" @reset=\"formReset\">",
+            "\t<view class=\"section section_gap\">",
+            "\t\t<view class=\"section__title\">switch$1</view>",
+            "\t\t<switch name=\"switch\" />",
+            "\t</view>",
+            "\t<view class=\"section section_gap\">",
+            "\t\t<view class=\"section__title\">slider</view>",
+            "\t\t<slider name=\"slider\" show-value></slider>",
+            "\t</view>",
+            "\t<view class=\"section\">",
+            "\t\t<view class=\"section__title\">input</view>",
+            "\t\t<input name=\"input\" placeholder=\"please input here\" />",
+            "\t</view>",
+            "\t<view class=\"section section_gap\">",
+            "\t\t<view class=\"section__title\">radio</view>",
+            "\t\t<radio-group name=\"radio-group\">",
+            "\t\t<label>",
+            "\t\t\t<radio value=\"radio1\" />radio1</label>",
+            "\t\t<label>",
+            "\t\t\t<radio value=\"radio2\" />radio2</label>",
+            "\t\t</radio-group>",
+            "\t</view>",
+            "\t<view class=\"section section_gap\">",
+            "\t\t<view class=\"section__title\">checkbox</view>",
+            "\t\t<checkbox-group name=\"checkbox\">",
+            "\t\t\t<label>",
+            "\t\t\t\t<checkbox value=\"checkbox1\" />checkbox1</label>",
+            "\t\t\t<label>",
+            "\t\t\t\t<checkbox value=\"checkbox2\" />checkbox2</label>",
+            "\t\t</checkbox-group>",
+            "\t</view>",
+            "\t<view class=\"btn-area\">",
+            "\t\t<button formType=\"submit\">Submit</button>",
+            "\t\t<button formType=\"reset\">Reset</button>",
+           "\t</view>",
+            "</form>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uform"
+    },
+    "uText": {
+        "body": [
+            "<text>$0</text>"
+        ],
+        "triggerAssist": false,
+        "prefix": "utext"
+    },
+    "uRichText": {
+        "body": [
+            "<rich-text :nodes=\"$1\"></rich-text>"
+        ],
+        "triggerAssist": false,
+        "prefix": "urichtext"
+    },
+    "uProgress": {
+        "body": [
+            " <progress percent=\"$1\" show-info$0 />"
+        ],
+        "triggerAssist": false,
+        "prefix": "uprogress"
+    },
+    "uPickerView": {
+        "body": [
+            "<picker-view indicator-style=\"height: 50px;\" :value=\"value$1\" @change=\"bindChange\">",
+            "\t<picker-view-column>",
+            "\t\t$0",
+            "\t</picker-view-column>",
+            "\t<picker-view-column>",
+            "\t\t$2",
+            "\t</picker-view-column>",
+            "\t<picker-view-column>",
+            "\t\t",
+            "\t</picker-view-column>",
+            "</picker-view>"
+        ],
+        "triggerAssist": false,
+        "prefix": "upickerview"
+    },
+    "uWebView": {
+        "body": [
+            "<web-view src=\"$1\"></web-view>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uwebview"
+    },
+    "uMap": {
+        "body": [
+            "<map :latitude=\"$1\" :longitude=\"$0\"></map>"
+        ],
+        "triggerAssist": false,
+        "prefix": "umap"
+    },
+    "uVideo": {
+        "body": [
+            "<video src=\"$1\" controls></video>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uvideo"
+    },
+    "uAudio": {
+        "body": [
+            "<audio :src=\"$1\" :poster=\"$0\" :name=\"$2\" :author=\"$3\" :action=\"$4\" controls></audio>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uaudio"
+    },
+    "uNavigator": {
+        "body": [
+            "<navigator url=\"$1\">$0</navigator>"
+        ],
+        "triggerAssist": false,
+        "prefix": "unavigator"
+    },
+    "uBadge": {
+        "body": [
+            "<uni-badge text=\"$1\" type=\"$2\"></uni-badge>"
+        ],
+        "triggerAssist": false,
+        "prefix": "ubadge"
+    },
+    "uTag": {
+        "body": [
+            "<uni-tag text=\"$1\" type=\"$2\"></uni-tag>"
+        ],
+        "triggerAssist": false,
+        "prefix": "utag"
+    },
+    "uNumberBox": {
+        "body": [
+            "<uni-number-box @change=\"$1\"></uni-number-box>"
+        ],
+        "triggerAssist": false,
+        "prefix": "unumberbox"
+    },
+    "uIcon": {
+        "body": [
+            "<uni-icon type=\"$1\"></uni-icon>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uicon"
+    },
+    "uLoadMore": {
+        "body": [
+            "<uni-load-more :loadingType=\"$1\" :contentText=\"$2\"></uni-load-more>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uloadmore"
+    },
+    "uNavBar": {
+        "body": [
+            "<uni-nav-bar left-icon=\"back\" left-text=\"返回\" right-text=\"菜单\" title=\"标题$1\"></uni-nav-bar>"
+        ],
+        "triggerAssist": false,
+        "prefix": "unavbar"
+    },
+    "uPopup": {
+        "body": [
+            "<uni-popup msg=\"$1\" :show=\"true$2\" type=\"middle$3\"></uni-popup>"
+        ],
+        "triggerAssist": false,
+        "prefix": "upopup"
+    },
+    "uDrawer": {
+        "body": [
+            "<uni-drawer :visible=\"$1\">",
+            "\t<view style=\"padding:30upx;\">",
+            "\t\t$2",
+            "\t</view>",
+            "</uni-drawer>"
+        ],
+        "triggerAssist": false,
+        "prefix": "upopup"
+    },
+    "uSegmentedControl": {
+        "body": [
+            "<uni-segmented-control :current=\"current$1\" :values=\"$0\" @clickItem=\"$2\"></uni-segmented-control>",
+            "<view class=\"content\">",
+            "\t<view v-show=\"current === 0\">",
+            "\t\t选项卡1的内容",
+            "\t</view>",
+            "\t<view v-show=\"current === 1\">",
+            "\t\t选项卡2的内容",
+            "\t</view>",
+            "\t<view v-show=\"current === 2\">",
+            "\t\t选项卡3的内容",
+            "\t</view>",
+            "</view>"
+        ],
+        "triggerAssist": false,
+        "prefix": "usegmentedcontrol"
+    },
+    "uCountDown": {
+        "body": [
+            "<uni-countdown font-color=\"$1\" bgr-color=\"$2\" timer=\"$3\"></uni-countdown>"
+        ],
+        "triggerAssist": false,
+        "prefix": "ucountdown"
+    },
+    "uAccordion": {
+        "body": [
+        	"<view class=\"uni-list\">",
+            "\t<view class=\"uni-list-cell uni-collapse\" v-for=\"(item,index) in list$1\" :key=\"index\">",
+            "\t\t<view class=\"uni-list-cell-navigate uni-navigate-bottom\" :class=\"item.show ? 'uni-active' : ''\" @click=\"trigerCollapse$0(index)\">",
+            "\t\t\t折叠面板{{index}}",
+            "\t\t</view>",
+            "\t\t<view class=\"uni-collapse-content\" :class=\"item.show ? 'uni-active' : ''\">",
+            "\t\t\t<view class=\"page-pd\">",
+            "\t\t\t\t<view class=\"uni-h1\">hello uni-app</view>",
+            "\t\t\t\t<view class=\"uni-h2\">hello uni-app</view>",
+            "\t\t\t\t<view class=\"uni-h3\">hello uni-app</view>",
+            "\t\t\t</view>",
+            "\t\t</view>",
+            "\t</view>",
+            "</view>"
+        ],
+        "triggerAssist": false,
+        "prefix": "uaccordion"
+    },
+    "uCard": {
+    	"body": [
+    		"<view class=\"uni-card\">",
+    		"\t<view class=\"uni-card-header\">页眉</view>",
+    		"\t<view class=\"uni-card-content\">",
+    		"\t\t<view class=\"uni-card-content-inner\">",
+    		"\t\t\t内容$1",
+    		"\t\t</view>",
+    		"\t</view>",
+    		"\t<view class=\"uni-card-footer\">页脚</view>",
+    		"</view>"
+    	],
+    	"triggerAssist": false,
+    	"prefix": "ucard"
+    },
+    "uProductList": {
+    	"body": [
+    		"<view class=\"uni-product-list\">",
+			"\t<view class=\"uni-product\" v-for=\"(product,index) in productList$1\" :key=\"index\">",
+            "\t\t<view class=\"image-view\">",
+            "\t\t\t<image v-if=\"renderImage\" class=\"uni-product-image\" :src=\"product.image\"></image>",
+            "\t\t</view>",
+            "\t\t<view class=\"uni-product-title\">{{product.title}}</view>",
+            "\t\t<view class=\"uni-product-price\">",
+            "\t\t\t<text class=\"uni-product-price-favour\">￥{{product.originalPrice}}</text>",
+            "\t\t\t<text class=\"uni-product-price-original\">￥{{product.favourPrice}}</text>",
+            "\t\t\t<text class=\"uni-product-tip\">{{product.tip}}</text>",
+            "\t\t</view>",
+			"\t</view>",
+            "</view>"
+    	],
+    	"triggerAssist": false,
+    	"prefix": "uproductlist"
+    },
+    "uTimeline": {
+    	"body": [
+    		"<view class=\"uni-timeline\">",
+        	"\t<view class=\"uni-timeline-item uni-timeline-first-item\">",
+            "\t\t<view class=\"uni-timeline-item-keynode\">日期1$1</view>",
+            "\t\t<view class=\"uni-timeline-item-divider\"></view>",
+            "\t\t<view class=\"uni-timeline-item-content\">事件1</view>",
+        	"\t</view>",
+        	"\t<view class=\"uni-timeline-item\">",
+            "\t\t<view class=\"uni-timeline-item-keynode\">日期2</view>",
+            "\t\t<view class=\"uni-timeline-item-divider\"></view>",
+            "\t\t<view class=\"uni-timeline-item-content\">事件2</view>",
+        	"\t</view>",
+        	"\t<view class=\"uni-timeline-item uni-timeline-last-item\">",
+            "\t\t<view class=\"uni-timeline-item-keynode\">日期3</view>",
+            "\t\t<view class=\"uni-timeline-item-divider\"></view>",
+            "\t\t<view class=\"uni-timeline-item-content\">事件3</view>",
+        	"\t</view>",
+            "</view>"
+    	],
+    	"triggerAssist": false,
+    	"prefix": "utimeline"
+    },
+    "uSteps": {
+    	"body": [
+            "<view class=\"uni-steps\">",
+            "\t<view class=\"step\">",
+            "\t\t<view class=\"step-circle\">1</view>",
+            "\t\t<view class=\"step-content\">",
+            "\t\t\t<view class=\"step-title\">步骤1$1</view>",
+            "\t\t</view>",
+            "\t</view>",
+            "\t\t<view class=\"step current\">",
+            "\t\t<view class=\"step-circle\">2</view>",
+            "\t\t<view class=\"step-content\">",
+            "\t\t\t<view class=\"step-title\">步骤2$0</view>",
+            "\t\t</view>",
+            "\t</view>",
+            "\t<view class=\"step\">",
+            "\t\t<view class=\"step-circle\">3</view>",
+            "\t\t<view class=\"step-content\">",
+            "\t\t\t<view class=\"step-title\">步骤3</view>",
+            "\t\t</view>",
+            "\t</view>",
+            "</view>"
+    	],
+    	"triggerAssist": false,
+    	"prefix": "usteps"
+    },
+    "uSwipermsg": {
+    	"body": [
+            "<view class=\"uni-swiper-msg\">",
+            "\t<view class=\"uni-swiper-msg-icon\">",
+            "\t\t<image src=\"$1\" mode=\"widthFix\"></image>",
+            "\t</view>",
+            "\t<swiper vertical=\"true\" autoplay=\"true\" circular=\"true\" interval=\"3000\">",
+            "\t\t<swiper-item>",
+            "\t\t\t<navigator>消息1</navigator>",
+            "\t\t</swiper-item>",
+            "\t\t<swiper-item>",
+            "\t\t\t<navigator>消息2</navigator>",
+            "\t\t</swiper-item>",
+            "\t\t<swiper-item>",
+            "\t\t\t<navigator>消息3</navigator>",
+            "\t\t</swiper-item>",
+            "\t</swiper>",
+            "</view>"
+    	],
+    	"triggerAssist": false,
+    	"prefix": "uswipermsg"
+    }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>max-width属性</title>
+    <style>
+        #parent {
+            border: solid 1px black;
+            width: 300px;
+        }
+        #child {
+            background: gold;
+            width: 100%;
+            max-width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="parent">
+        <div id="child">
+            定义了max-width的元素在达到max-width值之后宽度就不会再变大，即使设置了width属性。
+        </div>
+    </div>
+</body>
+
+</html>

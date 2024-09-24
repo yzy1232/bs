@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小球病毒</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas></canvas>
+    <script>
+        // 建立canvas对象
+        var oCanvas = document.querySelector('canvas');
+        var oContext = oCanvas.getContext('2d');
+        var iWidth = oCanvas.width = window.innerWidth;
+        var iHeight = oCanvas.height = window.innerHeight;
+        var iBallcount = 1;
+        // 随机数函数
+        function random(min, max) {
+            var num = Math.floor(Math.random() * (max - min)) + min;
+            return num;
+        }
+        // 定义Ball类，x，y原点坐标，iMx，iMy重画时原点坐标增加值。strokecolor圆边框颜色，iR圆半径。
+        function Ball(x, y, iMx, iMy, color, strokecolor, iR) {
+            this.x = x;
+            this.y = y;
+            this.iMx = iMx;
+            this.iMy = iMy;
+            this.color = color;
+            this.strokecolor = strokecolor;
+            this.iR = iR;
+        }
+        // 定义ball类draw()方法
+        Ball.prototype.draw = function () {
+            oContext.beginPath();
+            oContext.fillStyle = this.color;
+            oContext.arc(this.x, this.y, this.iR, 0, 2 * Math.PI);
+            oContext.fill();
+            oContext.strokeStyle = this.strokecolor;
+            oContext.stroke();
+        };
+        // 定义ball类update()方法
+        Ball.prototype.update = function () {
+            if ((this.x + this.iR) >= iWidth) {
+                this.iMx = -(this.iMx);
+            }
+            if ((this.x - this.iR) <= 0) {
+                this.iMx = -(this.iMx);
+            }
+            if ((this.y + this.iR) >= iHeight) {
+                this.iMy = -(this.iMy);
+            }
+            if ((this.y - this.iR) <= 0) {
+                this.iMy = -(this.iMy);
+            }
+            this.x += this.iMx;
+            this.y += this.iMy;
+        };
+        //数组balls存储ball对象
+        var balls = [];
+        // 循环，不断绘制ball对象。
+        function loop() {
+            oContext.fillStyle = 'rgba(0,0,0,0.25)';
+            oContext.fillRect(0, 0, iWidth, iHeight);
+
+            while (balls.length < iBallcount) {
+                var iR = random(10, 20);
+                var ball = new Ball(
+                    //球的位置至少离画布边缘一个球的宽度，避免绘制错误。
+                    random(0 + iR, iWidth - iR),
+                    random(0 + iR, iHeight - iR),
+                    random(-4, 4),
+                    random(-4, 4),
+                    'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')',
+                    'rgb(' + random(0, 255) + ',' + random(0, 255) + ',' + random(0, 255) + ')',
+                    iR
+                );
+                balls.push(ball);
+            }
+            for (var i = 0; i < balls.length; i++) {
+                balls[i].draw();
+                balls[i].update();
+            }
+            //通过递归调用同一方法来不断更新画面以达到动画效果。
+            window.requestAnimationFrame(loop);
+        }
+        loop();
+        function fBallcount() {
+            iBallcount++;
+        }
+        window.setInterval("fBallcount()", 1000);
+    </script>
+</body>
+
+</html>

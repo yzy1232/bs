@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>formVerification</title>
+    <style>
+        input {
+            border-color: black;
+            margin-bottom: 5px;
+        }
+
+        input:invalid {
+            border-color: red;
+        }
+
+        input:valid {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="action.html" method="GET" novalidate>
+        <input name="input1" required><label>必填</label><br>
+        <input name="input2" pattern="Python|JS" required><label>正则表达式</label><br>
+        <input name="input3" type="email" required><label>Email</label><br>
+        <input type="button" value="校验" id="check">&nbsp;<input type="submit">
+    </form>
+    <script>
+        var input = document.getElementsByTagName('input');
+        var label = document.getElementsByTagName('label');
+        var form = document.querySelector('form');
+
+        input[1].addEventListener('invalid', function (event) {
+            event.target.setCustomValidity('必须符合正则表达式：pattern="Python|JS"');
+        }, false);
+        input[1].addEventListener('input', function (event) {
+            event.target.setCustomValidity('');
+        }, false);
+        for (let i = 0; i < input.length - 2; i++) {
+            if (!input[i].checkValidity()) {
+                label[i].innerText = input[i].validationMessage;
+            }
+        }
+        label[0].innerText += `willValidate：${input[0].willValidate}`;
+
+        document.getElementById('check').addEventListener('click', function () {
+            label[0].innerText = `valueMissing：${input[0].validity.valueMissing}`;
+            label[1].innerText = `patternMismatch：${input[1].validity.patternMismatch}`;
+            label[2].innerText = `typeMismatch：${input[2].validity.typeMismatch}`;
+            for (let i = 0; i < input.length-2; i++) {
+                if (input[i].validity.valid) {
+                    label[i].innerText += ' 通过校验';
+                } else {
+                    label[i].innerText += ' 校验失败';
+                }
+            }
+        }, false);
+
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()) {
+                event.preventDefault();
+                return;
+            } else {
+                form.submit();
+            }
+        }, false);
+    </script>
+</body>
+
+</html>

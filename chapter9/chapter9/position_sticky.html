@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position属性值sticky</title>
+    <style>
+        body {height: 1000px;}
+        .container {border: 5px solid hsl(240, 40%, 35%);}
+        #sticky {
+            height: 50px;color: hsl(0, 50%, 100%);background-color: hsla(240, 40%, 35%, 0.9);
+            position: sticky;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>粘性定位可以被认为是相对定位和固定定位的相结合。</p>
+        <div id="sticky">粘性定位</div>
+        <p>也就是说sticky会让元素在页面滚动时如同在正常文档流中一样，相当于relative定位。</p>
+        <p>也就是说sticky会让元素在页面滚动时如同在正常文档流中一样，相当于relative定位。</p>
+    </div>
+</body>
+
+</html>

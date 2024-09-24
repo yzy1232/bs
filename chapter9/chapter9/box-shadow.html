@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>box-shadow属性</title>
+    <style>
+        body{display: flex;flex-flow: row wrap;}
+        div {
+            width: 220px;height: 50px;margin: 10px;padding: 5px;
+            color: hsl(0, 0%, 100%);background: hsl(0, 2%, 60%);
+        }        
+        /*阴影，水平偏移5px，垂直偏移5px，阴影颜色为rgba(0, 0, 0, 0.8)。*/
+        #shadow {box-shadow: 5px 5px rgba(0, 0, 0, 0.8);}
+        /*内阴影，水平偏移0px，垂直偏移0px，阴影模糊值为10px，阴影距离5px，阴影颜色为rgba(0, 0, 0, 0.8)。*/
+        #shadow-inset {box-shadow: inset 0px 0px 10px 5px rgba(0, 0, 0, 0.8);}
+        #outline{outline: solid 5px  hsl(0, 0%, 0%); opacity: 0.3;}
+    </style>
+</head>
+
+<body>
+    <div id="shadow">阴影，水平偏移5px，垂直偏移5px。</div>
+    <div id="shadow-inset">内阴影，水平垂直偏移0px，模糊值20px，距离5px。</div>
+    <div id="outline">轮廓位于边框边缘的外围。</div>
+</body>
+
+</html>

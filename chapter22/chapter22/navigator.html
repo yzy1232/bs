@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>navigator</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        var divinfo = document.querySelector('div');
+        divinfo.innerText = `userAgent：${navigator.userAgent}
+        platform：${navigator.platform}，onLine：${navigator.onLine}，cookieEnabled：${navigator.cookieEnabled}\n`
+        window.addEventListener('offline', function () {
+            divinfo.innerText += `已经离线\n`;
+        }, false);
+        window.addEventListener('online', function () {
+            divinfo.innerText += `已经上线\n`;
+        }, false);
+        var plugins = [...navigator.plugins];
+        plugins.forEach(element => {
+            divinfo.innerText += `插件：${element.name}，文件名字：${element.filename}。\n`
+        });
+        divinfo.innerText += `运行Java Applet：${navigator.javaEnabled()}`
+    </script>
+</body>
+
+</html>

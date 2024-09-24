@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>list-style属性</title>
+    <style>
+        body{display: flex;flex-flow: row wrap;}
+        ul{border: solid 1px hsl(0,0%,0%);margin: 5px;}
+        ul.inside {list-style-position: inside;}
+        ul.outside {list-style: outside url(images/bullet.png);}
+    </style>
+</head>
+
+<body>
+    <ul class="inside">
+        <li>list-style-position:inside</li>
+        <li>list-style-type:disc</li>
+        <li>list-style-type:disc</li>
+    </ul>
+    <ul class="outside">
+        <li>list-style-position:outside</li>
+        <li>list-style-image:url(images/bullet.png)</li>
+        <li>list-style-image:url(images/bullet.png)</li>
+    </ul>
+</body>
+
+</html>

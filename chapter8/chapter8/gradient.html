@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>颜色渐变方法</title>
+    <style>
+        div {
+            width: 150px;
+            height: 100px;
+            border: 1px solid hsl(0, 100%, 0%);
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /*为#div1元素添加圆形径向渐变图像，半径长度为50px，渐变颜色为红、黄。*/
+        #div1 {
+            background: radial-gradient(50px, hsl(0, 100%, 50%), hsl(60, 100%, 50%));
+        }
+
+        /*为#div2元素添加从上到下线性渐变图像，渐变颜色为红、黄、红。*/
+        #div2 {
+            background: linear-gradient(hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(0, 100%, 50%));
+        }
+
+        /*为ol列表项标记添加从上到下线性渐变图像，渐变颜色为红、黄、红。*/
+        ol {
+            list-style-image: linear-gradient(hsl(0, 100%, 50%), hsl(60, 100%, 50%), hsl(0, 100%, 50%));
+        }
+
+        body {
+            display: flex;
+            flex-flow: row wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1">圆形径向渐变图像</div>
+    <div id="div2">线性渐变图像</div>
+    <ol>
+        <li>列表项标记使用线性渐变图像</li>
+        <li>列表项标记使用线性渐变图像</li>
+        <li>列表项标记使用线性渐变图像</li>
+    </ol>
+</body>
+
+</html>

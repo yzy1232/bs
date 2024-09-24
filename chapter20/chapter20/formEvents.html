@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>formEvents</title>
+</head>
+
+<body>
+    <form>
+        <input placeholder="输入用户名" name="name" contenteditable="true"><br>
+        <label>当值发生变化时触发input事件</label><br>
+        <label>选中文本时触发select事件</label><br>
+        <select size="1">
+            <option>巧克力</option>
+            <option>草莓</option>
+            <option>香草</option>
+        </select>
+        <label>改变下拉框选项时，会触发change事件</label><br>
+        <label>输入1-10：<input type="number" min="1" max="10" required></label><br>
+        <label>表单元素的值不满足校验条件时触发invalid事件</label><br>
+        <input type="submit" value="提交">
+    </form>
+    <span id="values"></span>
+    <script>
+        const input = document.querySelector('input');
+        const select = document.querySelector('select');
+        const log = document.getElementById('values');
+        input.addEventListener('input', updateValue, false);
+        function updateValue(e) {
+            log.innerText = `文本框值：${e.target.value}`;
+        }
+        function logSelection(e) {
+            const selection = e.target.value.substring(e.target.selectionStart, e.target.selectionEnd);
+            log.innerText += `\n选中文本：${selection}`;
+        }
+        input.addEventListener('select', logSelection, false);
+        function changeEventHandler(e) {
+            log.innerText += `\n${e.target.value}`;
+        }
+        select.addEventListener('change', changeEventHandler, false);
+        function logValue(e) {
+            log.innerText += `\n${e.target.value}是一个无效的值！`;
+        }
+        document.getElementsByTagName('input')[1].addEventListener('invalid', logValue, false);
+    </script>
+</body>
+
+</html>

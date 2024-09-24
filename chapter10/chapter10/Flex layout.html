@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性伸缩布局</title>
+    <style>
+        body{margin: 0px;}
+        /* .container在垂直方向上排列伸缩*/
+        .container {
+            display: flex;flex-flow: column nowrap;
+            width: 100%;max-width: 1260px;min-width: 360px;margin: 0 auto;
+        }
+        header {background: hsl(0, 0%, 90%);height: 30px;}
+        /*#content在水平方向排列伸缩，允许换行*/
+        #content {display: flex;flex-flow: row wrap;}
+        .sidebar1,.sidebar2 {
+            flex: 1 1;
+            min-width: 180px;height: 80px;background: hsl(0, 0%, 80%);
+        }
+        article {
+            flex: 5 5;
+            min-width: 360px;height: 80px;background-color: hsl(0, 0%, 70%);
+        }
+        /*内容水平垂直居中*/
+        header,.sidebar1,article,.sidebar2,footer {display: flex;align-items: center;justify-content: center;}
+        footer {background: hsl(0, 0%, 90%);height: 30px;}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>标题</header>
+        <div id="content">
+            <aside class="sidebar1">边栏</aside>
+            <article>
+                <h2>内容</h2>
+            </article>
+            <aside class="sidebar2">边栏</aside>
+        </div>
+        <footer>脚注</footer>
+    </div>
+</body>
+
+</html>

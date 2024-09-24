@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>white-space属性</title>
+    <style>
+        /*设置.scroll-panel元素内容不换行*/
+        .scroll-panel {
+            display: flex;
+            flex-flow: row wrap;
+            /* white-space: nowrap; */
+            width: 100%;overflow-x: auto;overflow-y: hidden;
+        }
+        .item {margin: 0 0.5rem;}
+        .caption {text-align: center;}
+    </style>
+</head>
+
+<body>
+    <nav class="scroll-panel">
+        <section class="item">
+            <h4 class="caption">Web前端</h4>
+            <img src="images/recommend1.jpg" alt="封面">
+        </section>
+        <section class="item">
+            <h4 class="caption">Web前端</h4>
+            <img src="images/recommend1.jpg" alt="封面">
+        </section>
+        <section class="item">
+            <h4 class="caption">Web前端</h4>
+            <img src="images/recommend1.jpg" alt="封面">
+        </section>
+        <section class="item">
+            <h4 class="caption">Web前端</h4>
+            <img src="images/recommend1.jpg" alt="封面">
+        </section>
+        <section class="item">
+            <h4 class="caption">Web前端</h4>
+            <img src="images/recommend1.jpg" alt="封面">
+        </section>
+    </nav>
+</body>
+
+</html>

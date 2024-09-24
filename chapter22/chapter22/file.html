@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>File对象</title>
+    <style>
+        form {
+            width: 600px;
+            background: #ccc;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid black;
+        }
+
+        form ol {
+            padding-left: 0;
+        }
+
+        form li,
+        div>p {
+            background: #eee;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            list-style-type: none;
+            border: 1px solid black;
+        }
+
+        form img {
+            height: 64px;
+            order: 1;
+        }
+
+        form p {
+            line-height: 32px;
+            padding-left: 10px;
+        }
+
+        form label,
+        form button {
+            background-color: #7F9CCB;
+            padding: 5px 10px;
+            border-radius: 5px;
+            border: 1px black;
+            font-size: 0.8rem;
+            height: auto;
+        }
+
+        form label:hover,
+        form button:hover {
+            background-color: #2D5BA3;
+            color: white;
+        }
+
+        form label:active,
+        form button:active {
+            background-color: #0D3F8F;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div>
+            <label for="image_uploads">选择图像文件上传(PNG,JPG)</label>
+            <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png" multiple>
+        </div>
+        <div class="preview">
+            <p>当前没有选择要上传的文件</p>
+        </div>
+        <div>
+            <button>提交</button>
+        </div>
+    </form>
+    <script>
+        const input = document.querySelector('input');
+        const preview = document.querySelector('.preview');
+
+        input.style.opacity = 0;//隐藏<input>元素 
+
+        input.addEventListener('change', updateImageDisplay, false);
+
+        function updateImageDisplay() {
+            while (preview.firstChild) {
+                preview.removeChild(preview.firstChild);
+            }
+
+            const curFiles = input.files;
+            if (curFiles.length === 0) {
+                const para = document.createElement('p');
+                para.textContent = '没有选择要上传的文件';
+                preview.appendChild(para);
+            } else {
+                const list = document.createElement('ol');
+                preview.appendChild(list);
+
+                for (const file of curFiles) {
+                    const listItem = document.createElement('li');
+                    const para = document.createElement('p');
+
+                    if (validFileType(file)) {
+                        para.textContent = `name：${file.name}，size：${returnFileSize(file.size)}`;
+                        const image = document.createElement('img');
+                        image.src = URL.createObjectURL(file);
+
+                        listItem.appendChild(image);
+                        listItem.appendChild(para);
+                    } else {
+                        para.textContent = `${file.name} 文件类型无效，重新选择。`;
+                        listItem.appendChild(para);
+                    }
+
+                    list.appendChild(listItem);
+                }
+            }
+        }
+
+        const fileTypes = [
+            'image/apng',
+            'image/bmp',
+            'image/gif',
+            'image/jpeg',
+            'image/pjpeg',
+            'image/png',
+            'image/svg+xml',
+            'image/tiff',
+            'image/webp',
+            'image/x-icon'
+        ];
+
+        function validFileType(file) {
+            return fileTypes.includes(file.type);
+        }
+
+        function returnFileSize(number) {
+            if (number < 1024) {
+                return number + 'bytes';
+            } else if (number > 1024 && number < 1048576) {
+                return (number / 1024).toFixed(1) + 'KB';
+            } else if (number > 1048576) {
+                return (number / 1048576).toFixed(1) + 'MB';
+            }
+        }
+    </script>
+</body>
+
+</html>

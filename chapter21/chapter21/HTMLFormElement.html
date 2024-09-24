@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTMLFormElement</title>
+    <script type="text/javascript">
+        window.addEventListener('load', function () {
+            var f = document.forms["formA"];
+            let button1 = document.getElementsByTagName('input')[0];
+            let button2 = document.getElementsByTagName('input')[1];
+            button1.addEventListener('click', getFormInfo, false);
+            button2.addEventListener('click', function () {
+                setFormInfo(this.form);
+            }, false);
+            function getFormInfo() {
+                document.querySelector('div').innerText = `elements:${f.elements}
+                length:${f.length}，name:${f.name}，acceptCharset:${f.acceptCharset}
+                action: ${f.action}
+                enctype: ${f.enctype}
+                encoding: ${f.encoding}
+                method: ${f.method}，target: ${f.target}`;
+            }
+            function setFormInfo(f) {
+                f.method = "GET";
+                f.action = "test.cgi";
+                f.name = "formB";
+            }
+        }, false);
+    </script>
+</head>
+
+<body>
+    <form name="formA" id="formA" action="test" method="POST">
+        <input type="button" value="表单信息">
+        <input type="button" value="设置表单">
+        <input type="reset" value="重置表单"><br>
+    </form>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input标签type属性</title>
+</head>
+
+<body>
+    <form action="form_action.html" method="get">
+        <div>
+            <label for="name"><span>姓名：</span></label>
+            <input type="text" name="name" id="name">
+            <strong>type="text"</strong>
+        </div>
+        <div>
+            <label for="password"><span>密码：</span></label>
+            <input type="password" name="password" id="password">
+            <strong>type="password"</strong>
+        </div>
+        <div>
+            <label><span>性别：</span></label>
+            <label><input type="radio" name="sex" value="男" id="nan">男</label>
+            <label><input type="radio" name="sex" value="女" id="nv">女</label>
+            <strong> type="radio"</strong>
+        </div>
+        <fieldset>
+            <legend>爱好</legend>
+            <label><input type="checkbox" name="interest" value="计算机" id="interest1">计算机</label>
+            <label><input type="checkbox" name="interest" value="户外" id="interest2">户外</label>
+            <label><input type="checkbox" name="interest" value="文学" id="interest3">文学</label>
+            <strong> type="checkbox"</strong>
+        </fieldset>
+        <div>
+            <label><span>隐藏：</span></label>
+            <input type="hidden" name="country" value="中国">
+            <strong>type="hidden"</strong>
+        </div>
+        <div>
+            <label for="file"><span>文件：</span></label>
+            <input type="file" name="file" id="file">
+            <strong>type="file"</strong>
+        </div>
+        <div>
+            <label for="email"><span>电子邮件：</span></label>
+            <input type="email" id="email">
+            <strong>type="email"</strong>
+        </div>
+        <div>
+            <label for="url"><span>网址：</span></label>
+            <input type="url" id="url" name="url">
+            <strong>type="url"</strong>
+        </div>
+        <div>
+            <label for="number"><span>数值：</span></label>
+            <input type="number" max="30" min="1" value="1" id="number" name="number">
+            <strong>type="number"</strong>
+        </div>
+        <div>
+            <label for="date"><span>日期：</span></label>
+            <input type="date" max="2021-04-30" min="2021-04-01" value="2021-04-13" id="date" name="date">
+            <strong>type="date"</strong>
+        </div>
+        <div>
+            <label><span>范围：</span></label>
+            <input type="range" value="50" name="range">
+            <strong>type="range"</strong>
+        </div>
+        <div>
+            <label for="color"><span>颜色：</span></label>
+            <input type="color" id="color" name="color">
+            <strong>type="color"</strong>
+        </div>
+        <div>
+            <label for="search"><span>关键字：</span></label>
+            <input type="search" value="HTML5" id="search" name="search">
+            <strong>type="search"</strong>
+        </div>
+        <fieldset>
+            <legend>按钮</legend>
+            <div>
+                <label><span>重置按钮：</span></label>
+                <input type="reset" name="reset">
+                <strong>type="reset"</strong>
+            </div>
+            <div>
+                <label><span>提交按钮：</span></label>
+                <input type="submit" name="submit">
+                <strong>type="submit"</strong>
+            </div>
+            <div>
+                <label><span>图像按钮：</span></label>
+                <input type="image" name="image" src="images/w3c_home_nb.png" alt="图像按钮" title="提交">
+                <strong>type="image"</strong>
+            </div>
+            <div>
+                <label><span>普通按钮：</span></label>
+                <input type="button" value="单击我" onclick="alert('为什么?')" name="button">
+                <strong>type="button"</strong>
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>

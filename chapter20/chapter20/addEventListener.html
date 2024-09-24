@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>addEventListener()</title>
+    <style>
+        section{display: flex;flex-flow: row wrap;}
+        div{background-color: #000;color: #FFF; width: 140px;height: 100px;margin: 5px;
+        display: flex;justify-content: center;align-items: center;}
+    </style>
+</head>
+
+<body>
+    <section>
+        <div id="div1">简单的<span>监听器</span>。</div>
+        <div id="div2">带有匿名函数的监听器，传递的参数this指向事件触发的元素。</div>
+        <div id="div3">带有箭头函数的监听器。</div>
+        <div id="div4">具有handleEvent()方法对象的监听器。</div>
+    </section>
+    <script>
+        var backgroundColor = document.styleSheets[0].cssRules[1].style.backgroundColor;
+        // var backgroundColor = document.styleSheets[0].cssRules[1].style.getPropertyValue('background-color');
+        function changediv1() {
+            let div = document.getElementById("div1");
+            if (window.getComputedStyle(div).backgroundColor === backgroundColor) {
+                div.style.backgroundColor = "rgb(0, 128, 0)";
+            } else {
+                div.style.backgroundColor = backgroundColor;
+            }
+        }
+        function changediv2(e) {
+            document.getElementById("div2").innerText = `触发${event.type}事件的${e.tagName}元素id值是${e.id}`;
+        }
+        function changediv3() {
+            document.getElementById("div3").innerText = `事件对象：${event.currentTarget}\n事件类型：${event.type}`;
+        }
+        //一个click事件的简单监听器，通过使用addEventListenter()注册到div对象上。在div中任何位置单击都会触发事件并执行changediv1()。
+        document.getElementById("div1").addEventListener("mouseover", changediv1, false);
+        document.getElementById("div1").addEventListener("click", changediv1, {once: true});
+        //监听器是匿名函数，封装了changediv2()函数，可以传递参数。
+        document.getElementById("div2").addEventListener("click",function(){changediv2(this)}, false);
+        //监听器是箭头函数。
+        document.getElementById("div3").addEventListener("click",()=>{changediv3();}, false);
+        //监听器是具有handleEvent()方法的对象。
+        document.getElementById("div4").addEventListener("click",{handleEvent:function(event){
+            document.getElementById("div4").innerText = event.type+'\n'+event.currentTarget;
+        }} , false);
+    </script>
+</body>
+
+</html>

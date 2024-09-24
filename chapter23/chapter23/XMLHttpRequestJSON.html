@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX请求JSON数据</title>
+    <style>
+        table {
+            width: 240px;
+            margin-bottom: 5px;
+        }
+
+        table,
+        td,
+        th {
+            border: 1px solid #000000;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th>姓名</th>
+            <th>年龄</th>
+        </tr>
+        <tr>
+            <td id="name">张小飞</td>
+            <td id="age">23</td>
+        </tr>
+        <tr>
+            <td>王小五</td>
+            <td>22</td>
+        </tr>
+    </table>
+    <button type="button" id="button">页面局部更新</button>
+    <script>
+        document.getElementById("button").addEventListener('click', function () {
+            let XHR;
+            if (window.XMLHttpRequest) {
+                XHR = new XMLHttpRequest();
+            }
+            else {
+                XHR = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            XHR.addEventListener('readystatechange', function () {
+                if (XHR.readyState == 4 && XHR.status == 200) {
+                    //responseType属性设为json，自动对返回数据调用JSON.parse()方法。
+                    let dataObj = XHR.response;
+                    document.getElementById("name").innerText = dataObj.name;
+                    document.getElementById("age").innerText = dataObj.age;
+                    // let { name, age } = dataObj;//解构赋值提取JSON对象的数据。
+                    // document.getElementById("name").innerText = name;
+                    // document.getElementById("age").innerText = age;
+                }
+            }, false);
+            XHR.open("GET", "responseJSON.json", true);
+            // XHR.open("GET", "https://jsonplaceholder.typicode.com/posts/1", true);
+            XHR.responseType = 'json';
+            XHR.send();
+        }, false);
+    </script>
+</body>
+
+</html>

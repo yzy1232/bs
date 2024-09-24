@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table显示效果</title>
+    <style>
+        .table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        tr,td,th {border: 1px hsl(0, 0%, 0%) solid;}
+        .table th {background: hsl(0, 0%, 70%);color: hsl(0, 100%, 100%);}
+        /*定义交替行不同背景色*/
+        .table .r1 {background: hsl(0, 0%, 80%);}
+        /*定义交替行不同背景色*/
+        .table .r2 {background: hsl(0, 0%, 90%);}
+        /*通过伪类定义鼠标经过时行背景色和字体颜色改变达到动态效果*/
+        .table tr:hover {background: hsl(0, 0%, 100%);color: hsl(0,100%,50%);}
+    </style>
+</head>
+
+<body>
+    <table class="table">
+        <tr>
+            <th>标题</th>
+            <th>标题</th>
+        </tr>
+        <tr class="r1">
+            <td>内容</td>
+            <td>内容</td>
+        </tr>
+        <tr class="r2">
+            <td>内容</td>
+            <td>内容</td>
+        </tr>
+        <tr class="r1">
+            <td>内容</td>
+            <td>内容</td>
+        </tr>
+        <tr class="r2">
+            <td>内容</td>
+            <td>内容</td>
+        </tr>
+    </table>
+</body>
+
+</html>

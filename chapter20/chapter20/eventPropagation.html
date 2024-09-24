@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>eventPropagation</title>
+    <style>
+        div {margin: 10px;padding: 2px;border: 1px black solid;}
+        #divInfo {margin: 10px;padding: 8px;}
+    </style>
+</head>
+
+<body>
+    <section>单击“d1-d3”，分析事件流传播路径，选择捕获模式，再次重复。</section>
+    <input type="checkbox" id="chCapture" />
+    <label for="chCapture">捕获模式</label>
+    <div id="d1">d1
+        <div id="d2">d2
+            <div id="d3">d3</div>
+        </div>
+    </div>
+    <div id="divInfo"></div>
+    <script>
+        var phases = {
+            1: '捕获阶段',
+            2: '目标阶段',
+            3: '冒泡阶段'
+        };
+        var objElement = ['window', 'document', 'document.documentElement', 'document.body'];
+        var clear = false, divInfo = null, divs = null;
+        window.addEventListener('load', function () {
+            divInfo = document.getElementById("divInfo");
+            divs = [...document.getElementsByTagName('div')];
+            document.getElementById("chCapture").addEventListener('click', function () {
+                RemoveListeners();
+                AddListeners();
+            }, false);
+            Clear();
+            AddListeners();
+        }, false)
+
+        function RemoveListeners() {
+            for (let i = 0; i < divs.length; i++) {
+                let d = divs[i];
+                if (d.id != "divInfo") {
+                    d.removeEventListener("click", OnDivClick, true);
+                    d.removeEventListener("click", OnDivClick, false);
+                }
+            }
+            objElement.forEach(element => {
+                eval(element + ".removeEventListener('click', OnDivClick, false);");
+                eval(element + ".removeEventListener('click', OnDivClick, true);");
+            });
+        }
+
+        function AddListeners() {
+            for (let i = 0; i < divs.length; i++) {
+                let d = divs[i];
+                if (d.id != "divInfo") {
+                    d.addEventListener("click", OnDivClick, false);
+                    if (chCapture.checked)
+                        d.addEventListener("click", OnDivClick, true);
+                    d.addEventListener('mousemove', function () { clear = true; }, false);
+                }
+            }
+            objElement.forEach(element => {
+                eval(element + ".addEventListener('click', OnDivClick, false);");
+            });
+            if (chCapture.checked) {
+                objElement.forEach(element => {
+                    eval(element + ".addEventListener('click', OnDivClick, true);");
+                });
+            }
+        }
+
+        function OnDivClick(e) {
+            if (clear) {
+                Clear(); clear = false;
+            }
+            if (e.eventPhase == 2)
+                this.style.backgroundColor = 'red';
+            // e.target.style.backgroundColor = 'red';
+            // e.currentTarget.style.backgroundColor = 'red';
+            var level = phases[e.eventPhase];
+            if (e.currentTarget.tagName === 'DIV') {
+                divInfo.innerHTML += `事件对象：${e.currentTarget}，id="${e.currentTarget.id}"，事件阶段：${level}。<br>`;
+            } else {
+                divInfo.innerHTML += `事件对象：${e.currentTarget}，事件阶段：${level}。<br>`;
+            }
+        }
+
+        function Clear() {
+            for (let i = 0; i < divs.length; i++) {
+                if (divs[i].id != "divInfo")
+                    //按位与运算 
+                    divs[i].style.backgroundColor = (i & 1) ? "#f6eedb" : "#cceeff";
+            }
+            for (let j = 2; j < objElement.length; j++) {
+                eval(objElement[j] + ".style.backgroundColor = 'white';");
+            }
+            divInfo.innerHTML = '';
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>throw异常抛出</title>
+    <script>
+        var num = parseInt(prompt("输入0-10之间的数:", ""))
+        try {
+            if (num > 10) {
+                var err = new Error('这个数太大了。')
+            } else if (num < 0) {
+                var err = new Error('这个数太小了。')
+            }
+            throw err
+        } catch (e) {
+            document.write(e.message);
+        } finally {
+            document.write(num);
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTMLAnchorElement</title>
+    <script>
+        window.addEventListener('load', function () {
+            document.getElementById("btn").addEventListener('click', function () {
+                let a = document.getElementById('myAnchor')
+                let div = document.querySelector('div');
+                div.innerText = `href：${a.href}
+                host：${a.host}，hostname：${a.hostname}
+                origin：${a.origin}
+                password：${a.password}，pathname：${a.pathname}
+                port：${a.port}，protocol：${a.protocol}
+                search：${a.search}，username：${a.username}
+                hash：${a.hash}，referrerPolicy：${a.referrerPolicy}
+                text：${a.text}，type：${a.type}
+                toString()：${a.toString()}`
+            }, false)
+            document.getElementById('download').download = 'recommend.jpg';
+        }, false)
+    </script>
+</head>
+
+<body>
+    <a id="myAnchor" href="https://user:passwd@example.com:8081/index.html?bar=1#foo" referrerpolicy="no-referrer" type="text/html">测试链接</a>
+    <input type="button" id="btn" value="实例属性和方法">
+    <div></div>
+    <a id="download" href="images/recommend1.jpg">下载</a>
+</body>
+
+</html>

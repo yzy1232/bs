@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>About</title>
+</head>
+
+<body>
+    <h3>About</h3>
+    <script>
+        document.getElementsByTagName('h3')[0].addEventListener('click', function () {
+            let frameEl = window.frameElement;
+            //frameEl是frameElement.html里的<iframe>元素。
+            if (frameEl) frameEl.src = 'other.html';
+        }, false);
+    </script>
+</body>
+
+</html>

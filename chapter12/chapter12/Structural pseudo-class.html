@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>结构性伪类</title>
+    <style>
+        * {margin: 0;}
+        /*html不包括body背景色为深灰色*/
+        :root {background-color: hsl(0, 5%, 60%);}
+        body {background-color: hsl(0, 100%, 100%);margin: 10px;}
+        /* body里的子元素span但不是类名为.span的前景色为红色*/
+        body>span:not(.span) {color: hsl(0, 100%, 50%);}
+        div {width: 400px;height: 50px;}
+        /*没有任何子元素（包括内容）的元素背景色为红色*/
+        :empty {background-color: hsl(0, 100%, 50%);}
+        /*当前活动的目标元素背景色为黄色*/
+        :target {background-color: hsl(60, 100%, 50%);}
+        a {display: inline-block;}
+    </style>
+</head>
+
+<body>
+    <h3>结构性伪类root</h3>
+    <span>body子元素span，没有类名。</span>
+    <span class="span">body子元素span，类名为.span。</span>
+    <span>body子元素span，没有类名。</span>
+    <div id="div"></div>
+    <a href="#d1">:target</a>
+    <a href="#d2">:target</a>
+    <div id="d1">
+        <h4>target</h4>
+        <p>:target选择器用于选取当前活动的目标元素。</p>
+    </div>
+    <div id="d2">
+        <h4>target</h4>
+        <p>:target选择器用于选取当前活动的目标元素。</p>
+    </div>
+</body>
+
+</html>

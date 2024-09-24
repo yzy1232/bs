@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FocusEvent</title>
+</head>
+
+<body>
+    <form id="form">
+        <input type="text" placeholder="输入文本">
+        <input type="password" placeholder="输入密码">
+    </form>
+    <script>
+        const form = document.getElementById('form');
+        form.addEventListener('focus', (event) => {
+            event.target.style.background = 'red';
+            console.log(event.type);
+        }, true);
+        form.addEventListener('blur', (event) => {
+            event.target.style.background = '';
+            console.log(event.type);
+        }, true);
+        form.addEventListener('focusin', (event) => {
+            event.target.style.background = 'pink';
+            console.log(event.type);
+        });
+        form.addEventListener('focusout', (event) => {
+            event.target.style.background = '';
+            console.log(event.type);
+        });
+    </script>
+</body>
+
+</html>

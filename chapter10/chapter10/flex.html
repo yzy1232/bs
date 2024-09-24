@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex属性</title>
+    <style>
+        /*设置.article元素显示模式为flex，最大宽度960px，最小宽度320px，宽度为100%。*/
+        .article {display: flex;width: 100%;max-width: 960px;min-width: 260px;height: 40px;margin: 5px auto;}
+        .nav {background: hsl(0, 1%, 90%);}
+        .section {background: hsl(0, 1%, 70%);}
+        .aside {background: hsl(0, 1%, 50%);}
+        /*给#article1分配空间：#nav1占1/6，#section1占3/6，即一半，#aside1占2/6，即1/3。*/
+        #nav1 {flex: 1;}
+        #section1 {flex: 3;}
+        #aside1 {flex: 2;}
+        /*设置#nav2区域排列顺序在后面。*/
+        #nav2 {flex: 1;order: 1;}
+        #section2 {flex: 1;}
+        #aside2 {flex: 1;}
+        /*设置#nav3区域不收缩。*/
+        #nav3 {flex: 1 0 200px;}
+        /*设置#section3和#aside3区域按2倍比率收缩。*/
+        #section3 {flex: 1 2 200px;}
+        #aside3 {flex: 1 2 200px;}
+    </style>
+</head>
+
+<body>
+    <article class="article" id="article1">
+        <nav class="nav" id="nav1">导航，占1/6</nav>
+        <section class="section" id="section1">内容，占3/6，即一半</section>
+        <aside class="aside" id="aside1">边栏，占2/6，即1/3</aside>
+    </article>
+    <article class="article" id="article2">
+        <nav class="nav" id="nav2">导航，排列顺序在后面</nav>
+        <section class="section" id="section2">内容</section>
+        <aside class="aside" id="aside2">边栏</aside>
+    </article>
+    <article class="article" id="article3">
+        <nav class="nav" id="nav3">导航，不收缩</nav>
+        <section class="section" id="section3">内容，按2倍比率收缩</section>
+        <aside class="aside" id="aside3">边栏，按2倍比率收缩</aside>
+    </article>
+</body>
+
+</html>

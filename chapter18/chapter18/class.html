@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>class</title>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        const div = document.querySelector('div');
+        class Person {
+            constructor(name, age, gender, interests) {
+                this.name = name;
+                this.age = age;
+                this.gender = gender;
+                this.interests = interests;
+            }
+            bio() {
+                let string = `${this.name}，${this.age}岁。`;
+                let pronoun;
+                if (this.gender === '男') {
+                    pronoun = `他爱好`;
+                } else if (this.gender === '女') {
+                    pronoun = `她爱好`;
+                }
+                string += pronoun;
+                if (this.interests.length === 1) {
+                    string += `${this.interests[0]}。`;
+                } else if (this.interests.length === 2) {
+                    string += `${this.interests[0]}和${this.interests[1]}。`;
+                } else {
+                    for (let i = 0; i < this.interests.length; i++) {
+                        if (i === this.interests.length - 1) {
+                            string += `${this.interests[i]}。`;
+                        } else {
+                            string += `${this.interests[i]}、`;
+                        }
+                    }
+                }
+                div.innerText += `${string}\n`;
+            }
+            greeting() {
+                div.innerText += `大家好！我是${this.name}。\n`;
+            }
+            farewell() {
+                div.innerText += `再见！${this.name}\n`;
+            }
+        }
+        let person1 = new Person('张良', 19, '男', ['音乐', '滑雪', '跆拳道']);
+        person1.bio();
+        person1.greeting();
+        person1.farewell();
+
+        class Teacher extends Person {
+            constructor(name, age, gender, interests, subject) {
+                super(name, age, gender, interests);
+                this.subject = subject;
+            }
+            greeting() {
+                let prefix;
+                if (this.gender === '男') {
+                    prefix = `先生`;
+                } else if (this.gender === '女') {
+                    prefix = `女士`;
+                }
+                div.innerText += `大家好！我是${this.name}${prefix}，我教${this.subject}课。\n`;
+            }
+        }
+        let teacher1 = new Teacher('张明', 31, '男', ['足球', '烹饪'], '数学');
+        teacher1.bio();
+        teacher1.greeting();
+        teacher1.farewell();
+
+        class Student extends Person {
+            constructor(name, age, gender, interests) {
+                super(name, age, gender, interests);
+            }
+            greeting() {
+                div.innerText += `嗨！我是${this.name}。\n`;
+            }
+        }
+        let student1 = new Student('李安', 18, '女', ['忍术', '飞行']);
+        student1.bio();
+        student1.greeting();
+        student1.farewell();
+    </script>
+</body>
+
+</html>

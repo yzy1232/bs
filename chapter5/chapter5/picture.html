@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>picture标签</title>
+    <style>
+        *{padding: 0;margin: 0;}
+    </style>
+</head>
+
+<body>
+    <picture>
+        <source media="(max-width:320px)" srcset="images/320_1.jpg">
+        <source media="(max-width:640px)" srcset="images/640_1.jpg">
+        <img src="images/800.jpg" alt="新措">
+    </picture>
+</body>
+
+</html>
