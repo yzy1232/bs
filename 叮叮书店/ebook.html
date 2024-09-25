@@ -2,69 +2,66 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <!-- 设置文档的字符编码为UTF-8 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- 指定IE浏览器使用最新的渲染模式 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 设置视口，以确保在移动设备上有良好的显示效果 -->
-    <meta name="keywords" content="网上书店,计算机,前端技术">
-    <!-- 定义网页的关键词，有助于SEO -->
-    <meta name="description" content="叮叮书店是销售信息技术及相关图书的垂直网站">
-    <!-- 提供网页的描述信息，有助于SEO -->
-    <meta name="robots" content="index,follow">
-    <!-- 指定搜索引擎如何索引和跟随页面链接 -->
-    <link rel="icon" href="images/favicon.ico">
-    <!-- 设置网页的图标 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>电子书</title>
+    <meta name="keywords" content="网上书店,计算机,前端技术">
+    <meta name="description" content="叮叮书店是销售信息技术及相关图书的垂直网站">
+    <meta name="robots" content="index,follow">
+    <link rel="icon" href="images/favicon.ico">
 </head>
 <body>
-    <!-- 顶部广告 -->
+    <!--顶部广告-->
     <!-- class="center"用于将元素居中 -->
-    <div id="top-advant" class="center">
-        <a herf="#."><img src="images/top-advert.jpg" alt=""></a>
-    </div>
-    <!-- id="sticky"用于黏性定位固定页眉和导航菜单 -->
+    <div id="top-advert" class="center"><a href="#."><img src="images/top-advert.jpg" alt=""></a></div>
+    <!-- id="sticky"用于粘性定位固定页眉和导航菜单 -->
     <div id="sticky">
         <!-- class="full-width"用于元素整个屏幕宽度加背景颜色 -->
         <div class="full-width" id="top">
-            <!-- 页眉 -->
+            <!--页眉-->
             <header id="page-top" class="center">
-                <!-- 网页logo -->
+                <!--网站logo-->
                 <div id="logo">
-                    <a href="#."><img src="images/logo.png" alt="叮叮书店"></a>
+                    <a href="#.">
+                        <img src="images/logo.png" alt="叮叮书店">
+                    </a>
                 </div>
-                <!-- 站内搜索 -->
-                <div id="search"></div>
-                <!-- 购物车 -->
+                <!--站内搜索-->
+                <div id="search">
+                    <form action="index.html" method="get">
+                        <input type="search" placeholder="站内搜索"><input type="submit" value="搜索">
+                    </form>
+                </div>
+                <!--购物车-->
                 <div id="cart">
                     <ul>
                         <li id="cart-position">
-                            <!-- 购物车图标 -->
-                            <a href="cart.html" class="cart-head"><span class="icon-cart"></span><sup>2</sup></a>
-                            <!-- 购物车下拉列表,当指向购物车显示 -->
+                            <a href="cart.html" class="cart-head">
+                                <!--购物车图标--><span class="icon-cart"></span><sup>2</sup>
+                            </a>
+                            <!--购物车下拉列表，当指向购物车显示-->
                             <ul id="dropdown-cart">
                                 <li>
-                                    <div class="cart-thumb">
-                                        <a href="#."><img src="images/recommend3.jpg" alt=""></a>
-                                    </div>
-                                    <div class="cart-title"><a href="#.">Spring Boot 开发实战</a><br><span>29.90*1</span>
+                                    <div class="cart-thumb"> <a href="#."> <img src="images/recommend3.jpg" alt="">
+                                        </a> </div>
+                                    <div class="cart-tittle"> <a href="#.">Spring Boot开发实战</a><br> <span>29.90 x
+                                            1</span>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="cart-thumb">
-                                        <a href="#."><img src="images/new2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="cart-title"><a href="#.">Kubernetes权威指南</a><br><span>84.6*1</span>
+                                    <div class="cart-thumb"> <a href="#."> <img src="images/new2.jpg" alt="">
+                                        </a> </div>
+                                    <div class="cart-tittle"> <a href="#.">Kubernetes权威指南</a><br> <span>84.60 x 1</span>
                                     </div>
                                 </li>
-                                <li id="btn-cart"><a href="cart.html">去购物车</a></li>
+                                <li id="btn-cart"> <a href="cart.html">去购物车</a> </li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </header>
         </div>
-        <!-- 导航菜单 -->
+        <!--导航菜单-->
         <nav class="center">
             <ul>
                 <li><a href="index.html">首页</a></li>
@@ -83,16 +80,14 @@
             </ul>
         </nav>
     </div>
-    <!-- 内容 -->
+    <!--内容-->
     <main class="center">
-        <!-- 内容头部 -->
+        <!--内容顶部-->
         <header id="main-content-top">
-            <!-- 图书分类 -->
+            <!--图书分类-->
             <section id="classify">
                 <h3>
-                    <!-- 图书分类图标 -->
-                    <span class="icon-classify"></span>
-                    图书分类
+                    <!--图书分类图标--><span class="icon-classify"></span>图书分类
                 </h3>
                 <ul>
                     <li>编程语言
@@ -101,7 +96,7 @@
                             <li><a href="#.">Java</a></li>
                             <li><a href="#.">Android</a></li>
                             <li><a href="#.">C语言</a></li>
-                            <li><a href="#.">c#</a></li>
+                            <li><a href="#.">C#</a></li>
                         </ul>
                     </li>
                     <li>大数据
@@ -112,7 +107,8 @@
                             <li><a href="#.">Oracle</a></li>
                         </ul>
                     </li>
-                    <li><a href="#.">人工智能</a></li>
+                    <li><a href="#.">人工智能</a>
+                    </li>
                     <li>网页制作
                         <ul>
                             <li><a href="#.">HTML5</a></li>
@@ -121,26 +117,27 @@
                             <li><a href="#.">网页设计</a></li>
                         </ul>
                     </li>
-                    <li><a href="#.">图像图像</a></li>
+                    <li><a href="#.">图形图像</a></li>
                 </ul>
             </section>
-            <!-- 横幅广告 -->
+            <!--横幅广告-->
             <div id="banner">
                 <dl>
-                    <dt><a href="#." id="a1">1</a><a href="#." id="a2">2</a><a href="#." id="a3">3</a><a href="#." id="a4">4</a><a href="#." id="a5">5</a></dt>
-                    <dd><a href="#."><img src="images/b-ad5.jpg" id="b-ad" alt="广告"></a></dd>
+                    <dt><a href="#." id="a1">1</a><a href="#." id="a2">2</a><a href="#." id="a3">3</a><a href="#."
+                            id="a4">4</a><a href="#." id="a5">5</a></dt>
+                    <dd><a href="#."><img src="images/b-ad1.jpg" id="b-ad" alt="广告" /></a></dd>
                 </dl>
             </div>
-            <!-- 用户新闻 -->
+            <!--用户新闻-->
             <div id="user-news">
-                <!-- 用户 -->
+                <!--用户-->
                 <section id="user">
-                    <div id="data-time">2020年02月24日 星期一 15:20:20</div>
-                    <h3>Hi~欢迎逛叮叮</h3>
+                    <div id="date-time">2020年02月24日 星期一 15:20:20</div>
+                    <h3>Hi~欢迎逛叮叮！</h3>
                     <div><a href="#." class="login">登录</a> | <a href="#." class="login">注册</a></div>
-                    <div><a href="#." id="btn-new">新人福利</a><a href="#." id="btn-vip">VIP会员</a></div>
+                    <div><a href="#." id="btn-new">新人福利</a> <a href="#." id="btn-vip">VIP会员</a></div>
                 </section>
-                <!-- 新闻 -->
+                <!--新闻-->
                 <section id="news">
                     <div>
                         <h4>叮叮快报</h4>
@@ -155,193 +152,51 @@
                 </section>
             </div>
         </header>
-        <!-- 主要内容 -->
+        <!--面包屑导航-->
+        <section class="crumb-nav">您现在的位置：<a href="index.html">首页</a> &gt; 电子书</section>
+        <!--主要内容-->
         <div id="main-content">
             <!-- 左边内容 -->
             <div id="main-content-left">
-                <!-- 本周推荐 -->
-                <section id="recommend-book">
-                    <div class="title">
-                        <h3>
-                            <!-- 本周推荐图标 -->
-                            <span class="icon-recommend"></span>
-                            本周推荐
-                        </h3>
-                        <a href="#.">查看更多<div class="title-cover"></div></a>
-                    </div>
-                    <div class="content">
-                        <div class="content-item">
-                            <div class="recommend-description">
-                                <a href="details.html"><img src="images/recommend1.jpg" alt=""></a>
-                                <h3>Web前端设计从入门到实战——HTML5、CSS3、JavaScript项目案例开发</h3>
-                                <span>单价:￥69.60</span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                                <div class="description-test">
-                                    <p>本书基于Web标准和响应式Web设计思想深入浅出地介绍了Web前端设计技术的基础知识，对Web体系结构、HTML5、CSS3、JavaScript和网站制作流程进行了详细的讲解，内容翔实，结构合理，语言精练，表达简明，实用性强，易于自学。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-item">
-                            <div class="recommend-description">
-                                <a href="details.html"><img src="images/recommend2.jpg" alt=""></a>
-                                <h3>最强Android架构大剖析</h3>
-                                <span>单价：￥84.60</span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                                <div class="description-test">
-                                    <p>本书作者以研究操作系统并从事相关培训工作为生，是业内著名的操作系统专家，著有多本操作系统的畅销书。本书是他针对Android系统写的第一本书。根据以往读者的反馈，在本书的内容上摒弃了以源代码讲解的方式，而改用实验的方法。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-item">
-                            <div class="recommend-description">
-                                <a href="details.html"><img src="images/recommend3.jpg" alt=""></a>
-                                <h3>Spring Boot开发实战</h3>
-                                <span>单价：￥29.90</span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                                <div class="description-test">
-                                    <p>SpringBoot致力于简化开发配置并为企业级开发提供一系列非业务性功能，而Vue则采用数据驱动视图的方式将程序员从烦琐的DOM操作中解救出来。
-                                       利用SpringBoot+Vue，我们可以快速开发出大型SPA应用。</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="content-item">
-                            <div class="recommend-description">
-                                <a href="details.html"><img src="images/recommend4.jpg" alt=""></a>
-                                <h3>深入理解Java虚拟机</h3>
-                                <span>单价：￥122.60</span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                                <div class="description-test">
-                                    <p>台湾也颇受欢迎。自2011年上市以来，前两个版本累计印刷36次，销量超过30万册，两家主要网络书店的评论近90000条，内容上近乎零差评，是原创计算机图书领域不可逾越的这是一部从工作原理和工程实践两个维度深入剖析JVM的著作，是计算机领域公认的经典，繁体版在丰碑。</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- 最近新书 -->
-                <section id="new-book">
-                    <div class="title">
-                        <h3>
-                            <!-- 最近新书图标 -->
-                            <span class="icon-new"></span>
-                            最新图书
-                        </h3>
-                        查看更多
-                        <div class="title-cover"></div>
-                    </div>
-                    <div class="content">   
-                        <div class="content-item">
-                            <span class="mark">新</span>
-                            <div class="new-description">
-                                <a href="#."><img src="images/new1.jpg" alt=""></a>
-                                <h3>动手学深度学习</h3>
-                                <span>单价：￥84.50</span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                            </div>
-                        </div>
-                        <div class="content-item">
-                            <span class="mark">新</span>
-                            <div class="new-description">
-                                <a href="#."><img src="images/new2.jpg" alt=""></a>
-                                <h3>Kubernetes权威指南</h3>
-                                <span>单价：￥84.60</span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                            </div>
-                        </div>
-                        <div class="content-item">
-                            <span class="mark">新</span>
-                            <div class="new-description">
-                                <a href="#."><img src="images/new3.jpg" alt=""></a>
-                                <h3>深入浅出Webpack</h3>
-                                <span>单价：￥75.10</span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                            </div>
-                        </div>
-                        <div class="content-item">
-                            <span class="mark">新</span>
-                            <div class="new-description">
-                                <a href="#."><img src="images/new4.jpg" alt=""></a>
-                                <h3>网页设计与网站建设从入门到精通</h3>
-                                <span>单价：￥44.90</span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- 最近畅销 -->
-                <section id="sales-book">
-                    <div class="title">
-                        <h3>
-                            <!-- 最近促销图书 -->
-                            <span class="icon-sale"></span>
-                            最近促销
-                        </h3>
-                        查看更多
-                        <div class="title-cover"></div>
-                    </div>
-                    <div class="content">
-                        <div class="content-item">
-                            <span class="mark1">50%</span>
-                            <div class="description">
-                                <a href="#."><img src="images/sale1.jpg" alt=""></a>
-                                <h3>轻松学习Python数据分析</h3>
-                                <span>现价：￥28.05</span>
-                                <span>原价：<del>￥56.10</del></span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                            </div>
-                        </div>
-                        <div class="content-item">
-                            <span class="mark1">10%</span>
-                            <div class="description">
-                                <a href="#."><img src="images/sale2.jpg" alt=""></a>
-                                <h3>SQL即查即用</h3>
-                                <span>现价：￥4.58</span>
-                                <span>原价：<del>￥45.80</del></span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                            </div>
-                        </div>
-                        <div class="content-item">
-                            <span class="mark1">20%</span>
-                            <div class="description">
-                                <a href="#."><img src="images/sale3.jpg" alt=""></a>
-                                <h3>移动开发架构设计实战</h3>
-                                <span>现价：￥75.90</span>
-                                <span>原价：<del>￥84.60</del></span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                            </div>
-                        </div>
-                        <div class="content-item"></div>
-                            <span class="mark1"></span>
-                            <div class="description">
-                                <a href="#."><img src="images/sale4.jpg" alt=""></a>
-                                <h3>机器学习基础</h3>
-                                <span>现价：￥72.00</span>
-                                <span>原价：<del>￥90.00</del></span>
-                                <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <div class="list">
+                    <ul>
+                        <li><a href="details.html"><img src="images/recommend1.jpg" id="img01" class="img-list" draggable="true" alt="58" title="《Web前端设计从入门到实战——HTML5、CSS3、JavaScript项目案例开发》"></a></li>
+                        <li><a href="details.html"><img src="images/recommend2.jpg" id="img02" class="img-list" draggable="true" alt="98" title="《最强Android架构大剖析》"></a></li>
+                        <li><a href="details.html"><img src="images/recommend3.jpg" id="img03" class="img-list" draggable="true" alt="48" title="《Spring Boot开发实战》"></a></li>
+                        <li><a href="details.html"><img src="images/new2.jpg" id="img04" class="img-list" draggable="true" alt="38" title="《Kubernetes权威指南》"></a></li>
+                        <li><a href="details.html"><img src="images/new4.jpg" id="img05" class="img-list" draggable="true" alt="28" title="《网页设计与网站建设从入门到精通》"></a></li>
+                        <li><a href="details.html"><img src="images/new3.jpg" id="img06" class="img-list" draggable="true" alt="28" title="《深入浅出Webpack》"></a></li>
+                    </ul>
+                </div>
+                <div id="ulcart">
+                    <div><span class="icon-cart"></span></div>
+                    <ul>
+                        <li class="list-title">
+                            <span>书名</span>
+                            <span>定价</span>
+                            <span>数量</span>
+                            <span>总价</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <!-- 右边边栏 -->
             <aside>
-                <!-- 畅销图书 -->
+                <!--畅销图书-->
                 <section id="best-selling">
                     <div class="title">
                         <h3>
-                            <!-- 畅销图书图标 -->
-                            <span class="icon-best"></span>
-                            畅销图书
+                            <!--畅销图书图标--><span class="icon-sell"></span>畅销图书
                         </h3>
                     </div>
                     <ul>
-                        <li>深度学习[deep learning]
+                        <li>深度学习 [deep learning]
                             <div class="curr">
                                 <a href="#.">
                                     <div class="p-img"><img src="images/selling1.jpg" alt=""></div>
-                                    <div class="p-name">深度学习[deep learning]
-                                        <strong>￥43.50</strong>
+                                    <div class="p-name">深度学习 [deep learning]<strong>￥43.50</strong>
                                         <del>￥52.00</del>
-                                    </div> 
+                                    </div>
                                 </a>
                             </div>
                         </li>
@@ -349,8 +204,7 @@
                             <div class="curr">
                                 <a href="#.">
                                     <div class="p-img"><img src="images/selling2.jpg" alt=""></div>
-                                    <div class="p-name">Hadoop权威指南：大数据的存储与分析(第4版)，累计销量超过10万册
-                                        <strong>￥43.50</strong>
+                                    <div class="p-name">Hadoop权威指南：大数据的存储与分析(第4版)，累计销量超过10万册<strong>￥43.50</strong>
                                         <del>￥52.00</del>
                                     </div>
                                 </a>
@@ -360,8 +214,7 @@
                             <div class="curr">
                                 <a href="#.">
                                     <div class="p-img"><img src="images/selling3.jpg" alt=""></div>
-                                    <div class="p-name">和秋叶一起学PPT 第3版
-                                        <strong>￥43.50</strong>
+                                    <div class="p-name">和秋叶一起学PPT 第3版<strong>￥43.50</strong>
                                         <del>￥52.00</del>
                                     </div>
                                 </a>
@@ -371,8 +224,7 @@
                             <div class="curr">
                                 <a href="#.">
                                     <div class="p-img"><img src="images/selling4.jpg" alt=""></div>
-                                    <div class="p-name">深度学习优化与识别
-                                        <strong>￥43.50</strong>
+                                    <div class="p-name">深度学习优化与识别<strong>￥43.50</strong>
                                         <del>￥52.00</del>
                                     </div>
                                 </a>
@@ -382,8 +234,7 @@
                             <div class="curr">
                                 <a href="#.">
                                     <div class="p-img"><img src="images/selling5.jpg" alt=""></div>
-                                    <div class="p-name">区块链原理、设计与应用
-                                        <strong>￥43.50</strong>
+                                    <div class="p-name">区块链原理、设计与应用<strong>￥43.50</strong>
                                         <del>￥52.00</del>
                                     </div>
                                 </a>
@@ -391,42 +242,38 @@
                         </li>
                     </ul>
                 </section>
-                <!-- 合作伙伴 -->
-                <section is="partner">
+                <!--合作伙伴-->
+                <section id="partner">
                     <div class="title">
                         <h3>
-                            <!-- 合作伙伴图标 -->
-                            <span class="icon-partner"></span>
-                            合作伙伴
+                            <!--合作伙伴图标--><span class="icon-partner"></span>合作伙伴
                         </h3>
                     </div>
-                <ul>
-                    <li><a href="#.">中国电子商务研究中心</a></li>
-                    <li><a href="#.">清华大学出版社</a></li>
-                    <li><a href="#.">中国人民大学出版社</a></li>
-                    <li><a href="#.">中国社会科学出版社</a></li>
-                    <li><a href="#.">机械工业出版社</a></li>
-                </ul>
+                    <ul>
+                        <li><a href="#.">中国电子商务研究中心</a></li>
+                        <li><a href="#.">清华大学出版社</a></li>
+                        <li><a href="#.">中国人民大学出版社</a></li>
+                        <li><a href="#.">中国社会科学出版社</a></li>
+                        <li><a href="#.">机械工业出版社</a></li>
+                    </ul>
                 </section>
-                <!-- 关于书店 -->
+                <!--关于书店-->
                 <section id="about">
                     <div class="title">
                         <h3>
-                            <!-- 关于书店图标 -->
-                            <span class="icon-about"></span>
-                            关于书店
+                            <!--关于书店图标--><span class="icon-about"></span>关于书店
                         </h3>
                     </div>
                     <div class="content">
                         <img src="images/about-bookstore.jpg" alt="">
-                        <p>叮叮书店成立于2020年6月,是由教育部主管,清华大学主办的综合书店</p>
+                        <p>叮叮书店成立于2020年6月，是由教育部主管，清华大学主办的综合书店。</p>
                     </div>
                 </section>
             </aside>
         </div>
     </main>
     <div class="full-width">
-        <!-- 页脚 -->
+        <!--页脚-->
         <footer class="center">
             <!-- 购物指南 -->
             <div class="col">
@@ -441,7 +288,7 @@
             <div class="col">
                 <h4>配送方式</h4>
                 <ul>
-                    <li><a href="#.">上门自提</a></li>
+                    <li><a href="fingerGuessing.html">上门自提</a></li>
                     <li><a href="#.">限时达</a></li>
                 </ul>
             </div>
@@ -463,13 +310,15 @@
             </div>
         </footer>
     </div>
-    <!-- 版权信息 -->
+    <!--版权信息-->
     <div id="copyright" class="center">
-        <div>
-            Copyright&copy;2020-2028<a href="index.html">叮叮书店</a> 版权所有 | 京ICP证000001号音像制品经营许可证
-            <img src="images/vcss.gif" alt="Valid CSS!">
+        <div>Copyright&copy;2020-2028 <a href="index.html">叮叮书店</a> 版权所有 | 京ICP证000001号音像制品经营许可证
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img src="images/vcss.gif" alt="Valid CSS!">
+            </a>
         </div>
-        <address>通信地址:清华大学学研大厦A座&nbsp;&nbsp;电话:(010)00000000&nbsp;&nbsp;网管信箱:netadmin@tup.tsinghua.edu.cn</address>
+        <address>通讯地址：清华大学学研大厦A座&nbsp;&nbsp;电话：（010）00000000&nbsp;&nbsp;网管信箱：netadmin@tup.tsinghua.edu.cn
+        </address>
     </div>
 </body>
 </html>
