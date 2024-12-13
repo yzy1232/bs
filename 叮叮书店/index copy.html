@@ -1,102 +1,70 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <!-- 设置文档的字符编码为UTF-8 -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- 指定IE浏览器使用最新的渲染模式 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 设置视口，以确保在移动设备上有良好的显示效果 -->
+    <title>叮叮书店</title>
     <meta name="keywords" content="网上书店,计算机,前端技术">
-    <!-- 定义网页的关键词，有助于SEO -->
     <meta name="description" content="叮叮书店是销售信息技术及相关图书的垂直网站">
-    <!-- 提供网页的描述信息，有助于SEO -->
     <meta name="robots" content="index,follow">
-    <!-- 指定搜索引擎如何索引和跟随页面链接 -->
     <link rel="icon" href="images/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
-    <script>
-        window.addEventListener('load',function(){
-            //获取全部的图书商品
-            let oDrag = [...document.querySelectorAll(".img-list")];
-            oDrag.forEach(item => {
-                item.addEventListener("dragstart", function(e) {
-                    let oDtf = e.dataTransfer;
-                    oDtf.setData("text/html", `<li class = 'list-record'><span>${this.title}</span><span>${this.alt}</span><span>1</span><span>${this.alt}</sapn></li>`);
-                }, false);
-            });
-            let oCart = document.getElementById("ulcart");
-            //添加目标元素的drop事件行为
-            oCart.addEventListener("drop", function(e) {
-                let oDtf = e.dataTransfer;
-                let sHtml = oDtf.getData("text/html");
-                oCart.innerHTML += sHtml;
-                e.preventDefault();
-                e.stopPropagation();
-            }, false);
-            //添加页面的dragover事件行为
-            document.addEventListener('dragover', function(e) {
-                e.preventDefault();
-            }, false);
-            //添加页面drop事件行为
-            document.addEventListener('drop', function(e) {
-                e.preventDefault();
-            }, false);
-        }, false);
-    </script>
-    <!-- 设置网页的图标 -->
-    <title>叮叮书店</title>
+    <style>
+        nav ul li:first-child{background-color:  hsl(85, 55%, 50%);}
+    </style>
 </head>
+
 <body>
-    <!-- 顶部广告 -->
+    <!--顶部广告-->
     <!-- class="center"用于将元素居中 -->
-    <div id="top-advert" class="center"><a herf="#."><img src="images/top-advert.jpg" alt=""></a></div>
-    <!-- id="sticky"用于黏性定位固定页眉和导航菜单 -->
+    <div id="top-advert" class="center"><a href="#."><img src="images/top-advert.jpg" alt=""></a></div>
+    <!-- id="sticky"用于粘性定位固定页眉和导航菜单 -->
     <div id="sticky">
         <!-- class="full-width"用于元素整个屏幕宽度加背景颜色 -->
         <div class="full-width" id="top">
-            <!-- 页眉 -->
+            <!--页眉-->
             <header id="page-top" class="center">
-                <!-- 网页logo -->
+                <!--网站logo-->
                 <div id="logo">
                     <a href="#."><img src="images/logo.png" alt="叮叮书店"></a>
                 </div>
-                <!-- 站内搜索 -->
+                <!--站内搜索-->
                 <div id="search">
                     <form action="index.html" method="get">
                         <input type="search" placeholder="站内搜索"><input type="submit" value="搜索">
                     </form>
                 </div>
-                <!-- 购物车 -->
+                <!--购物车-->
                 <div id="cart">
                     <ul>
                         <li id="cart-position">
-                            <!-- 购物车图标 -->
-                            <a href="cart.html" class="cart-head"><span class="icon-cart"></span><sup>2</sup></a>
-                            <!-- 购物车下拉列表,当指向购物车显示 -->
+                            <a href="cart.html" class="cart-head">
+                                <!--购物车图标--><span class="icon-cart"></span><sup>2</sup></a>
+                            <!--购物车下拉列表，当指向购物车显示-->
                             <ul id="dropdown-cart">
                                 <li>
-                                    <div class="cart-thumb">
-                                        <a href="#."><img src="images/recommend3.jpg" alt=""></a>
-                                    </div>
-                                    <div class="cart-tittle"><a href="#.">Spring Boot 开发实战</a><br><span>29.90*1</span>
+                                    <div class="cart-thumb"> <a href="#."> <img src="images/recommend3.jpg" alt="">
+                                        </a> </div>
+                                    <div class="cart-tittle"> <a href="#.">Spring Boot开发实战</a><br> <span>29.90 x
+                                            1</span>
                                     </div>
                                 </li>
                                 <li>
-                                    <div class="cart-thumb">
-                                        <a href="#."><img src="images/new2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="cart-tittle"><a href="#.">Kubernetes权威指南</a><br><span>84.6*1</span>
+                                    <div class="cart-thumb"> <a href="#."> <img src="images/new2.jpg" alt="">
+                                        </a> </div>
+                                    <div class="cart-tittle"> <a href="#.">Kubernetes权威指南</a><br> <span>84.60 x 1</span>
                                     </div>
                                 </li>
-                                <li id="btn-cart"><a href="cart.html">去购物车</a></li>
+                                <li id="btn-cart"> <a href="cart.html">去购物车</a> </li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </header>
         </div>
-        <!-- 导航菜单 -->
+        <!--导航菜单-->
         <nav class="center">
             <ul>
                 <li><a href="index.html">首页</a></li>
@@ -115,17 +83,14 @@
             </ul>
         </nav>
     </div>
-    <!-- 内容 -->
+    <!--内容-->
     <main class="center">
-        <!-- 内容头部 -->
+        <!--内容顶部-->
         <header id="main-content-top">
-            <!-- 图书分类 -->
+            <!--图书分类-->
             <section id="classify">
                 <h3>
-                    <!-- 图书分类图标 -->
-                    <span class="icon-classify"></span>
-                    图书分类
-                </h3>
+                    <!--图书分类图标--><span class="icon-classify"></span>图书分类</h3>
                 <ul>
                     <li>编程语言
                         <ul>
@@ -144,7 +109,8 @@
                             <li><a href="#.">Oracle</a></li>
                         </ul>
                     </li>
-                    <li><a href="#.">人工智能</a></li>
+                    <li><a href="#.">人工智能</a>
+                    </li>
                     <li>网页制作
                         <ul>
                             <li><a href="#.">HTML5</a></li>
@@ -156,23 +122,24 @@
                     <li><a href="#.">图形图像</a></li>
                 </ul>
             </section>
-            <!-- 横幅广告 -->
+            <!--横幅广告-->
             <div id="banner">
                 <dl>
-                    <dt><a href="#." id="a1">1</a><a href="#." id="a2">2</a><a href="#." id="a3">3</a><a href="#." id="a4">4</a><a href="#." id="a5">5</a></dt>
-                    <dd><a href="#."><img src="images/b-ad5.jpg" id="b-ad" alt="广告"></a></dd>
+                    <dt><a href="#." id="a1">1</a><a href="#." id="a2">2</a><a href="#." id="a3">3</a><a href="#."
+                            id="a4">4</a><a href="#." id="a5">5</a></dt>
+                    <dd><a href="#."><img src="images/b-ad1.jpg" id="b-ad" alt="广告" /></a></dd>
                 </dl>
             </div>
-            <!-- 用户新闻 -->
+            <!--用户新闻-->
             <div id="user-news">
-                <!-- 用户 -->
+                <!--用户-->
                 <section id="user">
                     <div id="date-time">2020年02月24日 星期一 15:20:20</div>
                     <h3>Hi~欢迎逛叮叮！</h3>
                     <div><a href="#." class="login">登录</a> | <a href="#." class="login">注册</a></div>
-                    <div><a href="#." id="btn-new">新人福利</a><a href="#." id="btn-vip">VIP会员</a></div>
+                    <div><a href="#." id="btn-new">新人福利</a> <a href="#." id="btn-vip">VIP会员</a></div>
                 </section>
-                <!-- 新闻 -->
+                <!--新闻-->
                 <section id="news">
                     <div>
                         <h4>叮叮快报</h4>
@@ -187,29 +154,27 @@
                 </section>
             </div>
         </header>
-        <!-- 主要内容 -->
+        <!--主要内容-->
         <div id="main-content">
             <!-- 左边内容 -->
             <div id="main-content-left">
-                <!-- 本周推荐 -->
+                <!--本周推荐-->
                 <section id="recommend-book">
                     <div class="title">
                         <h3>
-                            <!-- 本周推荐图标 -->
-                            <span class="icon-book"></span>
-                            本周推荐
-                        </h3>
-                        <a href="#.">查看更多<div class="title-cover"></div></a>
+                            <!--本周推荐图标--><span class="icon-book"></span>本周推荐</h3><a href="#.">查看更多<div
+                                class="title-cover"></div></a>
                     </div>
                     <div class="content">
                         <div class="content-item">
                             <div class="recommend-description">
                                 <a href="details.html"><img src="images/recommend1.jpg" alt=""></a>
                                 <h3>Web前端设计从入门到实战</h3>
-                                <span>单价:￥69.60</span>
+                                <span>单价：￥69.60</span>
                                 <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
                                 <div class="description-text">
-                                    <p>本书基于Web标准和响应式Web设计思想深入浅出地介绍了Web前端设计技术的基础知识，对Web体系结构、HTML5、CSS3、JavaScript和网站制作流程进行了详细的讲解，内容翔实，结构合理，语言精练，表达简明，实用性强，易于自学。</p>
+                                    <p>本书基于Web标准和响应式Web设计思想深入浅出地介绍了Web前端设计技术的基础知识，对Web体系结构、HTML5、CSS3、JavaScript和网站制作流程进行了详细的讲解，内容翔实，结构合理，语言精练，表达简明，实用性强，易于自学。
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -220,7 +185,8 @@
                                 <span>单价：￥84.60</span>
                                 <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
                                 <div class="description-text">
-                                    <p>本书作者以研究操作系统并从事相关培训工作为生，是业内著名的操作系统专家，著有多本操作系统的畅销书。本书是他针对Android系统写的第一本书。根据以往读者的反馈，在本书的内容上摒弃了以源代码讲解的方式，而改用实验的方法。</p>
+                                    <p>本书作者以研究操作系统并从事相关培训工作为生，是业内著名的操作系统专家，著有多本操作系统的畅销书。本书是他针对Android系统写的第一本书。根据以往读者的反馈，在本书的内容上摒弃了以源代码讲解的方式，而改用实验的方法。
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -231,8 +197,9 @@
                                 <span>单价：￥29.90</span>
                                 <a href="#." class="main-content-cart"><span class="icon-cart"></span></a>
                                 <div class="description-text">
-                                    <p>SpringBoot致力于简化开发配置并为企业级开发提供一系列非业务性功能，而Vue则采用数据驱动视图的方式将程序员从烦琐的DOM操作中解救出来。
-                                       利用SpringBoot+Vue，我们可以快速开发出大型SPA应用。</p>
+                                    <p>Spring
+                                        Boot致力于简化开发配置并为企业级开发提供一系列非业务性功能，而Vue则采用数据驱动视图的方式将程序员从烦琐的DOM操作中解救出来。利用Spring
+                                        Boot+Vue，我们可以快速开发出大型SPA应用。</p>
                                 </div>
                             </div>
                         </div>
@@ -250,18 +217,14 @@
                         </div>
                     </div>
                 </section>
-                <!-- 最近新书 -->
+                <!--最近新书-->
                 <section id="new-book">
                     <div class="title">
                         <h3>
-                            <!-- 最近新书图标 -->
-                            <span class="icon-new"></span>
-                            最新图书
-                        </h3>
-                        <a href="#.">查看更多<div class="title-cover"></div></a>
-                        <div class="title-cover"></div>
+                            <!--最近新书图标--><span class="icon-new"></span>最近新书</h3><a href="#.">查看更多<div
+                                class="title-cover"></div></a>
                     </div>
-                    <div class="content">   
+                    <div class="content">
                         <div class="content-item">
                             <span class="mark">新</span>
                             <div class="new-description">
@@ -300,16 +263,12 @@
                         </div>
                     </div>
                 </section>
-                <!-- 最近畅销 -->
+                <!--最近促销-->
                 <section id="sales-book">
                     <div class="title">
                         <h3>
-                            <!-- 最近促销图书 -->
-                            <span class="icon-sale"></span>
-                            最近促销
-                        </h3>
-                        <a href="#.">查看更多<div class="title-cover"></div></a>
-                        <div class="title-cover"></div>
+                            <!--最近促销图标--><span class="icon-sale"></span>最近促销</h3><a href="#.">查看更多<div
+                                class="title-cover"></div></a>
                     </div>
                     <div class="content">
                         <div class="content-item">
@@ -323,7 +282,7 @@
                             </div>
                         </div>
                         <div class="content-item">
-                            <span class="mark1">10%</span>
+                            <span class="mark1">90%</span>
                             <div class="description">
                                 <a href="#."><img src="images/sale2.jpg" alt=""></a>
                                 <h3>SQL即查即用</h3>
@@ -333,7 +292,7 @@
                             </div>
                         </div>
                         <div class="content-item">
-                            <span class="mark1">20%</span>
+                            <span class="mark1">10%</span>
                             <div class="description">
                                 <a href="#."><img src="images/sale3.jpg" alt=""></a>
                                 <h3>移动开发架构设计实战</h3>
@@ -357,24 +316,20 @@
             </div>
             <!-- 右边边栏 -->
             <aside>
-                <!-- 畅销图书 -->
+                <!--畅销图书-->
                 <section id="best-selling">
                     <div class="title">
                         <h3>
-                            <!-- 畅销图书图标 -->
-                            <span class="icon-best"></span>
-                            畅销图书
-                        </h3>
+                            <!--畅销图书图标--><span class="icon-sell"></span>畅销图书</h3>
                     </div>
                     <ul>
-                        <li>深度学习[deep learning]
+                        <li>深度学习 [deep learning]
                             <div class="curr">
                                 <a href="#.">
                                     <div class="p-img"><img src="images/selling1.jpg" alt=""></div>
-                                    <div class="p-name">深度学习[deep learning]
-                                        <strong>￥43.50</strong>
+                                    <div class="p-name">深度学习 [deep learning]<strong>￥43.50</strong>
                                         <del>￥52.00</del>
-                                    </div> 
+                                    </div>
                                 </a>
                             </div>
                         </li>
@@ -382,8 +337,7 @@
                             <div class="curr">
                                 <a href="#.">
                                     <div class="p-img"><img src="images/selling2.jpg" alt=""></div>
-                                    <div class="p-name">Hadoop权威指南：大数据的存储与分析(第4版)，累计销量超过10万册
-                                        <strong>￥43.50</strong>
+                                    <div class="p-name">Hadoop权威指南：大数据的存储与分析(第4版)，累计销量超过10万册<strong>￥43.50</strong>
                                         <del>￥52.00</del>
                                     </div>
                                 </a>
@@ -393,8 +347,7 @@
                             <div class="curr">
                                 <a href="#.">
                                     <div class="p-img"><img src="images/selling3.jpg" alt=""></div>
-                                    <div class="p-name">和秋叶一起学PPT 第3版
-                                        <strong>￥43.50</strong>
+                                    <div class="p-name">和秋叶一起学PPT 第3版<strong>￥43.50</strong>
                                         <del>￥52.00</del>
                                     </div>
                                 </a>
@@ -404,8 +357,7 @@
                             <div class="curr">
                                 <a href="#.">
                                     <div class="p-img"><img src="images/selling4.jpg" alt=""></div>
-                                    <div class="p-name">深度学习优化与识别
-                                        <strong>￥43.50</strong>
+                                    <div class="p-name">深度学习优化与识别<strong>￥43.50</strong>
                                         <del>￥52.00</del>
                                     </div>
                                 </a>
@@ -415,8 +367,7 @@
                             <div class="curr">
                                 <a href="#.">
                                     <div class="p-img"><img src="images/selling5.jpg" alt=""></div>
-                                    <div class="p-name">区块链原理、设计与应用
-                                        <strong>￥43.50</strong>
+                                    <div class="p-name">区块链原理、设计与应用<strong>￥43.50</strong>
                                         <del>￥52.00</del>
                                     </div>
                                 </a>
@@ -424,42 +375,36 @@
                         </li>
                     </ul>
                 </section>
-                <!-- 合作伙伴 -->
+                <!--合作伙伴-->
                 <section id="partner">
                     <div class="title">
                         <h3>
-                            <!-- 合作伙伴图标 -->
-                            <span class="icon-partner"></span>
-                            合作伙伴
-                        </h3>
+                            <!--合作伙伴图标--><span class="icon-partner"></span>合作伙伴</h3>
                     </div>
-                <ul>
-                    <li><a href="#.">中国电子商务研究中心</a></li>
-                    <li><a href="#.">清华大学出版社</a></li>
-                    <li><a href="#.">中国人民大学出版社</a></li>
-                    <li><a href="#.">中国社会科学出版社</a></li>
-                    <li><a href="#.">机械工业出版社</a></li>
-                </ul>
+                    <ul>
+                        <li><a href="#.">中国电子商务研究中心</a></li>
+                        <li><a href="#.">清华大学出版社</a></li>
+                        <li><a href="#.">中国人民大学出版社</a></li>
+                        <li><a href="#.">中国社会科学出版社</a></li>
+                        <li><a href="#.">机械工业出版社</a></li>
+                    </ul>
                 </section>
-                <!-- 关于书店 -->
+                <!--关于书店-->
                 <section id="about">
                     <div class="title">
                         <h3>
-                            <!-- 关于书店图标 -->
-                            <span class="icon-about"></span>
-                            关于书店
-                        </h3>
+                            <!--关于书店图标--><span class="icon-about"></span>关于书店</h3>
                     </div>
                     <div class="content">
                         <img src="images/about-bookstore.jpg" alt="">
-                        <p>叮叮书店成立于2020年6月,是由教育部主管,清华大学主办的综合书店</p>
+                        <p>叮叮书店成立于2020年6月，是由教育部主管，清华大学主办的综合书店。</p>
                     </div>
                 </section>
             </aside>
         </div>
     </main>
     <div class="full-width">
-        <!-- 页脚 -->
+        <!--页脚-->
         <footer class="center">
             <!-- 购物指南 -->
             <div class="col">
@@ -474,7 +419,7 @@
             <div class="col">
                 <h4>配送方式</h4>
                 <ul>
-                    <li><a href="#.">上门自提</a></li>
+                    <li><a href="fingerGuessing.html">上门自提</a></li>
                     <li><a href="#.">限时达</a></li>
                 </ul>
             </div>
@@ -496,14 +441,17 @@
             </div>
         </footer>
     </div>
-    <!-- 版权信息 -->
+    <!--版权信息-->
     <div id="copyright" class="center">
-        <div>
-            Copyright&copy;2020-2028<a href="index.html">叮叮书店</a> 版权所有 | 京ICP证000001号音像制品经营许可证
-            <img src="images/vcss.gif" alt="Valid CSS!">
+        <div>Copyright&copy;2020-2028 <a href="index.html">叮叮书店</a> 版权所有 | 京ICP证000001号音像制品经营许可证
+            <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                <img src="images/vcss.gif" alt="Valid CSS!">
+            </a>
         </div>
-        <address>通信地址:清华大学学研大厦A座&nbsp;&nbsp;电话:(010)00000000&nbsp;&nbsp;网管信箱:netadmin@tup.tsinghua.edu.cn</address>
+        <address>通讯地址：清华大学学研大厦A座&nbsp;&nbsp;电话：（010）00000000&nbsp;&nbsp;网管信箱：netadmin@tup.tsinghua.edu.cn
+        </address>
     </div>
     <script src="js/main.js"></script>
 </body>
+
 </html>
